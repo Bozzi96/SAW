@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Nuovo annuncio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!-- Titolo introduttivo della pagina -->
+    <h1>Nuovo annuncio</h1>
+    <p>Inserisci un nuovo annuncio</p>
+
+    <!-- Inserimento delle info relative al nuovo annuncio -->
+    <form action="../php/new_ad.php">
+        Videogioco:
+        <input type="text" name="v_name" maxlength="40"><br>
+        Console:
+        <input type="text" name="console" maxlength="40"><br>
+        Durata del noleggio:
+        <input type="number" name="loan_length" min="1" value="1"> giorni<br> <!-- TODO: i/o a seconda del numero (js function)-->
+        Prezzo:
+        <input type="number" name="price" min="0" value="1"> euro<br>
+        <input type="submit" value="Pubblica">
+    </form>
+</body>
+</html>
