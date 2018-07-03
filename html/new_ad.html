@@ -2,25 +2,44 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <title>Nuovo annuncio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <!-- Titolo introduttivo della pagina -->
-    <h1>Nuovo annuncio</h1>
-    <p>Inserisci un nuovo annuncio</p>
-
+    <h1 class="display-3">Pubblica un nuovo annuncio</h1>
+    <br>
+    <br>
+    <div class="container">
     <!-- Inserimento delle info relative al nuovo annuncio -->
-    <form action="../php/new_ad.php">
-        Videogioco:
-        <input type="text" name="v_name" maxlength="40"><br>
-        Console:
-        <input type="text" name="console" maxlength="40"><br>
-        Durata del noleggio:
-        <input type="number" name="loan_length" min="1" value="1"> giorni<br> <!-- TODO: i/o a seconda del numero (js function)-->
-        Prezzo:
-        <input type="number" name="price" min="0" value="1"> euro<br>
-        <input type="submit" value="Pubblica">
+    <form action="../php/new_ad.php" method="POST">
+        <label for="v_name">Videogioco</label>
+        <input type="text" class="form-control" name="v_name" maxlength="40" required><br>
+        <label for="console">Console</label>
+        <input type="text" class="form-control" name="console" maxlength="40" required><br>
+        <label for="loan_length">Durata del prestito</label>
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" name="loan_length" min="1" value="1" required> <!-- TODO: i/o a seconda del numero (js function)-->
+            <div class="input-group-append">
+                <span class="input-group-text">giorni</span>
+            </div>
+        </div>
+        <label for="price">Prezzo</label>
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" name="price" min="0" value="1" required>
+            <div class="input-group-append">
+                <span class="input-group-text">€</span>
+            </div>
+        </div>
+        <br>    
+        <input type="submit" class="btn btn-primary" value="Pubblica">
     </form>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
