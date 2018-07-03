@@ -1,4 +1,7 @@
 <?php
+
+    # Sessione per mantenere traccia dei dati
+    session_start();
     
     # Sanitizzazione dell'input
     function sanitize_input($conn, $str) {
@@ -21,11 +24,14 @@
     $stmt -> bind_param("sssiis", $email, $v_name, $console, $loan_length, $price, $status);
 
     # Settaggio dei parametri ed esecuzione della query
-    $email = "address@mail.com";
+    $email = "address@mail.com";    #TODO: get the email from the server session.
     $status = "Disponibile";
     $stmt -> execute();
 
-    echo "Annuncio inserito correttamente.";
+    # Salvataggio della chiave primaria dell'annuncio nella sessione,
+    # in modo tale da poterlo recuperare quando lo si inserisce.
+    $_SESSION['email'] = $email;
+    $_SESSION['v_name'] = $v_name;
 
     # Chiusura della connessione
     $stmt -> close();
