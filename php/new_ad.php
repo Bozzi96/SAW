@@ -37,4 +37,7 @@
     $stmt -> close();
     $conn -> close();
 
+    # Reindirizzamento alla pagina di visualizzazione annuncio
+    #header("location: ../html/view_ad.html");
+
 ?>
