@@ -21,17 +21,21 @@
 
     # Preparazione dello statement per il database
     $stmt = $conn -> prepare("INSERT INTO annunci (email, nome_videogioco, console, prezzo, durata, stato) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt -> bind_param("sssiis", $email, $v_name, $console, $loan_length, $price, $status);
+    $stmt -> bind_param("sssiis", $email, $v_name, $console, $price, $loan_length, $status);
 
     # Settaggio dei parametri ed esecuzione della query
     $email = "address@mail.com";    #TODO: get the email from the server session.
     $status = "Disponibile";
     $stmt -> execute();
 
-    # Salvataggio della chiave primaria dell'annuncio nella sessione,
-    # in modo tale da poterlo recuperare quando lo si inserisce.
-    $_SESSION['email'] = $email;
-    $_SESSION['v_name'] = $v_name;
+    # Array di sessione per indicare che è appena stato inserito un nuovo annuncio.
+    # Necessario per il redirect finale, così può sapere quale annuncio visualizzare.
+    $new_ad = array(
+        "email" => $email,
+        "v_name" => $v_name,
+        "console" => $console
+    );
+    $_SESSION['new_ad'] = $new_ad;
 
     # Chiusura della connessione
     $stmt -> close();

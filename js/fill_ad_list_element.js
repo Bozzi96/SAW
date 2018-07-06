@@ -31,7 +31,7 @@ function display_ads(ads_data) {
         var current_ad = fill_ad(ad_code, ad_data);
         // Aggiunta dell'annuncio nella lista per la visualizzazione
         append_ad(current_ad);
-    })
+    });
 }
 
 /**
@@ -97,4 +97,41 @@ function create_ad() {
     return ad_code;
 }
 
+/**
+ * Raccoglie le informazioni riguardo l'annuncio cliccato e
+ * carica la pagina di visualizzazione passandole i dati raccolti.
+ * @param {*} event Ciò che ha provocato la chiamata di questa funzione
+ */
+function show_ad(event) {
+    // Elemento che ha catturato l'evento
+    let target = event.target;
+    if (target.tagName !== "BUTTON") {
+        // Se non è il bottone all'interno della lista non c'è nulla da fare
+        return;
+    }
+    else {
+        // Recupero delle informazioni riguardo all'annuncio cliccato
+        let clicked_ad = target.closest("div.card");
+        let title = clicked_ad.getElementsByClassName("card-title")[0].innerHTML;
+        let fields = clicked_ad.getElementsByClassName("col-sm-5");
+        // Codifica in formato JSON per poter essere passate al server nella richiesta
+        let ad_info = JSON.stringify([
+            title,
+            fields[0].innerHTML, // console
+            fields[1].innerHTML, // durata
+            fields[2].innerHTML  // prezzo
+        ]);
+        // Salvataggio dei dati in sessionStorage così da poter essere recuperati
+        // dalla pagina "view_ad.html"
+        sessionStorage.setItem("ad_info", ad_info);
+        // Redirect verso la pagina di visualizzazione annuncio
+        window.location.href = "../html/view_ad.html";
+    }
+}
+
+// A caricamento completato, la pagina inizia a recuperare i dati dal server
 window.addEventListener("load", get_ad_data());
+// Per ogni annuncio nella pagina c'è un evento collegato per visualizzare
+// la pagina di dettaglio.
+var list = document.getElementById("ads_list");
+list.addEventListener("click", show_ad);
