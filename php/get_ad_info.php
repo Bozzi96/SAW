@@ -22,13 +22,14 @@
         # Invalida dell'array di sessione
         unset($_SESSION['new_ad']);
     }
-    elseif (isset($_POST['new_ad'])) {
-        #... L'annuncio da visualizzare è stato richiesto da qualche altra parte
-    }
     else {
-        echo "ERRORE: Nessun annuncio da visualizzare";
-        $conn -> close();
-        die();
+        # L'annuncio da visualizzare è stato cliccato nella lista.
+        # La funzione "file_get_contents()" ottiene le informazioni
+        # inviate dal client per recuperare l'annuncio dal database.
+        $ad_info = json_decode(file_get_contents("php://input"));
+        // TODO: recuperare l'email del proprietario dell'annuncio
+        $email = "address@mail.com";
+        $v_name = $ad_info -> v_name;
     }
 
     # Interrogazione del database

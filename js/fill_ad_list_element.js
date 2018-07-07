@@ -1,6 +1,6 @@
-/**
+/*
  * Questo script ottiene i dati degli annunci dal server
- * e li carica dinamicamente nella lista.
+ * e li carica dinamicamente nella lista della pagina.
  */
 
 "use strict";
@@ -106,7 +106,7 @@ function show_ad(event) {
     // Elemento che ha catturato l'evento
     let target = event.target;
     if (target.tagName !== "BUTTON") {
-        // Se non è il bottone all'interno della lista non c'è nulla da fare
+        // Se non è un bottone all'interno della lista non c'è nulla da fare
         return;
     }
     else {
@@ -115,12 +115,12 @@ function show_ad(event) {
         let title = clicked_ad.getElementsByClassName("card-title")[0].innerHTML;
         let fields = clicked_ad.getElementsByClassName("col-sm-5");
         // Codifica in formato JSON per poter essere passate al server nella richiesta
-        let ad_info = JSON.stringify([
-            title,
-            fields[0].innerHTML, // console
-            fields[1].innerHTML, // durata
-            fields[2].innerHTML  // prezzo
-        ]);
+        let ad_info = JSON.stringify({
+            "v_name": title,
+            "console": fields[0].innerHTML, // console
+            "loan_length": fields[1].innerHTML, // durata
+            "price": fields[2].innerHTML  // prezzo
+        });
         // Salvataggio dei dati in sessionStorage così da poter essere recuperati
         // dalla pagina "view_ad.html"
         sessionStorage.setItem("ad_info", ad_info);
@@ -131,7 +131,7 @@ function show_ad(event) {
 
 // A caricamento completato, la pagina inizia a recuperare i dati dal server
 window.addEventListener("load", get_ad_data());
-// Per ogni annuncio nella pagina c'è un evento collegato per visualizzare
+// Per ogni annuncio nella lista si collega un listener per visualizzare
 // la pagina di dettaglio.
 var list = document.getElementById("ads_list");
 list.addEventListener("click", show_ad);

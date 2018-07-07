@@ -1,4 +1,4 @@
-/**
+/*
  * Questo script ottiene dal server le info relative
  * all'annuncio che si deve visualizzare. La pagina può essere
  * invocata sia dall'inserimento di un nuovo annuncio che dal
@@ -39,15 +39,19 @@ function display_clicked_ad(ad_info) {
     // NELLO SCRIPT PHP BISOGNA OTTENERE IL JSON. DA LÌ CONTINUARE.
 }
 
+function display_ad() {
+    // Check sull'origine della richiesta di visualizzazione annuncio
+    let clicked_ad = window.sessionStorage.getItem("ad_info");
+    if (clicked_ad !== null) {
+        // Visualizza l'annuncio cliccato
+        display_clicked_ad(clicked_ad);
+    } else {
+        // Visualizza l'annuncio inserito
+        display_inserted_ad();
+    }
+}
+
 
 window.addEventListener("load", function(){
-    if (this.sessionStorage.getItem("title")) {
-        var title = this.sessionStorage.getItem("title");
-        document.getElementById("ad_title").innerHTML = title;
-        this.sessionStorage.clear();
-        console.log("1");   
-    } else {
-        console.log("2");
-    
-    }
-})
+    display_ad();
+});
