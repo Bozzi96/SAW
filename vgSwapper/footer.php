@@ -1,3 +1,4 @@
+<!--Footer-->
 <footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
 
     <!--Footer Links-->
@@ -112,8 +113,9 @@
 
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
-        © 2018 Copyright: All rights reserved
+        © 2018 Copyright: All rights reserveddd
     </div>
     <!--/.Copyright-->
 
 </footer>
+<!--/.Footer-->
