@@ -11,6 +11,8 @@
     # Connessione al db
     require '../db/connection.php';
 
+    # TODO: OTTENERE PARAMETRI DI RICERCA ED EFFETTUARE QUERY OPPORTUNA
+
     # Interrogazione del database:
     # Nella query non c'è alcun input inserito dall'utente, quindi si può
     # eseguire senza l'aiuto dei prepared statements.

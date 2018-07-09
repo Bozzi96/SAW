@@ -1,14 +1,15 @@
 <?php
 
-    # Sessione per mantenere traccia dei dati
-    session_start();
-    
     # Sanitizzazione dell'input
     function sanitize_input($conn, $str) {
         $str = trim($str);
         $str = $conn -> real_escape_string($str);
         return $str;
     }
+
+    # Sessione per mantenere traccia dei dati
+    session_start();
+    
 
     # Connessione al db
     require '../db/connection.php';
