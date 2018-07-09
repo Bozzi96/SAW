@@ -1,0 +1,9 @@
+#name, #surname, #city, #province, #cap {
+    border-style: inset;
+    border-width: 0;
+}
+
+span:hover {
+    text-decoration: underline;
+    color: blue; 
+}
