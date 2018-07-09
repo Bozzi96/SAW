@@ -16,9 +16,9 @@ if(isset($_SESSION["registrazione"])){
 }
 ?>
 
-<nav class="navbar navbar-expand-lg scrolling-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/vgswap/php/bof/index.php">
+        <a class="navbar-brand" href="/vgswap/bof/index.php">
         <i class="fa fa-gamepad" aria-hidden="true"></i>
             <strong> vgSWAP</strong>
         </a>
@@ -37,7 +37,7 @@ if(isset($_SESSION["registrazione"])){
                             $cognome = $_SESSION["utente"]["cognome"];
                             echo '<ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                <a class="nav-link" href="/vgswap/pages/profile.php">Bentornato, '.$nome.' '.$cognome.'.</a>
+                                <a class="nav-link" href="/vgswap/php/my_profile.php">Bentornato, '.$nome.' '.$cognome.'.</a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link" href="logout.php">Esci

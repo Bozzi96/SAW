@@ -9,7 +9,7 @@ session_start();
         else {
                 $email= $_SESSION['utente']['email'];   //email dell'utente che ha la sessione attiva
         }
-        include("mysql_credentials.php");
+        include("../db/mysql_credentials.php");
         $con = new mysqli($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
         $query = "SELECT nome, cognome, email, citta, provincia, cap FROM utenti WHERE email=?";
         $stmt = $con->prepare($query);

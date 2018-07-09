@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include("mysql_credentials.php");
+include("../db/mysql_credentials.php");
 $con = new mysqli($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
 
 $oldPassword = $_POST['oldPassword'];

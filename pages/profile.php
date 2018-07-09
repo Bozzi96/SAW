@@ -16,6 +16,8 @@
 <?php
 include "navbar.php";
 ?>
+<br>
+<br>
     <div class="container">
         <div class="row">
             <div class="mx-auto">
@@ -129,8 +131,6 @@ include "navbar.php";
             </div>
         </div>
     </div>
-
-
 <?php
 include "footer.php";
 ?>
