@@ -12,12 +12,34 @@
     require '../db/connection.php';
 
     # TODO: OTTENERE PARAMETRI DI RICERCA ED EFFETTUARE QUERY OPPORTUNA
+    # Ottenimento parametri di ricerca
+    if (isset($_SESSION['search_param'])) {
 
-    # Interrogazione del database:
-    # Nella query non c'è alcun input inserito dall'utente, quindi si può
-    # eseguire senza l'aiuto dei prepared statements.
-    $query = "SELECT nome_videogioco, console, prezzo, durata FROM annunci WHERE stato = 'Disponibile'";
-    $result = $conn -> query($query);
+        # Console secondo cui eseguire la ricerca
+        $console = $_SESSION['search_param']['console'];
+
+        if (empty($_SESSION['search_param']['v_name'])) {
+
+            # L'utente cerca solo per console, qualsiasi videogioco va bene.
+            # Di conseguenza la query ha solamente la condizione sulla console.
+            $stmt = $conn -> prepare("SELECT nome_videogioco, console, prezzo, durata FROM annunci WHERE console = ? AND stato = 'Disponibile'");
+            $stmt -> bind_param("s", $console);
+
+        } else {
+            # L'utente sta cercando un videogioco particolare.
+            # La query ha una condizione in più.
+
+            # I due "%" servono per il LIKE nella query:
+            # dicono di cercare qualsiasi videogioco abbia una sottostringa come $v_name.
+            $v_name = "%" . $_SESSION['search_param']['v_name'] . "%";
+            $stmt = $conn -> prepare("SELECT nome_videogioco, console, prezzo, durata FROM annunci WHERE nome_videogioco LIKE ? AND console = ? AND stato = 'Disponibile'");
+            $stmt -> bind_param("ss", $v_name, $console);
+        }
+    }
+
+    # Interrogazione del database
+    $stmt -> execute();
+    $result = $stmt -> get_result();
     
     # Dato che il risultato della query prevede più righe, il salvataggio avviene
     # in un array di oggetti, ognuno contente una riga.

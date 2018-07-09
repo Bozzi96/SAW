@@ -25,5 +25,9 @@
     $search_param['console'] = sanitize_input($conn, $_POST['console']);
 
     $_SESSION['search_param'] = $search_param;
+
+    # Redirect alla pagina di visualizzazione degli annunci trovati
+    header("location: ../pages/list_ad.php");
+    exit();
     
 ?>
