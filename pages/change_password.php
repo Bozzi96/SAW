@@ -18,7 +18,7 @@
                     <i class="fa fa-arrow-left"></i>Torna a "Il mio profilo"</a>
             </div>
             <div class="col-align-self-center">
-                <form action="/vgswap/php/commit_change_password.php" method="POST">
+                <form action="../php/commit_change_password.php" method="POST">
                     <div class="form-group">
                         <label for="oldPassword">Vecchia password:</label>
                         <input id="oldPassword" name="oldPassword" type="password" placeholder="Vecchia password" onchange="verifypsw()" oninput="verifypsw()"
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <script src="/vgswap/js/change_password.js"></script>
+    <script src="../js/change_password.js"></script>
 </body>
 <?php
 session_start();

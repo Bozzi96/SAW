@@ -18,7 +18,7 @@ window.addEventListener("load", function () {
 
         //la pagina non viene mostrata finchè i campi non sono stati riempiti
         document.getElementsByTagName("BODY")[0].style.display = "none";
-        fetch("/vgswap/php/select_user.php", {
+        fetch("../php/select_user.php", {
                 credentials: "same-origin"             //mantiene i dati di sessione
         })
                 .then(response => response.json())

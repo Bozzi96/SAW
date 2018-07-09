@@ -8,7 +8,7 @@
     <!-- Awesome font for icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--My stylesheet -->
-    <link rel="stylesheet" href="/vgswap/css/profile.css">
+    <link rel="stylesheet" href="../css/profile.css">
     <title>Il mio profilo</title>
 </head>
 
@@ -29,7 +29,7 @@ include "navbar.php";
                         <div class="row">
                             <div class="col-md-3 col-lg-3 ">
                             <div class="row alert alert-success" id="changes" hidden></div>
-                                <form action="/vgswap/php/save_profile_changes.php" method="POST" id="form">
+                                <form action="../php/save_profile_changes.php" method="POST" id="form">
                                     <a href="#" onclick="modify()" id="optional">
                                         <i class="fa fa-pencil"></i> Modifica profilo</a>
                                     <div class=" col-md-9 col-lg-9 ">
@@ -135,7 +135,7 @@ include "navbar.php";
 include "footer.php";
 ?>
 
-    <script src="/vgswap/js/profile.js"></script>
+    <script src="../js/profile.js"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

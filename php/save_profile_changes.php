@@ -12,7 +12,7 @@ $cap = $_POST['cap'];
 
 
 $query = "UPDATE utenti SET nome=?, cognome=?, citta=?, provincia=?, cap=? WHERE email=?";
-$email="alessandro.bozzi@gmail.com";
+$email= $_SESSION['utente']['email'];
 $stmt = $con->prepare($query);
 $stmt->bind_param("ssssis", $name, $surname, $city, $province, $cap, $email);
 $stmt->execute();
@@ -26,7 +26,7 @@ $_SESSION['num']= $num;     //salvataggio variabile per tenere traccia delle mod
 //Cambio nome e cognome per visualizzarlo nella pagina principale
 $_SESSION['utente']['nome'] = $name;
 $_SESSION['utente']['cognome'] = $surname;
-header("location: /vgswap/pages/profile.php");
+header("location: ../pages/profile.php");
 exit();  //same as die();
 
 

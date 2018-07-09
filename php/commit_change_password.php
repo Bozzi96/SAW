@@ -34,6 +34,6 @@ $returnValue = -1;
 $con->close();
 //redirect verso la pagina precedente
 $_SESSION['returnValue']= $returnValue;
-header("location: /vgswap/pages/change_password.php");
+header("location: ../pages/change_password.php");
 exit();  //same as die();
 ?>
