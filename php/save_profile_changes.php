@@ -22,6 +22,10 @@ $stmt->close();
 $con->close();
 //redirect verso la pagina precedente
 $_SESSION['num']= $num;     //salvataggio variabile per tenere traccia delle modifiche
+
+//Cambio nome e cognome per visualizzarlo nella pagina principale
+$_SESSION['utente']['nome'] = $name;
+$_SESSION['utente']['cognome'] = $surname;
 header("location: /vgswap/pages/profile.php");
 exit();  //same as die();
 
