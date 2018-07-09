@@ -60,7 +60,7 @@ echo "[";
 
             case "password":
                 $password = trim($_POST['password']);
-                if(preg_match("/[\w\.\+_-]{6,40}$/", $password))
+                if(preg_match("/[\w\.\+_-]{8,40}$/", $password))
                     echo '{"name" : "'.$key.'", "value" : "'.$value.'", "status":"ok"}';
                 else{
                     echo '{"name" : "'.$key.'", "value" : "'.$value.'", "status":"ko"}';

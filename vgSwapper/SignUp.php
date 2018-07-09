@@ -56,53 +56,67 @@
                 <!--Form register -->
                 <form method="POST" name="SignUpForm" action="checkdata_submitting.php" >
                     <p class="h4 text-center py-4" style="font-family: 'Orbitron', sans-serif">COMPILA I CAMPI PER REGISTRARTI</p>
-         
-                    <!--input text -->
-                    <div id="name" class="text-right"></div>
-                    <div class="md-form">
-                        <i class="fa fa-user prefix grey-text"></i>
-                        <input type="text" name="name" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)"required>
-                        <label for="name" class="font-weight-light">Nome</label>
-                    </div>
 
-                    <!--input text -->
-                    <div id="surname" class="text-right"></div>
-                    <div class="md-form">
-                        <i class="fa fa-user prefix grey-text"></i>
-                        <input type="text" name="surname" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" required>
-                        <label for="surname" class="font-weight-light">Cognome</label>
-                    </div>
+
+                    <div class="row"><!--GRID ROW -->
+                        <div class="col">
+                                <!--input text -->
+                                <div id="name" class="text-right"></div>
+                                <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" name="name" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="top" title="Inserisci il tuo nome. " required>
+                                    <label for="name" class="font-weight-light">Nome</label>
+                                </div>
+                                 
+                        </div>
+                        <div class="col">
+                                    <!--input text -->
+                                    <div id="surname" class="text-right"></div>
+                                    <div class="md-form">
+                                         <i class="fa fa-user prefix grey-text"></i>
+                                         <input type="text" name="surname" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="top" title="Inserisci il tuo cognome" required>
+                                         <label for="surname" class="font-weight-light">Cognome</label>
+                                    </div>
+                        </div>
+                    </div>  <!--/GRID ROW -->
 
                     <!--input text -->
                     <div id="city" class="text-right"></div>
                     <div class="md-form">
                         <i class="fa fa-home prefix grey-text"></i>
-                        <input type="text" name="city" class="form-control"autocomplete="on" onchange="validate(this.name,this.value)" required>
+                        <input type="text" name="city" class="form-control"autocomplete="on" onchange="validate(this.name,this.value)"data-toggle="tooltip" data-placement="right" title="Inserisci la città in cui vivi. " required>
                         <label for="city" class="font-weight-light">Città</label>
                     </div>
 
-                    <!--input text -->
-                    <div id="province" class="text-right"></div>
-                    <div class="md-form">
-                        <i class="fa fa-home prefix grey-text"></i>
-                        <input type="text" name="province" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)"required>
-                        <label for="province" class="font-weight-light">Provincia</label>
-                    </div>
+                    
+                    <div class="row"><!--GRID ROW -->
+                        <div class="col">
+                                <!--input text -->
+                                <div id="province" class="text-right"></div>
+                                <div class="md-form">
+                                    <i class="fa fa-home prefix grey-text"></i>
+                                    <input type="text" name="province" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="top" title="esprimi la provincia nella forma contratta a due caratteri " required>
+                                    <label for="province" class="font-weight-light">Provincia</label>
+                                </div>   
+                        </div>
 
-                    <!--input text -->
-                    <div id="CAP" class="text-right"></div>
-                    <div class="md-form">
-                        <i class="fa fa-home prefix grey-text"></i>
-                        <input type="text" name="CAP" class="form-control"autocomplete="on" onchange="validate(this.name,this.value)" required>
-                        <label for="CAP" class="font-weight-light">CAP</label>
-                    </div>
+                        <div class="col">
+                                    <!--input text -->
+                                    <div id="CAP" class="text-right"></div>
+                                    <div class="md-form">
+                                        <i class="fa fa-home prefix grey-text"></i>
+                                        <input type="text" name="CAP" class="form-control"autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="top" title="Inserisci il codice postale della tua zona." required>
+                                        <label for="CAP" class="font-weight-light">CAP</label>
+                                    </div>
+                        </div>
+                    </div>  <!--/GRID ROW -->
         
                     <!--Input email -->
                     <div id="email" class="text-right">
                     </div>
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
-                        <input type="email" name="email" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" required>
+                        <input type="email" name="email" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="right" title="Inserisci un indirizzo email valido: xxxx@yyyyy.zz" required>
                         <label for="email" class="font-weight-light">Email</label>
                     </div>
         
@@ -110,8 +124,8 @@
                     <div id="password" class="text-right"></div>
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" name="password" id="Password" class="form-control" onchange="validate(this.name,this.value)" required>
-                        <label for="password" class="font-weight-light">Password </label>
+                        <input type="password" name="password" id="Password" class="form-control" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="right" title="Utilizza una password sicura lunga almeno 8 caratteri. Si consiglia l'utilizzo di maiuscole e numeri." required>
+                        <label for="password" class="font-weight-light">Password (lunghezza minima:8) </label>
                     </div>
 
                      <!--Input password_confirm -->

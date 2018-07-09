@@ -1,5 +1,9 @@
 "use strict";
 
+// Tooltips Initialization
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 
 function validate(name, value) {
     var xhttp;

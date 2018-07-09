@@ -37,17 +37,20 @@
                                 $nome = $_SESSION["utente"]["nome"];
                                 $cognome = $_SESSION["utente"]["cognome"];
                                 echo '<ul class="navbar-nav mr-auto">
-                                    <li class="nav-item">
-                                    <a class="nav-link" href="loginForm.php">Bentornato, '.$nome.' '.$cognome.'.</a>
-                                    </li>
-                                    <li class="nav-item">
-                                    <a class="nav-link" href="logout.php">Esci
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                     <a class="nav-link" href="#">Help
-                                    <i class="fa fa-question" aria-hidden="true"></i></a>
-                                    </li>
+
+                                    <div class="dropdown">
+                                    <a class="btn  trasparent  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ciao, '.$nome.' '.$cognome.'
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Il mio profilo</a>
+                                    <a class="dropdown-item" href="#">Help?</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="logout.php">Esci<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                                    </div>
+                                    </div>
+    
                                     </ul>';
 
                             }elseif ($isRegistrationMade) {
