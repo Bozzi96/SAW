@@ -1,10 +1,5 @@
 "use strict";
 
-// Tooltips Initialization
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-});
-
 //funzione stringCompare
 function strcmp(str1, str2) {
     return ((str1 == str2) ? 0 : ((str1 > str2) ? 1 : -1));
@@ -41,7 +36,7 @@ function verifypsw() {
     //comparazione tra la password vecchia e quella nuova
     var compareOld = strcmp(oldpsw, psw1);
     if (compareOld == 0 && document.getElementById("oldPassword").value != "") {
-        var string = "Non scegliere una password identica alla precedente!";
+        var string = "Password attualmente in uso";
         var color = string.fontcolor("red");
         document.getElementById("afterpsw").innerHTML = color;
         document.getElementById("submitButton").setAttribute("disabled", "true");

@@ -7,6 +7,9 @@
     <title>Nuovo annuncio</title>
 </head>
 <body>
+    <?php
+        include '../vgSwapper/navbar.php';
+    ?>
     <!-- Titolo introduttivo della pagina -->
     <br><br>
     <h1 class="display-3">Pubblica un nuovo annuncio</h1>

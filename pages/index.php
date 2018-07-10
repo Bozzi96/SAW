@@ -53,14 +53,7 @@
                             <strong>Prova ora, non è mai stato cosi semplice.</strong>
                         </h5>
                         
-                        <?php
-                        if (isset($_SESSION['utente'])) {
-                            include 'search_ad.php';
-                        } else {
-                            echo '<a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" href="#navbar-example2-informations">Scopri di più!</a>';
-                        }
-                        ?>
-                        
+                        <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" href="#navbar-example2-informations">Scopri di più!</a>
                     </div>
                 </div>
             </div>
