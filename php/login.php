@@ -3,7 +3,7 @@
        error_reporting(E_ALL);
        ini_set('display_errors', true);
 
-       include '../db/mysql_credentials.php';//import credentials
+       require '../db/mysql_credentials.php';//import credentials
        $con = new mysqli($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
        
         if(mysqli_connect_errno($con)){//Open SQL server connection
