@@ -125,7 +125,7 @@ function show_ad(event) {
         // dalla pagina "view_ad.html"
         sessionStorage.setItem("ad_info", ad_info);
         // Redirect verso la pagina di visualizzazione annuncio
-        window.location.href = "../html/view_ad.html";
+        window.location.href = "../pages/view_ad.html";
     }
 }
 
