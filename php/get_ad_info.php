@@ -33,8 +33,8 @@
     }
 
     # Interrogazione del database
-    $stmt = $conn -> prepare("SELECT * FROM annunci WHERE email = ? AND nome_videogioco = ?");
-    $stmt -> bind_param("ss", $email, $v_name);
+    $stmt = $conn -> prepare("SELECT * FROM annunci WHERE email = ? AND nome_videogioco = ? AND console = ?");
+    $stmt -> bind_param("sss", $email, $v_name, $console);
         
     $stmt -> execute();
    

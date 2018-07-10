@@ -1,15 +1,23 @@
 <?php
 
+    /*
+     * Questo script memorizza sul database l'annuncio appena inserito dall'utente
+     * mediante la pagina "new_ad_form.php".
+    */
+
     # Sanitizzazione dell'input
     function sanitize_input($conn, $str) {
         $str = trim($str);
         $str = $conn -> real_escape_string($str);
+        $str = filter_var($str, FILTER_SANITIZE_STRING);
         return $str;
     }
 
     # Sessione per mantenere traccia dei dati
     session_start();
-    
+    if (!isset($_SESSION['utente'])) {
+        die("Inserimento fallito: nessun utente loggato sul sito.");
+    }
 
     # Connessione al db
     require '../db/connection.php';
@@ -25,7 +33,7 @@
     $stmt -> bind_param("sssiis", $email, $v_name, $console, $price, $loan_length, $status);
 
     # Settaggio dei parametri ed esecuzione della query
-    $email = "address@mail.com";    #TODO: get the email from the server session.
+    $email = $_SESSION['utente']['email'];
     $status = "Disponibile";
     $stmt -> execute();
 
