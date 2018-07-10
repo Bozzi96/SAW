@@ -2,23 +2,15 @@
 
 session_start();
 include("../db/mysql_credentials.php");
-include("sanitize_input.php");
 $con = new mysqli($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
 
 $oldPassword = $_POST['oldPassword'];
 $newPassword = $_POST['newPassword'];
 $repeatPassword = $_POST['repeatPassword'];
 
-//sanitizzazione dei dati
-$oldPassword = sanitize_input($con, $oldPassword);
-$newPassword = sanitize_input($con, $newPassword);
-$repeatPassword = sanitize_input($con, $repeatPassword);
-
-
-
 $email= $_SESSION['utente']['email'];
 //La prima query serve per ottenere la vecchia password e verificare la correttezza
-$query ="SELECT psw FROM utenti WHERE email = '$email'";
+$query ="SELECT psw FROM utenti WHERE 1";
 $res = $con->query($query);
 $oldpsw= $res->fetch_object();
 

@@ -1,0 +1,48 @@
+/*modifico selettore bootstrap per dare del margine sinistro alla scritta del logo nella navbar*/
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;/*indica il font di Google per la scritta del logo nella navbar*/
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    margin-left:  0rem;/*!!*/
+}
+
+/* animazione navbar*/
+.top-nav-collapse {
+    background-color: #000000 !important; 
+}
+.navbar:not(.top-nav-collapse) {
+    background: black !important;
+}
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #000000 !important;
+    } 
+}
+h1 {
+    letter-spacing: 9px;
+}
+h5 {
+    letter-spacing: 3px;
+}
+.hr-light {
+    border-top: 3px solid #fff;
+    width: 80px;
+}
+@media (max-width: 740px) {
+    .full-height,
+    .full-height body,
+    .full-height header,
+    .full-height header .view {
+        height: 700px; 
+    } 
+}
+/* fine navigazione navbar*/
+
+body{
+    background-color: #616161;
+}
