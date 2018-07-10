@@ -2,26 +2,44 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <!-- Awesome font for icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--My stylesheet -->
-    <link rel="stylesheet" href="../css/profile.css">
-    <title>Il mio profilo</title>
-</head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link href="../bootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/profile_navbar_css.css">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
+    <!--essenziale per strutture responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Il mio profilo</title>
+  </head>
 <body>
+
 <?php
 include "navbar.php";
 ?>
+
 <br>
-<br>
+<br><br><br><br>
+
     <div class="container">
-        <div class="row">
-            <div class="mx-auto">
-                <div class="panel panel-info">
+
+        <!-- Card -->
+        <div class="card w-50"><!--ridimensionamento della card -> la sposto sulla sinistra-->
+        
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                 <div class="mx-auto">
+                    <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title" id="panel-title">Il mio profilo</h3>
                     </div>
@@ -121,29 +139,35 @@ include "navbar.php";
                                                         <a href="change_password.php" id="optional">Modifica password</a>
                                                     </td>
                                                 </tr>
-</table>
+                                        </table>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
+        </div><!-- /Card body -->
+    </div><!-- /Card -->
     </div>
 <?php
 include "footer.php";
 ?>
 
+    
+    <!-- Optional JavaScript -->
     <script src="../js/profile.js"></script>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="../bootstrap/js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../bootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
+    <script type="text/javascript" src="../js/videoGameSwap.js"></script>
 </body>
 <?php
 session_start();
