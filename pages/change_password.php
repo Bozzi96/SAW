@@ -2,7 +2,8 @@
 <html>
 
 <head>
-     <!-- Required meta tags -->
+
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Font Awesome -->
@@ -25,6 +26,7 @@
             background-color: white;
         }
     </style>
+
 </head>
 
 <body>
@@ -44,17 +46,17 @@
                     <div class="form-group">
                         <label for="oldPassword">Vecchia password:</label>
                         <input id="oldPassword" name="oldPassword" type="password" placeholder="Vecchia password" onchange="verifypsw()" oninput="verifypsw()"
-                            required/>
+                            required  pattern=".{8,}" data-toggle="tooltip" data-placement="right" title="Lunghezza minima: 8 caratteri"/>
                     </div>
                     <div class="form-group">
                         <label for="newPassword">Nuova password:</label>
                         <input id="newPassword" name="newPassword" type="password" placeholder="Nuova password" oninput="verifypsw()" onchange="verifypsw()"
-                            required/>
+                            required pattern=".{8,}" data-toggle="tooltip" data-placement="right" title="Lunghezza minima: 8 caratteri"/>
                     </div>
                     <div class="form-group">
                         <label for="repeatPassword">Ripeti password:</label>
                         <input id="repeatPassword" name="repeatPassword" type="password" placeholder="Ripeti password" oninput="verifypsw()" onchange="verifypsw()"
-                            required/>
+                            required pattern=".{8,}" data-toggle="tooltip" data-placement="right" title="Lunghezza minima: 8 caratteri"/>
                         <span id="afterpsw"></span>
                     </div>
 

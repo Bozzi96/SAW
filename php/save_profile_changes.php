@@ -11,6 +11,18 @@ $province = $_POST['province'];
 $cap = $_POST['cap'];
 
 
+if($name=="" || $surname=="" || $city=="" || $province=="" || $cap=="") {
+    $num=0;
+    header("location: ../pages/profile.php");
+    exit();  //same as die();
+}
+//sanitizzazione dati
+$name = sanitize_input($con, $name);
+$surname = sanitize_input($con, $surname);
+$city = sanitize_input($con, $city);
+$province = sanitize_input($con, $province);
+
+
 $query = "UPDATE utenti SET nome=?, cognome=?, citta=?, provincia=?, cap=? WHERE email=?";
 $email= $_SESSION['utente']['email'];
 $stmt = $con->prepare($query);
