@@ -43,7 +43,7 @@
     $conn -> close();
 
     # Reindirizzamento alla pagina di visualizzazione annuncio
-    header("location: ../html/view_ad.html");
+    header("location: ../pages/view_ad.html");
     exit(); # same as die()
 
 ?>

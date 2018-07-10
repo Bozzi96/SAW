@@ -45,6 +45,7 @@
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="profile.php">Il mio profilo</a>
+                                    <a class="dropdown-item" href="new_ad_form.php">Pubblica annuncio</a>
                                     <a class="dropdown-item" href="#">Help?</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../php/logout.php">Esci<i class="fa fa-sign-out" aria-hidden="true"></i></a>
