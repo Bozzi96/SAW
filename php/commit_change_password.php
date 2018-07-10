@@ -18,7 +18,7 @@ $repeatPassword = sanitize_input($con, $repeatPassword);
 
 $email= $_SESSION['utente']['email'];
 //La prima query serve per ottenere la vecchia password e verificare la correttezza
-$query ="SELECT psw FROM utenti WHERE 1";
+$query ="SELECT psw FROM utenti WHERE email = '$email'";
 $res = $con->query($query);
 $oldpsw= $res->fetch_object();
 
