@@ -24,7 +24,7 @@ body, html {
 /* homepage image with 100% height*/
 .bg { 
     /* The image used */
-    background-image: url("images/wii.jpg");
+    background-image: url("../images/wii.jpg");
 
     /* Full height */
     height: 100%; 
