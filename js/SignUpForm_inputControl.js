@@ -2,7 +2,7 @@
 
 // Tooltips Initialization
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
 })
 
 function validate(name, value) {

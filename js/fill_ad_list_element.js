@@ -128,6 +128,7 @@ function show_ad(event) {
         sessionStorage.setItem("ad_info", ad_info);
         // Redirect verso la pagina di visualizzazione annuncio
         window.location.href = "../pages/view_ad.php";
+
     }
 }
 

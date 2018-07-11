@@ -18,7 +18,9 @@
     <title>Nuovo annuncio</title>
 </head>
 <body>
+
     <?php include 'navbar.php'; ?>
+
     <!-- Titolo introduttivo della pagina -->
     <h1 class="display-3">Pubblica un nuovo annuncio</h1>
     <br>
