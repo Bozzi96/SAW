@@ -37,7 +37,7 @@ include "navbar.php";
             <div class="card-body">
 
                 <div class="text-center">
-                        <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                        <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s" id="panel-title">
                             <strong>IL mio profilo</strong>
                         </h1>
                         <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
@@ -136,7 +136,8 @@ include "navbar.php";
 
                                     <div class="row">
                                         <div class="col text-center">
-                                            <a type="submit" class="btn btn-outline-elegant " id="finalButton" href="SignUp.php">Salva le modifiche</a>
+                                            <input type="submit" class="btn btn-outline-elegant" id="finalButton" value="Salva le modifiche" />
+                                           
                                         </div>
                                     </div>
                     
