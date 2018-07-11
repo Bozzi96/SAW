@@ -1,0 +1,13 @@
+body {
+    background-color: #858585;
+}
+
+h1.display-3, form#ad_form {
+    font-family: 'Orbitron', sans-serif;
+}
+
+h1.display-3 {
+    font-size: 2.5em;
+    padding-top: 3em;
+    padding-left: 2em;
+}

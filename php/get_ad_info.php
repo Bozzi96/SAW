@@ -27,20 +27,27 @@
         # La funzione "file_get_contents()" ottiene le informazioni
         # inviate dal client per recuperare l'annuncio dal database.
         $ad_info = json_decode(file_get_contents("php://input"));
-        // TODO: recuperare l'email del proprietario dell'annuncio
-        $email = "address@mail.com";
+        
+        $email = $ad_info -> owner_email;
         $v_name = $ad_info -> v_name;
+        $console = $ad_info -> console;
     }
 
-    # Interrogazione del database
-    $stmt = $conn -> prepare("SELECT * FROM annunci WHERE email = ? AND nome_videogioco = ?");
-    $stmt -> bind_param("ss", $email, $v_name);
+    # Interrogazione del database: ritorna una entry contenente l'annuncio e il suo proprietario.
+    $stmt = $conn -> prepare("
+            SELECT u.email, u.nome, u.cognome, u.citta, u.provincia, a.nome_videogioco, a.console, a.prezzo, a.durata
+                FROM utenti AS u JOIN annunci AS a ON u.email = a.email
+                WHERE u.email = ? AND a.nome_videogioco = ? AND a.console = ?");
+    $stmt -> bind_param("sss", $email, $v_name, $console);
         
     $stmt -> execute();
    
     # Il risultato della query viene salvato in un oggetto
     $result = $stmt -> get_result();
     $result_obj = $result -> fetch_object();
+
+    # Salvataggio nella sessione del proprietario dell'annuncio
+    $_SESSION['target_user'] = $email;
     
     # Restituzione dei dati JSON alla funzione JS
     $result_json = json_encode($result_obj);

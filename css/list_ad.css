@@ -1,0 +1,10 @@
+h1#list_title {
+    font-family: 'Orbitron', sans-serif;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-bottom: .7em;
+}
+
+form#search_form {
+    padding-top: 7em;
+}
