@@ -1,3 +1,9 @@
-td {
-    padding: 1em;
+div#ad_card_wrapper {
+    padding-top: 8em;
+}
+
+h1.card-title#ad_title {
+    font-family: 'Orbitron', sans-serif;
+    padding-top: .5em;
+    padding-left: 1em;
 }

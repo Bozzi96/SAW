@@ -25,7 +25,7 @@
     $stmt -> bind_param("sssiis", $email, $v_name, $console, $price, $loan_length, $status);
 
     # Settaggio dei parametri ed esecuzione della query
-    $email = "address@mail.com";    #TODO: get the email from the server session.
+    $email = $_SESSION['utente']['email'];    #TODO: get the email from the server session.
     $status = "Disponibile";
     $stmt -> execute();
 
@@ -43,7 +43,7 @@
     $conn -> close();
 
     # Reindirizzamento alla pagina di visualizzazione annuncio
-    header("location: ../html/view_ad.html");
+    header("location: ../pages/view_ad.php");
     exit(); # same as die()
 
 ?>

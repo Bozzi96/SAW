@@ -69,6 +69,7 @@ function fill_ad(ad_code, ad_data) {
 
     // Inserimento dei dati nell'annuncio
     title.innerHTML = ad_data.nome_videogioco;
+    title.dataset.owner_email = ad_data.email; // metadato: è la mail del proprietario
     fields[0].innerHTML = ad_data.console;
     fields[1].innerHTML = ad_data.durata;
     fields[2].innerHTML = ad_data.prezzo;
@@ -112,11 +113,12 @@ function show_ad(event) {
     else {
         // Recupero delle informazioni riguardo all'annuncio cliccato
         let clicked_ad = target.closest("div.card");
-        let title = clicked_ad.getElementsByClassName("card-title")[0].innerHTML;
+        let title = clicked_ad.getElementsByClassName("card-title")[0];
         let fields = clicked_ad.getElementsByClassName("col-sm-5");
         // Codifica in formato JSON per poter essere passate al server nella richiesta
         let ad_info = JSON.stringify({
-            "v_name": title,
+            "owner_email": title.dataset.owner_email,
+            "v_name": title.innerHTML,
             "console": fields[0].innerHTML, // console
             "loan_length": fields[1].innerHTML, // durata
             "price": fields[2].innerHTML  // prezzo
@@ -125,7 +127,8 @@ function show_ad(event) {
         // dalla pagina "view_ad.html"
         sessionStorage.setItem("ad_info", ad_info);
         // Redirect verso la pagina di visualizzazione annuncio
-        window.location.href = "../html/view_ad.html";
+        window.location.href = "../pages/view_ad.php";
+
     }
 }
 

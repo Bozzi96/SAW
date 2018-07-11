@@ -22,7 +22,7 @@
 
             # L'utente cerca solo per console, qualsiasi videogioco va bene.
             # Di conseguenza la query ha solamente la condizione sulla console.
-            $stmt = $conn -> prepare("SELECT nome_videogioco, console, prezzo, durata FROM annunci WHERE console = ? AND stato = 'Disponibile'");
+            $stmt = $conn -> prepare("SELECT email, nome_videogioco, console, prezzo, durata FROM annunci WHERE console = ? AND stato = 'Disponibile'");
             $stmt -> bind_param("s", $console);
 
         } else {
@@ -32,7 +32,7 @@
             # I due "%" servono per il LIKE nella query:
             # dicono di cercare qualsiasi videogioco abbia una sottostringa come $v_name.
             $v_name = "%" . $_SESSION['search_param']['v_name'] . "%";
-            $stmt = $conn -> prepare("SELECT nome_videogioco, console, prezzo, durata FROM annunci WHERE nome_videogioco LIKE ? AND console = ? AND stato = 'Disponibile'");
+            $stmt = $conn -> prepare("SELECT email, nome_videogioco, console, prezzo, durata FROM annunci WHERE nome_videogioco LIKE ? AND console = ? AND stato = 'Disponibile'");
             $stmt -> bind_param("ss", $v_name, $console);
         }
     }
