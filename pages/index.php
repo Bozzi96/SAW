@@ -127,7 +127,6 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
-
   
   </body>
   </html>
