@@ -31,126 +31,121 @@ include "navbar.php";
 <br><br><br><br>
 
     <div class="container">
-
         <!-- Card -->
         <div class="card w-50"><!--ridimensionamento della card -> la sposto sulla sinistra-->
-        
             <!-- Card body -->
             <div class="card-body">
-                <div class="row">
-                 <div class="mx-auto">
-                    <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title" id="panel-title">Il mio profilo</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3 col-lg-3 ">
+
+                <div class="text-center">
+                        <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">
+                            <strong>IL mio profilo</strong>
+                        </h1>
+                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+
+                </div>
+                <div class="panel-body">
                             <div class="row alert alert-success" id="changes" hidden></div>
                                 <form action="../php/save_profile_changes.php" method="POST" id="form">
-                                    <a href="#" onclick="modify()" id="optional">
-                                        <i class="fa fa-pencil"></i> Modifica profilo</a>
-                                    <div class=" col-md-9 col-lg-9 ">
-                                        <table class="table table-user-information">
-                                            <tbody>
-                                                <tr>
-                                                    <div class="form-group">
-                                                        <td>
-                                                            <i class="fa fa-user"></i>
-                                                            <label for="name"> <b>Nome</b> </label>
-                                                            <input id="name" name="name" type="text" value="" readonly="readonly" required/>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" onclick="oneChange('name')" id="optional">
-                                                                <i class="fa fa-pencil"></i> Modifica nome</a>
-                                                        </td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="form-group">
-
-                                                        <td>
-                                                            <i class="fa fa-user"></i>
-                                                            <label for="surname"> <b>Cognome</b> </label>
-                                                            <input id="surname" name="surname" type="text" value="" readonly="readonly" required />
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" onclick="oneChange('surname')" id="optional">
-                                                                <i class="fa fa-pencil"></i> Modifica cognome</a>
-                                                        </td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="form-group">
-                                                        <td>
-                                                            <i class="fa fa-user"></i>
-                                                            <label for="email"> <b>Email</b> </label>
-                                                            <div id="email" name="email"></div>
-                                                        </td>
-                                                        <td>
-                                                        
-                                                        </td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="form-group">
-                                                        <td>
-                                                            <i class="fa fa-globe"></i>
-                                                            <label for="city"> <b>Città</b> </label>
-                                                            <input id="city" name="city" type="text" value="" readonly="readonly" required />
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" onclick="oneChange('city')" id="optional">
-                                                                <i class="fa fa-pencil"></i> Modifica città</a>
-                                                        </td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="form-group">
-                                                        <td>
-                                                            <i class="fa fa-globe"></i>
+                                    <div class="row">
+                                            <div class="col-sm-6">
+                                                    <a href="#" onclick="modify()" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare tutti i campi che vuoi del tuo profilo!">
+                                                    <i class="fa fa-pencil"></i> Modifica profilo</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                     <a id="optional"  href="change_password.php" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare la password" ><i class="fa fa-pencil"></i>Modifica la password</a>
+                                            </div>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <i class="fa fa-user"></i>
+                                            <label for="name"> <b>Nome</b> </label>
+                                            <input id="name" name="name" type="text" value="" readonly="readonly" required/>
+                                        </div>
+                                        <div class="col-sm-4">
+                                             <a href="#" onclick="oneChange('name')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo nome!">
+                                            <i class="fa fa-pencil"></i> Modifica nome</a>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <i class="fa fa-user"></i>
+                                            <label for="surname"> <b>Cognome</b> </label>
+                                            <input id="surname" name="surname" type="text" value="" readonly="readonly" required />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="#" onclick="oneChange('surname')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo cognome!">
+                                            <i class="fa fa-pencil"></i> Modifica cognome</a>
+                                        </div>
+                                    </div>
+                                     <br>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                        <i class="fa fa-globe"></i>
                                                             <label for="province"> <b>Provincia</b> </label>
                                                             <input id="province" name="province" type="text" value="" readonly="readonly" required/>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" onclick="oneChange('province')" id="optional">
+                                        </div>
+                                        <div class="col-sm-4">
+                                               <a href="#" onclick="oneChange('province')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua provincia!">
                                                                 <i class="fa fa-pencil"></i> Modifica provincia</a>
-                                                        </td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="form-group">
-                                                        <td>
-                                                            <i class="fa fa-globe"></i>
+                                        </div>
+                                    </div>
+                                     <br>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                        <i class="fa fa-user"></i>
+                                        <label for="email"> <b>Email: </b> </label>
+                                        <span id="email" name="email"></span>
+                                        </div>
+                                            
+                                       
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <i class="fa fa-globe"></i>
+                                            <label for="city"> <b>Città</b> </label>
+                                            <input id="city" name="city" type="text" value="" readonly="readonly" required />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="#" onclick="oneChange('city')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua citta di appartenenza">
+                                            <i class="fa fa-pencil"></i> Modifica città</a>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <i class="fa fa-globe"></i>
                                                             <label for="cap"> <b>CAP</b> </label>
                                                             <input id="cap" name="cap" type="number" value="" readonly="readonly" required />
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" onclick="oneChange('cap')" id="optional">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="#" onclick="oneChange('cap')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo codice postale!">
                                                                 <i class="fa fa-pencil"></i> Modifica CAP</a>
-                                                        </td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <input type="submit" class="btn btn-primary" id="finalButton" value="Salva le modifiche" />
-                                                    </td>
-                                                    <td>
-                                                        <a href="change_password.php" id="optional">Modifica password</a>
-                                                    </td>
-                                                </tr>
-                                        </table>
+                                        </div>
                                     </div>
+                                    <br>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <a type="submit" class="btn btn-outline-elegant " id="finalButton" href="SignUp.php">Salva le modifiche</a>
+                                        </div>
+                                    </div>
+                    
+                                   
                                 </form>
                             </div>
-                        </div>
-                    </div>
+                        </div><!-- /Card body -->
+                    </div><!-- /Card -->
                 </div>
-                </div>
-            </div>
-        </div><!-- /Card body -->
-    </div><!-- /Card -->
-    </div>
 <?php
 include "footer.php";
 ?>
@@ -168,6 +163,8 @@ include "footer.php";
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
+    <script type="text/javascript" src="../js/SignUpForm_inputControl.js"></script>
+    
 </body>
 <?php
 session_start();
