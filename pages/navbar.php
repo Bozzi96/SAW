@@ -44,7 +44,7 @@
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="profile.php">Il mio profilo</a>
+                                    <a class="dropdown-item" href="my_profile.php">Il mio profilo</a>
                                     <a class="dropdown-item" href="new_ad_form.php">Pubblica annuncio</a>
                                     <a class="dropdown-item" href="#">Help?</a>
                                     <div class="dropdown-divider"></div>
