@@ -32,6 +32,7 @@ include "navbar.php";
 
     <div class="container">
         <!-- Card -->
+    <div class="card-deck">
         <div class="card w-50"><!--ridimensionamento della card -> la sposto sulla sinistra-->
             <!-- Card body -->
             <div class="card-body">
@@ -146,6 +147,50 @@ include "navbar.php";
                             </div>
                         </div><!-- /Card body -->
                     </div><!-- /Card -->
+
+                    <!--Feedback card-->
+                    <div class="card">
+                        <div class="card-body">
+                        <div class="text-center">
+                            <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"> <strong>Feedback </strong> </h1>
+                            <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                        </div>
+                        <div class="row">
+                                        <div class="col-sm-6">
+                                            <i class="fa fa-thumbs-up"></i>
+                                            <h1 id="feedPos"> </h1>
+                                        </div>
+                                        <div class="col-sm-6">
+                                        <i class="fa fa-thumbs-down"></i>
+                                        <h1 id="feedNeg"></h1>
+                                        </div>
+                        
+                        </div>
+                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <div class="row">
+                            <div class="text-center">
+                            <label for="percentage">Affidabilità:</label>
+                            <h1 id="percentage"></h1>
+                            </div>
+                        </div>
+                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <div class="row" id="feedbackElements">
+                            <div class="col-sm-12 text-center">
+                               <h1> <strong>Valuta utente </strong></h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <button id="positiveMark">Voto positivo</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button id="negativeMark">Voto negativo</button>
+                            </div>
+                           
+                            <div class"row" id="afterFeedback">
+                            </div>
+                        </div>
+                    </div> <!--/Feedback card-->
+                </div>
+                    
                 </div>
 <?php
 include "footer.php";

@@ -29,15 +29,31 @@ window.addEventListener("load", function () {
                         document.getElementById("city").value = user_data[3];
                         document.getElementById("province").value = user_data[4];
                         document.getElementById("cap").value = user_data[5];
+                        document.getElementById("feedPos").innerHTML =user_data[6];
+                        document.getElementById("feedNeg").innerHTML = user_data[7];
+                        //calcolo affidabilià, fermandosi alla seconda cifra decimale
+                        var trust=0;
+                        if(user_data[6]!=0 || user_data[7]!=0)
+                                //se ho almeno un feedback, posso calcolare l'affidabilità
+                                trust =  ((user_data[6] / (user_data[6] + user_data[7]) )*100).toFixed(2); 
+                       
+                        document.getElementById("percentage").innerHTML = trust + "%";
+                                
 
-                        if(!user_data[6]) {
+                        if(!user_data[8]) {
+                        //Se il profilo visualizzato è quello di un altro utente, si modificano certi elementi della pagina
                                 for(var i=0; i<7; i++)
                                         document.getElementById("optional").outerHTML = "";
-
                                 document.getElementById("panel-title").innerHTML = "Il profilo di " + user_data[0] + " " + user_data[1];
                                 document.getElementById("finalButton").value = "Contatta";
                                 document.getElementById("form").action= "chat.php";
+
                         }
+                         //rimuovo la possibilità di inserire un feedback, se sono nella pagina del  mio profilo
+                         /*
+                         var removeFeed= document.getElementById("feedbackElements");
+                         removeFeed.parentNode.removeChild(removeFeed);
+                         */
                         //riempiti i campi, viene mostrata la pagina
                         document.getElementsByTagName("BODY")[0].style.display = "block";
 
@@ -52,3 +68,4 @@ function displayChanges() {
         document.getElementById("changes").innerHTML = "Modifiche effettuate!";
         document.getElementById("changes").removeAttribute("hidden");
 }
+
