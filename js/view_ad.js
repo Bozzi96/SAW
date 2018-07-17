@@ -46,12 +46,10 @@ function display_clicked_ad(ad_info) {
     })
     .then(response => response.json())
     .then(ad_data => fill_ad(ad_data))
-    // NELLO SCRIPT PHP BISOGNA OTTENERE IL JSON. DA LÌ CONTINUARE.
 }
 
-function display_ad() {
+function display_ad(clicked_ad) {
     // Check sull'origine della richiesta di visualizzazione annuncio
-    let clicked_ad = window.sessionStorage.getItem("ad_info");
     if (clicked_ad !== null) {
         // Visualizza l'annuncio cliccato
         display_clicked_ad(clicked_ad);
@@ -61,7 +59,35 @@ function display_ad() {
     }
 }
 
+function send_message(current_ad) {
+    // Ottenimento del testo del messaggio
+    var message_text = document.getElementById("message").value;
+    // Impacchettamento dei dati necessari all'invio
+    var message = JSON.stringify({
+        "target_ad": current_ad,  // L'annuncio relativo al messaggio
+        "message_text": message_text  // Contenuto del messaggio
+    });
+    window.console.log(message);
+    // Invio del messaggio al server
+    fetch("../php/send_message.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: message
+    })
+    .then(response => response.json());
+}
+
+
+// Recupero delle info dell'annuncio: rimangono memorizzate
+// qui così che le future chiamate ajax non debbano riprenderle ogni volta.
+var clicked_ad = window.sessionStorage.getItem("ad_info");
+
+// Le informazioni dell'annuncio sono disponibili mediante l'oggetto seguente
+var current_ad = JSON.parse(clicked_ad);
 
 window.addEventListener("load", function(){
-    display_ad();
+    display_ad(clicked_ad);
 });

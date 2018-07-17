@@ -120,8 +120,6 @@ function show_ad(event) {
             "owner_email": title.dataset.owner_email,
             "v_name": title.innerHTML,
             "console": fields[0].innerHTML, // console
-            "loan_length": fields[1].innerHTML, // durata
-            "price": fields[2].innerHTML  // prezzo
         });
         // Salvataggio dei dati in sessionStorage così da poter essere recuperati
         // dalla pagina "view_ad.html"

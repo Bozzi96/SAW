@@ -29,8 +29,8 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <!-- Parte destra: annuncio -->
-                    <div class="col-sm-5">    
+                    <!-- Parte sinitra: annuncio -->
+                    <div class="col-sm-9">    
                         <div class="row">
                             <div class="col-sm-3 font-weight-bold">Console</div>
                             <div class="col-sm-5" id="console"></div>
@@ -42,11 +42,14 @@
                         <div class="row">
                             <div class="col-sm-3 font-weight-bold">Prezzo</div>
                             <div class="col-sm-5" id="price"></div>
-                        </div>                
+                        </div>
+                        <!-- Chat sotto le info dell'annuncio -->
+                        <div class="row container" id="chat-container">
+                            <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
+                            <button type="button" onclick="send_message(current_ad);">Invia</button>
+                        </div>               
                     </div>
-                    <!-- Spazio separatore tra annuncio e proprietario -->
-                    <div class="col-sm-4"></div>
-                    <!-- Parte sinistra: proprietario -->
+                    <!-- Parte destra: proprietario -->
                     <div class="col-sm-3">
                         <div class="card" style="width: auto">
                             <img class="card-img-top" id="profile_img" src="" alt="Card image">
