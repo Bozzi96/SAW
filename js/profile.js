@@ -50,10 +50,10 @@ window.addEventListener("load", function () {
 
                         }
                          //rimuovo la possibilità di inserire un feedback, se sono nella pagina del  mio profilo
-                         /*
+                         
                          var removeFeed= document.getElementById("feedbackElements");
                          removeFeed.parentNode.removeChild(removeFeed);
-                         */
+                         
                         //riempiti i campi, viene mostrata la pagina
                         document.getElementsByTagName("BODY")[0].style.display = "block";
 
@@ -61,11 +61,27 @@ window.addEventListener("load", function () {
 
 });
 
-
+function displayFeedback(returnValue) {
+        if(returnValue==-1) {
+                document.getElementById("afterFeedback").innerHTML = "Impossibile valutare questo utente";
+                document.getElementById("afterFeedback").className = "alert alert-danger";
+        }
+        if(returnValue==0) {
+                document.getElementById("afterFeedback").innerHTML = "Feedback uguale a prima";
+                document.getElementById("afterFeedback").className = "alert alert-warning";
+        }
+        if(returnValue==1) {
+                document.getElementById("afterFeedback").innerHTML = "Feedback aggiornato";
+                document.getElementById("afterFeedback").className = "alert alert-success";
+        }
+        if(returnValue==2) {
+                document.getElementById("afterFeedback").innerHTML = "Feedback inserito";
+                document.getElementById("afterFeedback").className = "alert alert-success";
+        }
+}
 
 //funzione che notifica le modifiche
 function displayChanges() {
         document.getElementById("changes").innerHTML = "Modifiche effettuate!";
         document.getElementById("changes").removeAttribute("hidden");
 }
-
