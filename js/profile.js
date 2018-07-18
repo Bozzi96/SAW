@@ -48,12 +48,12 @@ window.addEventListener("load", function () {
                                 document.getElementById("finalButton").value = "Contatta";
                                 document.getElementById("form").action= "chat.php";
 
-                        }
-                         //rimuovo la possibilità di inserire un feedback, se sono nella pagina del  mio profilo
+                        } else {
+                                //rimuovo la possibilità di inserire un feedback, se sono nella pagina del  mio profilo
                          
-                         var removeFeed= document.getElementById("feedbackElements");
-                         removeFeed.parentNode.removeChild(removeFeed);
-                         
+                                var removeFeed= document.getElementById("feedbackElements");
+                                removeFeed.parentNode.removeChild(removeFeed);
+                        }                         
                         //riempiti i campi, viene mostrata la pagina
                         document.getElementsByTagName("BODY")[0].style.display = "block";
 
