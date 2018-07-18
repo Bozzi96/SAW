@@ -44,7 +44,10 @@
                             <div class="col-sm-5" id="price"></div>
                         </div>
                         <!-- Chat sotto le info dell'annuncio -->
-                        <div class="row container" id="chat-container">
+                        <div class="row container" id="chat_container">
+                            <div class="container" id="messages_container">
+                                
+                            </div>
                             <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
                             <button type="button" onclick="send_message(current_ad);">Invia</button>
                         </div>               
@@ -65,6 +68,15 @@
             <div class="card-footer"></div>
         </div>    
     </div>
+
+    <!-- Template HTML per il messaggio all'interno della chat -->
+    <template id="message_template">
+        <div class="message_container">
+            <p class="message_sender">Nico</p>
+            <p class="message_text">Messaggio di prova</p>
+            <span class="message_time">11:00</span>
+        </div>
+    </template>
 
     <?php include 'footer.php'; ?>
 

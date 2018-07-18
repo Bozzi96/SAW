@@ -25,12 +25,35 @@
 
     # L'autore del messaggio è sempre l'utente attualmente loggato nel sito.
     $sender = $_SESSION['utente']['email'];
+    # Dati in arrivo dal client (annuncio corrente, contenuto del messaggio)
+    $message = json_decode(file_get_contents("php://input"));
+    $target_ad = $message -> target_ad;
+    $message_text = sanitize_input($conn, $message -> message_text);
+
+    # Preparazione della query
+    # Il primo NULL è dovuto all'auto increment, il secondo al timestamp
+    $stmt = $conn -> prepare("INSERT INTO messaggi VALUES (NULL, ?, ?, ?, ?, ?, NULL)");
+    $stmt -> bind_param(
+        "sssss",
+        $sender,
+        $target_ad -> owner_email,
+        $target_ad -> v_name,
+        $target_ad -> console,
+        $message_text
+    );
     
-    # TODO: recuperare i dati relativi al messaggio dalla chiamata AJAX (sanitizzare)
+    # Esecuzione della query
+    $stmt -> execute();
 
-    # Eseguire la query con i prepared statements
-
-    # Restituire la conferma dell'avvenuto invio.
-
+    # Check sull'avvenuto inserimento
+    if ($conn -> affected_rows === 1) {
+        # Ritorna una risposta affermativa
+        $sent = 1;
+        echo json_encode($sent);
+    } else {
+        # Risposta negativa
+        $sent = 0;
+        echo json_encode($sent);
+    }
 
 ?>

@@ -59,15 +59,79 @@ function display_ad(clicked_ad) {
     }
 }
 
+function display_messages(messages) {
+    // Inserimento del messaggio per ogni entry dell'array "messages"
+    messages.forEach(message => {
+
+        // Generazione codice HTML del messaggio
+        var message_code = create_message();
+
+        // Inserimento dati all'interno del codice del messaggio
+        var current_message = fill_message(message_code, message);
+        
+        // Aggiunta del messaggio nel container per la visualizzazione
+        append_message(current_message);
+    });
+}
+
+function append_message(message) {
+    // Selezione del container dove inserire il messaggio
+    var container = document.getElementById("messages_container");
+    // Aggiunta del messaggio
+    container.appendChild(message);
+}
+
+function fill_message(message_code, message_data) {
+
+    // Copia del template importato:
+    // la proprietà "content" possiede tutto il codice del template,
+    // "true" indica di importare anche i sotto-componenti del template
+    var message = document.importNode(message_code.content, true);
+
+    // Selezione dei campi in cui inserire l'autore del messaggio, il testo e l'ora
+    var sender = message.querySelector("p.message_sender");
+    var message_text = message.querySelector("p.message_text");
+    var message_time = message.querySelector("p.message_time");
+
+    // Inserimento dei dati nei campi
+    sender.innerHTML = message_data.autore;
+    message_text.innerHTML = message_data.contenuto;
+    message_time.innerHTML = message_data.tstamp;
+
+    return message;
+
+}
+
+function create_message() {
+    // Stessa routine della funzione "create_ad" in fill_ad_list_element.js
+
+    // Test sulla compatibilità del browser riguardo ai template
+    if ("content" in document.createElement("template")) {
+        
+        // Istanziazione dell'annuncio
+        var message_code = document.querySelector("#message_template");
+    }
+    else {
+        // TODO: comunicare l'incompatibilità del browser con i template
+    }
+
+    return message_code;
+
+}
+
 function send_message(current_ad) {
     // Ottenimento del testo del messaggio
     var message_text = document.getElementById("message").value;
+    document.getElementById("message").value = "";
+    // Se il messaggio è vuoto non viene inviato
+    if ( message_text.trim() === "") {
+        return;
+    }
     // Impacchettamento dei dati necessari all'invio
     var message = JSON.stringify({
         "target_ad": current_ad,  // L'annuncio relativo al messaggio
         "message_text": message_text  // Contenuto del messaggio
     });
-    window.console.log(message);
     // Invio del messaggio al server
     fetch("../php/send_message.php", {
         method: "POST",
@@ -77,9 +141,14 @@ function send_message(current_ad) {
         },
         body: message
     })
-    .then(response => response.json());
+    // Lo script php restituisce un flag per verificare l'invio
+    .then(response => response.json())
+    .then(sent => {
+        if (sent === 0) {
+            window.console.log("Messaggio non inviato!");
+        } 
+    })
 }
-
 
 // Recupero delle info dell'annuncio: rimangono memorizzate
 // qui così che le future chiamate ajax non debbano riprenderle ogni volta.

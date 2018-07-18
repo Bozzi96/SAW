@@ -11,7 +11,6 @@
     # Connessione al db
     require '../db/connection.php';
 
-    # TODO: OTTENERE PARAMETRI DI RICERCA ED EFFETTUARE QUERY OPPORTUNA
     # Ottenimento parametri di ricerca
     if (isset($_SESSION['search_param'])) {
 
