@@ -179,14 +179,18 @@ include "navbar.php";
                                <h1> <strong>Valuta utente </strong></h1>
                             </div>
                             <div class="col-sm-6">
+                            <form action="../php/feedback.php?" method="GET">
                                 <button id="positiveMark">Voto positivo</button>
+                                <input type="hidden" name="mark" id="mark" value=1>
+                                </form>
                             </div>
                             <div class="col-sm-6">
+                            <form action="../php/feedback.php?" method="GET">
                                 <button id="negativeMark">Voto negativo</button>
+                                <input type="hidden" name="mark" id="mark" value=0>
                             </div>
                            
-                            <div class"row" id="afterFeedback">
-                            </div>
+                            <div class"row" id="afterFeedback"> </div>
                         </div>
                     </div> <!--/Feedback card-->
                 </div>
@@ -214,11 +218,18 @@ include "footer.php";
 </body>
 <?php
 session_start();
+
 //Notifica di avvenuta modifica del profilo tramite funzione js
 if(isset($_SESSION['num']) && $_SESSION['num']===1)
         echo "<script> displayChanges() </script>";    
 //unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
 unset($_SESSION['num']);
+
+//notifica di valutazione
+if(isset($_SESSION['returnValue']))
+        echo "<script> displayFeedback(" .$_SESSION['returnValue']. ") </script>";
+unset($_SESSION['returnValue']);
+
 ?>
 
 
