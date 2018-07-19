@@ -13,6 +13,9 @@
     <link href="../bootstrap/css/mdb.min.css" rel="stylesheet">
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="../css/profile_navbar_css.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+ 
+
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
@@ -27,8 +30,7 @@
 include "navbar.php";
 ?>
 
-<br>
-<br><br><br><br>
+<br><br><br><br><br>
 
     <div class="container">
         <!-- Card -->
@@ -44,7 +46,7 @@ include "navbar.php";
                         <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
 
                 </div>
-                <div class="panel-body">
+                <div class="panel-body text">
                             <div class="row alert alert-success" id="changes" hidden></div>
                                 <form action="../php/save_profile_changes.php" method="POST" id="form">
                                     <div class="row">
@@ -155,47 +157,48 @@ include "navbar.php";
                             <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"> <strong>Feedback </strong> </h1>
                             <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
                         </div>
-                        <div class="row">
-                                        <div class="col-sm-6">
-                                            <i class="fa fa-thumbs-up"></i>
+                        <div class="row text-center">
+                                        <div class="col-sm-6 feedbackIcon">
+                                            <span class="fa fa-thumbs-up text-success"></span>
                                             <h1 id="feedPos"> </h1>
                                         </div>
-                                        <div class="col-sm-6">
-                                        <i class="fa fa-thumbs-down"></i>
+                                        <div class="col-sm-6 feedbackIcon">
+                                        <span class="fa fa-thumbs-down text-danger"></span>
                                         <h1 id="feedNeg"></h1>
                                         </div>
                         
                         </div>
                         <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
-                        <div class="row">
-                            <div class="text-center">
-                            <label for="percentage">Affidabilità:</label>
+                        <div class="row text-center">
+                            <div class="col-sm-12">
+                            <label for="percentage"> <h2> <strong>Affidabilità</strong></h2></label>
                             <h1 id="percentage"></h1>
                             </div>
                         </div>
                         <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
-                        <div class="row" id="feedbackElements">
-                            <div class="col-sm-12 text-center">
-                               <h1> <strong>Valuta utente </strong></h1>
+                        <div class="row text-center" id="feedbackElements">
+                            <div class="col-sm-12">
+                               <h2> <strong>Valuta utente </strong></h2>
                             </div>
                             <div class="col-sm-6">
                             <form action="../php/feedback.php?" method="GET">
-                                <button id="positiveMark">Voto positivo</button>
+                                <button class="btn btn-success btn-lg" id="positiveMark"> <span class="fa fa-thumbs-up"> </span></button>
                                 <input type="hidden" name="mark" id="mark" value=1>
                                 </form>
                             </div>
                             <div class="col-sm-6">
                             <form action="../php/feedback.php?" method="GET">
-                                <button id="negativeMark">Voto negativo</button>
+                                <button class=" btn btn-danger btn-lg" id="negativeMark"> <span class="fa fa-thumbs-down"></span> </button>
                                 <input type="hidden" name="mark" id="mark" value=0>
                             </div>
-                           
-                            <div class"row" id="afterFeedback"> </div>
+                            <div class"container text-center" id="afterFeedback"></div>
                         </div>
                     </div> <!--/Feedback card-->
                 </div>
                     
                 </div>
+</div>
+
 <?php
 include "footer.php";
 ?>
@@ -218,6 +221,8 @@ include "footer.php";
 </body>
 <?php
 session_start();
+#variabile di sessione predefinita causa problemi
+#$_SESSION['target_user']= "lollibozzi@gmail.com";
 
 //Notifica di avvenuta modifica del profilo tramite funzione js
 if(isset($_SESSION['num']) && $_SESSION['num']===1)
