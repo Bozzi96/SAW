@@ -8,6 +8,10 @@
 
 "use strict";
 
+/**
+ * Inserisce nel codice dell'annuncio i dati ottenuti dal server.
+ * @param {*} ad_data Dati dell'annuncio restituiti dal server
+ */
 function fill_ad(ad_data) {
 
     // Filling dell'annuncio
@@ -26,6 +30,10 @@ function fill_ad(ad_data) {
     profile_img.setAttribute("src", ("https://api.adorable.io/avatars/300/" + ad_data.email));
 }
 
+/**
+ * Chiama lo script per ottenere i dati dell'annuncio appena inserito.
+ * DA RIMUOVERE
+ */
 function display_inserted_ad() {
     fetch("../php/get_ad_info.php", {
         // Permette di inviare cookie vari al server, quindi di mantenere la sessione
@@ -35,6 +43,13 @@ function display_inserted_ad() {
     .then(ad_data => fill_ad(ad_data))
 }
 
+/**
+ * Visualizza le informazioni di un particolare annuncio.
+ * Quest'ultimo è stato cliccato nella pagina dei risultati
+ * della ricerca.
+ * @param {*} ad_info Dati dell'annuncio necessari al server per recuperare
+ *          tutte le info dal database
+ */
 function display_clicked_ad(ad_info) {
     fetch("../php/get_ad_info.php", {
         method: "POST",
@@ -46,22 +61,200 @@ function display_clicked_ad(ad_info) {
     })
     .then(response => response.json())
     .then(ad_data => fill_ad(ad_data))
-    // NELLO SCRIPT PHP BISOGNA OTTENERE IL JSON. DA LÌ CONTINUARE.
 }
 
-function display_ad() {
+/**
+ * Distingue quale annuncio si vuole visualizzare (inserito o cliccato).
+ * DA RIMUOVERE
+ * @param {*} current_ad Annuncio che si vuole visualizzare
+ */
+function display_ad(current_ad) {
     // Check sull'origine della richiesta di visualizzazione annuncio
-    let clicked_ad = window.sessionStorage.getItem("ad_info");
-    if (clicked_ad !== null) {
+    if (current_ad !== null) {
         // Visualizza l'annuncio cliccato
-        display_clicked_ad(clicked_ad);
+        display_clicked_ad(current_ad);
     } else {
         // Visualizza l'annuncio inserito
         display_inserted_ad();
     }
 }
 
+/**
+ * Ottiene dal server tutti i messaggi relativi ad un particolare
+ * annuncio.
+ * @param {*} current_ad_json Info dell'annuncio in formato JSON
+ *      da passare al server per ottenere i messaggi relativi ad esso.
+ */
+function get_messages(current_ad_json) {
+    fetch("../php/getall_messages.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: current_ad_json
+    })
+    .then(response => response.json())
+    .then(messages_data => display_messages(messages_data));
+}
+
+/**
+ * Inserisce nella chat dell'annuncio tutti i messaggi
+ * relativi ad esso.
+ * @param {*} messages Tutti i messaggi relativi all'annuncio
+ */
+function display_messages(messages) {
+    let chat = document.getElementById("messages_container");
+    // La chat viene ricaricata da zero
+    chat.innerHTML = "";
+    // Inserimento del messaggio per ogni entry dell'array "messages"
+    messages.forEach(message => {
+
+        // Generazione codice HTML del messaggio
+        var message_code = create_message();
+
+        // Inserimento dati all'interno del codice del messaggio
+        var current_message = fill_message(message_code, message);
+        
+        // Aggiunta del messaggio nel container per la visualizzazione
+        append_message(current_message);
+    });
+    // E' utile mostrare prima i messaggi più recenti
+    chat.scrollTop = chat.scrollHeight;
+}
+
+/**
+ * Inserisce il messaggio completo dei dati all'interno della chat.
+ * @param {*} message Messaggio da inserire
+ */
+function append_message(message) {
+    // Selezione del container dove inserire il messaggio
+    var container = document.getElementById("messages_container");
+    // Aggiunta del messaggio
+    container.appendChild(message);
+}
+
+/**
+ * Inserisce i dati del messaggio all'interno del codice della pagina.
+ * @param {*} message_code Template del codice del messaggio
+ * @param {*} message_data Dati relativi al messaggio
+ */
+function fill_message(message_code, message_data) {
+
+    // Copia del template importato:
+    // la proprietà "content" possiede tutto il codice del template,
+    // "true" indica di importare anche i sotto-componenti del template
+    var message = document.importNode(message_code.content, true);
+
+    // Selezione dei campi in cui inserire l'autore del messaggio, il testo e l'ora
+    var sender = message.querySelector("p.message_sender");
+    var message_text = message.querySelector("span.message_text");
+    var message_time = message.querySelector("p.message_time");
+
+    // Inserimento dei dati nei campi del messaggio
+    sender.innerHTML = message_data.nome + " " + message_data.cognome;
+    message_text.innerHTML = message_data.contenuto.replace(/\\/g, "");
+    message_time.innerHTML = format_date(new Date(message_data.tstamp * 1000));
+
+    // Se l'autore del messaggio è il proprietario dell'annuncio si evidenzia
+    if (current_ad.owner_email === message_data.autore) {
+        sender.style.color = "#cc5803";
+    }
+
+    return message;
+}
+
+/**
+ * Formatta la data ottenuta dal database in questo modo: "gg-mese, hh:mm".
+ * @param {*} date Data da formattare (millis since epoch)
+ */
+function format_date(date) {
+    var months = [
+        "gennaio", "febbraio", "marzo", "aprile",
+        "maggio", "giugno", "luglio", "agosto",
+        "settembre", "ottobre", "novembre", "dicembre"
+    ];
+    var day_number = date.getDate();
+    var index = date.getMonth();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    
+    // Se i minuti sono tra 0,9, preponi uno zero davanti
+    if (minutes < 10) {
+        var formatted_minutes = "0" + minutes;
+    } else {
+        formatted_minutes = minutes;
+    }
+
+    return day_number + " " + months[index] + ", " + hours + ":" + formatted_minutes;
+}
+
+/**
+ * Ottiene dalla pagina html il codice per inserire un nuovo messaggio.
+ */
+function create_message() {
+    // Stessa routine della funzione "create_ad" in fill_ad_list_element.js
+
+    // Test sulla compatibilità del browser riguardo ai template
+    if ("content" in document.createElement("template")) {
+        
+        // Istanziazione dell'annuncio
+        var message_code = document.querySelector("#message_template");
+    }
+    else {
+        // TODO: comunicare l'incompatibilità del browser con i template
+    }
+
+    return message_code;
+}
+
+/**
+ * Invia il nuovo messaggio all'interno della chat dell'annuncio.
+ * @param {*} current_ad Annuncio attualmente visualizzato
+ */
+function send_message(current_ad) {
+    // Ottenimento del testo del messaggio
+    var message_text = document.getElementById("message").value;
+    document.getElementById("message").value = "";
+    // Se il messaggio è vuoto non viene inviato
+    if ( message_text.trim() === "") {
+        return;
+    }
+    // Impacchettamento dei dati necessari all'invio
+    var message = JSON.stringify({
+        "target_ad": current_ad,  // L'annuncio relativo al messaggio
+        "message_text": message_text  // Contenuto del messaggio
+    });
+    // Invio del messaggio al server
+    fetch("../php/send_message.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: message
+    })
+    .then(response => response.json())
+    .then(sent => {
+        if (sent === 1) {
+            // Se l'invio è andato a buon fine, l'intera chat viene aggiornata
+            get_messages(current_ad_json);
+        } else {
+            window.console.log("Messaggio non inviato!");
+        }
+    });
+}
+
+// Recupero delle info dell'annuncio: rimangono memorizzate qui
+// così che le future chiamate ajax non debbano riprenderle ogni volta.
+var current_ad_json = window.sessionStorage.getItem("ad_info");
+
+// Le informazioni dell'annuncio sono disponibili mediante l'oggetto seguente
+var current_ad = JSON.parse(current_ad_json);
 
 window.addEventListener("load", function(){
-    display_ad();
+    // Visualizza informazioni dell'annuncio
+    display_ad(current_ad_json);
+    // Visualizzazione della chat
+    get_messages(current_ad_json);
 });
