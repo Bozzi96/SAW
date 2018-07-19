@@ -3,7 +3,10 @@
     border-width: 0;
 }
 
-span:hover {
-    text-decoration: underline;
-    color: blue; 
+.feedbackIcon {
+    font-size: 3em;
+}
+
+.panel-body {
+    font-size: 1.1em;
 }
