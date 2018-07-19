@@ -8,6 +8,7 @@
     # Sanitizzazione dell'input
     function sanitize_input($conn, $str) {
         $str = trim($str);
+        $str = htmlspecialchars($str);
         $str = $conn -> real_escape_string($str);
         return $str;
     }

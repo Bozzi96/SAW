@@ -11,6 +11,29 @@ h1.card-title#ad_title {
 #messages_container {
     width: 100%;
     height: 15em;
-    background-color: grey;
+    background-color: #cccccc;
     margin-top: 2em;
+    overflow: auto; /* Mostra la scroll bar quando necessaria */
+}
+
+.message_container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+p.message_sender {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.message_text {
+    margin-bottom: 0; 
+}
+
+p.message_time {
+    float: right;
+    color: #aaa;
 }

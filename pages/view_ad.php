@@ -73,8 +73,8 @@
     <template id="message_template">
         <div class="message_container">
             <p class="message_sender">Nico</p>
-            <p class="message_text">Messaggio di prova</p>
-            <span class="message_time">11:00</span>
+            <span class="message_text">Messaggio di prova</span>
+            <p class="message_time">11:00</p>
         </div>
     </template>
 
