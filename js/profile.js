@@ -64,19 +64,19 @@ window.addEventListener("load", function () {
 function displayFeedback(returnValue) {
         if(returnValue==-1) {
                 document.getElementById("afterFeedback").innerHTML = "Impossibile valutare questo utente";
-                document.getElementById("afterFeedback").className = "alert alert-danger";
+                document.getElementById("afterFeedback").className = "container text-center mt-3 alert alert-danger";
         }
         if(returnValue==0) {
                 document.getElementById("afterFeedback").innerHTML = "Feedback uguale a prima";
-                document.getElementById("afterFeedback").className = "alert alert-warning";
+                document.getElementById("afterFeedback").className = "container text-center mt-3 alert alert-warning";
         }
         if(returnValue==1) {
                 document.getElementById("afterFeedback").innerHTML = "Feedback aggiornato";
-                document.getElementById("afterFeedback").className = "alert alert-success";
+                document.getElementById("afterFeedback").className = "container text-center mt-3 alert alert-success";
         }
         if(returnValue==2) {
                 document.getElementById("afterFeedback").innerHTML = "Feedback inserito";
-                document.getElementById("afterFeedback").className = "alert alert-success";
+                document.getElementById("afterFeedback").className = "container text-center mt-3 alert alert-success";
         }
 }
 
