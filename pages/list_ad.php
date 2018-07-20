@@ -16,7 +16,7 @@
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-    <title>Page Title</title>
+    <title>Risultati della ricerca</title>
 </head>
 <body>
     <?php include 'navbar.php'; ?>

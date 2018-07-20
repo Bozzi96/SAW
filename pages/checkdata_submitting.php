@@ -43,7 +43,9 @@
     <div class="container" style=" height: 95%;">
 
     <?php
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
 
     $err = false;
     foreach ($_POST as $key => $value){
@@ -133,10 +135,10 @@
         $surname = $_POST['surname'];
         $citta = $_POST['city'];
         $provincia = $_POST['province'];
-        $CAP = $_POST['CAP'];
+        $CAP = (int)$_POST['CAP'];
         
         $password=sha1($password);//hashing pw da server
-        $stmt = $con->prepare("INSERT INTO utenti VALUES (?,?,?,?,?,?,?)");
+        $stmt = $con->prepare("INSERT INTO utenti VALUES (?,?,?,?,?,?,?,0,0)");
 
 
         $stmt->bind_param('ssssssi',$email,$password,$name,$surname,$citta,$provincia,$CAP);
