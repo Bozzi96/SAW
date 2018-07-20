@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="en">
-
 <?php
   //apriamo la sessione e controlliamo se è gia stato fatto il login
   session_start();
@@ -11,6 +8,9 @@
     header("location: index_with_login_made.php");
   }
 ?>
+
+<!doctype html>
+<html lang="en">
 
   <head>
     <!-- Required meta tags -->

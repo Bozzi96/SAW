@@ -224,7 +224,9 @@ include "footer.php";
     
 </body>
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 #variabile di sessione predefinita causa problemi
 #$_SESSION['target_user']= "lollibozzi@gmail.com";
 

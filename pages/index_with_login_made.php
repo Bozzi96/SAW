@@ -1,9 +1,8 @@
-<!doctype html>
-<html lang="en">
-
 <?php
   //apriamo la sessione e controlliamo se è gia stato fatto il login
-  session_start();
+  if (!isset($_SESSION)) {
+    session_start();
+  }
   $isSessionSet = false;
   if(isset($_SESSION["utente"])){
       //login fatto!
@@ -13,6 +12,9 @@
 
   }
 ?>
+
+<!doctype html>
+<html lang="en">
 
   <head>
     <!-- Required meta tags -->

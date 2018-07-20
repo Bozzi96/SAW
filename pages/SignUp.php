@@ -38,7 +38,9 @@
     <div class="container">
 
              <?php
-                session_start();
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
                 if (isset($_SESSION["email-esistente"])) {
                     echo '<div class="alert alert-danger" role="alert"> Esiste gia un account con la mail: '.$_SESSION["email-esistente"].'!</div>';
                     unset($_SESSION["email-esistente"]);
