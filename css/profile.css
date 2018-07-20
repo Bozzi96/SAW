@@ -1,9 +1,22 @@
+body {
+    background-image: url("../images/xbox_console.jpg");
+            /* Full height */
+            height: 100%; 
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+}
+
 #name, #surname, #city, #province, #cap {
     border-style: inset;
     border-width: 0;
 }
 
-span:hover {
-    text-decoration: underline;
-    color: blue; 
+.feedbackIcon {
+    font-size: 3em;
+}
+
+.panel-body {
+    font-size: 1.1em;
 }

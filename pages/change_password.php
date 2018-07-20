@@ -13,6 +13,7 @@
     <link href="../bootstrap/css/mdb.min.css" rel="stylesheet">
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="../css/profile_navbar_css.css">
+    <link rel="stylesheet" type="text/css" href="../css/change_password.css">  
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
