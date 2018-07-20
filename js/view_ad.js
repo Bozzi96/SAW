@@ -28,6 +28,9 @@ function fill_ad(ad_data) {
     // Recupero immagine casuale per la foto profilo
     var profile_img = document.getElementById("profile_img");
     profile_img.setAttribute("src", ("https://api.adorable.io/avatars/300/" + ad_data.email));
+
+    // Passa le coordinate per visualizzare la mappa
+    getLatLngt(ad_data.citta, ad_data.cap);
 }
 
 /**
@@ -60,7 +63,8 @@ function display_clicked_ad(ad_info) {
         body: ad_info
     })
     .then(response => response.json())
-    .then(ad_data => fill_ad(ad_data))
+    .then(ad_data => fill_ad(ad_data));
+
 }
 
 /**

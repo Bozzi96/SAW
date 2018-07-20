@@ -90,6 +90,7 @@
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
     <!-- Our JS -->
+    <script src="../js/localization.js"></script>
     <script src="../js/view_ad.js"></script>
 </body>
 </html>
