@@ -35,7 +35,7 @@ window.addEventListener("load", function () {
                         var trust=0;
                         if(user_data[6]!=0 || user_data[7]!=0)
                                 //se ho almeno un feedback, posso calcolare l'affidabilità
-                                trust =  ((user_data[6] / (user_data[6] + user_data[7]) )*100).toFixed(2); 
+                                trust =  ((user_data[6] / (user_data[6] + user_data[7]) )*100).toFixed(1); 
                        
                         document.getElementById("percentage").innerHTML = trust + "%";
                                 
@@ -43,16 +43,22 @@ window.addEventListener("load", function () {
                         if(!user_data[8]) {
                         //Se il profilo visualizzato è quello di un altro utente, si modificano certi elementi della pagina
                                 for(var i=0; i<7; i++)
-                                        document.getElementById("optional").outerHTML = "";
+                                        document.getElementById("optional"+i).outerHTML = "";
                                 document.getElementById("panel-title").innerHTML = "Il profilo di " + user_data[0] + " " + user_data[1];
-                                document.getElementById("finalButton").value = "Contatta";
-                                document.getElementById("form").action= "chat.php";
+                                var removeButton= document.getElementById("finalButton");
+                                removeButton.parentNode.removeChild(removeButton);
+                                
 
                         } else {
                                 //rimuovo la possibilità di inserire un feedback, se sono nella pagina del  mio profilo
-                         
                                 var removeFeed= document.getElementById("feedbackElements");
                                 removeFeed.parentNode.removeChild(removeFeed);
+                                var removeFeed= document.getElementById("feedbackElements");
+                                removeFeed.parentNode.removeChild(removeFeed);
+                                //mostro pulsanti di modifica
+                                for(var j=0; j<7; j++)
+                                document.getElementById("optional"+j).removeAttribute("hidden");
+                                
                         }                         
                         //riempiti i campi, viene mostrata la pagina
                         document.getElementsByTagName("BODY")[0].style.display = "block";
@@ -78,7 +84,7 @@ function displayFeedback(returnValue) {
                 document.getElementById("afterFeedback").innerHTML = "Feedback inserito";
                 document.getElementById("afterFeedback").className = "container text-center mt-3 alert alert-success";
         }
-}
+};
 
 //funzione che notifica le modifiche
 function displayChanges() {
