@@ -10,6 +10,7 @@
     # Sessione per mantenere traccia dei dati
     session_start();
     
+
     # Connessione al db
     require '../db/connection.php';
 

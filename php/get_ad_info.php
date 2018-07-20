@@ -35,7 +35,7 @@
 
     # Interrogazione del database: ritorna una entry contenente l'annuncio e il suo proprietario.
     $stmt = $conn -> prepare("
-            SELECT u.email, u.nome, u.cognome, u.citta, u.provincia, a.nome_videogioco, a.console, a.prezzo, a.durata
+            SELECT u.email, u.nome, u.cognome, u.citta, u.provincia, u.cap, a.nome_videogioco, a.console, a.prezzo, a.durata
                 FROM utenti AS u JOIN annunci AS a ON u.email = a.email
                 WHERE u.email = ? AND a.nome_videogioco = ? AND a.console = ?");
     $stmt -> bind_param("sss", $email, $v_name, $console);

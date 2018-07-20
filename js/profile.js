@@ -29,31 +29,15 @@ window.addEventListener("load", function () {
                         document.getElementById("city").value = user_data[3];
                         document.getElementById("province").value = user_data[4];
                         document.getElementById("cap").value = user_data[5];
-                        document.getElementById("feedPos").innerHTML =user_data[6];
-                        document.getElementById("feedNeg").innerHTML = user_data[7];
-                        //calcolo affidabilià, fermandosi alla seconda cifra decimale
-                        var trust=0;
-                        if(user_data[6]!=0 || user_data[7]!=0)
-                                //se ho almeno un feedback, posso calcolare l'affidabilità
-                                trust =  ((user_data[6] / (user_data[6] + user_data[7]) )*100).toFixed(2); 
-                       
-                        document.getElementById("percentage").innerHTML = trust + "%";
-                                
 
-                        if(!user_data[8]) {
-                        //Se il profilo visualizzato è quello di un altro utente, si modificano certi elementi della pagina
+                        if(!user_data[6]) {
                                 for(var i=0; i<7; i++)
                                         document.getElementById("optional").outerHTML = "";
+
                                 document.getElementById("panel-title").innerHTML = "Il profilo di " + user_data[0] + " " + user_data[1];
                                 document.getElementById("finalButton").value = "Contatta";
                                 document.getElementById("form").action= "chat.php";
-
-                        } else {
-                                //rimuovo la possibilità di inserire un feedback, se sono nella pagina del  mio profilo
-                         
-                                var removeFeed= document.getElementById("feedbackElements");
-                                removeFeed.parentNode.removeChild(removeFeed);
-                        }                         
+                        }
                         //riempiti i campi, viene mostrata la pagina
                         document.getElementsByTagName("BODY")[0].style.display = "block";
 
@@ -61,24 +45,7 @@ window.addEventListener("load", function () {
 
 });
 
-function displayFeedback(returnValue) {
-        if(returnValue==-1) {
-                document.getElementById("afterFeedback").innerHTML = "Impossibile valutare questo utente";
-                document.getElementById("afterFeedback").className = "alert alert-danger";
-        }
-        if(returnValue==0) {
-                document.getElementById("afterFeedback").innerHTML = "Feedback uguale a prima";
-                document.getElementById("afterFeedback").className = "alert alert-warning";
-        }
-        if(returnValue==1) {
-                document.getElementById("afterFeedback").innerHTML = "Feedback aggiornato";
-                document.getElementById("afterFeedback").className = "alert alert-success";
-        }
-        if(returnValue==2) {
-                document.getElementById("afterFeedback").innerHTML = "Feedback inserito";
-                document.getElementById("afterFeedback").className = "alert alert-success";
-        }
-}
+
 
 //funzione che notifica le modifiche
 function displayChanges() {

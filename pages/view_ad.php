@@ -29,7 +29,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <!-- Parte sinitra: annuncio -->
+                    <!-- Parte destra: annuncio -->
                     <div class="col-sm-9">    
                         <div class="row">
                             <div class="col-sm-3 font-weight-bold">Console</div>
@@ -42,18 +42,18 @@
                         <div class="row">
                             <div class="col-sm-3 font-weight-bold">Prezzo</div>
                             <div class="col-sm-5" id="price"></div>
-                        </div>
-                        <!-- Chat sotto le info dell'annuncio -->
-                        <div class="row container" id="chat_container">
-                            <div class="container" id="messages_container">
-                                
-                            </div>
-                            <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
-                            <button type="button" onclick="send_message(current_ad);">Invia</button>
-                        </div>               
+                        </div><br>
+                        <div class="row">
+                             <div class="container">
+                                <!--Google map-->
+                                <div id="map-container" class="z-depth-1" style="height: 400px; width:800px;"></div>
+                             </div>
+                        </div>                
                     </div>
-                    <!-- Parte destra: proprietario -->
-                    <div class="col-sm-3">
+                    <!-- Spazio separatore tra annuncio e proprietario -->
+                    
+                    <!-- Parte sinistra: proprietario -->
+                    <div class="col-sm-3"><br>
                         <div class="card" style="width: auto">
                             <img class="card-img-top" id="profile_img" src="" alt="Card image">
                             <div class="card-body">
@@ -69,15 +69,6 @@
         </div>    
     </div>
 
-    <!-- Template HTML per il messaggio all'interno della chat -->
-    <template id="message_template">
-        <div class="message_container">
-            <p class="message_sender">Nico</p>
-            <span class="message_text">Messaggio di prova</span>
-            <p class="message_time">11:00</p>
-        </div>
-    </template>
-
     <?php include 'footer.php'; ?>
 
     <!-- JQuery -->
@@ -91,5 +82,8 @@
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
     <!-- Our JS -->
     <script src="../js/view_ad.js"></script>
+
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyB58OmlW7yIXR--pf3dE5djLqEVI0UqujY"></script>
+   <script src="../js/view_ad.js"></script>
 </body>
 </html>

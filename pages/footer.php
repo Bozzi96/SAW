@@ -83,7 +83,7 @@
     <!--/.Footer Links-->
 
     <hr><!--separator-->
-    <br>
+    
     <!--Social buttons-->
     <div class="text-center">
         <ul class="list-unstyled list-inline">
@@ -108,7 +108,7 @@
                 </a>
             </li>
         </ul>
-    </div><br>
+    </div>
     <!--/.Social buttons-->
 
     <!--Copyright-->
