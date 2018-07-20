@@ -34,13 +34,14 @@ include "navbar.php";
 
     <div class="container">
         <!-- Card -->
-    <div class="card-deck">
-        <div class="card w-50"><!--ridimensionamento della card -> la sposto sulla sinistra-->
+    <div class="row">
+        <div class="col-md-6">
+        <div class="card">
             <!-- Card body -->
             <div class="card-body">
 
                 <div class="text-center">
-                        <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s" id="panel-title">
+                        <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.1s" id="panel-title">
                             <strong>IL mio profilo</strong>
                         </h1>
                         <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
@@ -51,11 +52,11 @@ include "navbar.php";
                                 <form action="../php/save_profile_changes.php" method="POST" id="form">
                                     <div class="row">
                                             <div class="col-sm-6">
-                                                    <a href="#" onclick="modify()" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare tutti i campi che vuoi del tuo profilo!">
+                                                    <a href="#" onclick="modify()" id="optional0" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare tutti i campi che vuoi del tuo profilo!">
                                                     <i class="fa fa-pencil"></i> Modifica profilo</a>
                                             </div>
                                             <div class="col-sm-6">
-                                                     <a id="optional"  href="change_password.php" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare la password" ><i class="fa fa-pencil"></i>Modifica la password</a>
+                                                     <a id="optional1" hidden  href="change_password.php" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare la password" ><i class="fa fa-pencil"></i>Modifica la password</a>
                                             </div>
                                     </div>
                                     <br>
@@ -67,7 +68,7 @@ include "navbar.php";
                                             <input id="name" name="name" type="text" value="" readonly="readonly" required/>
                                         </div>
                                         <div class="col-sm-4">
-                                             <a href="#" onclick="oneChange('name')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo nome!">
+                                             <a href="#" onclick="oneChange('name')" id="optional2" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo nome!">
                                             <i class="fa fa-pencil"></i> Modifica nome</a>
                                         </div>
                                     </div>
@@ -80,21 +81,8 @@ include "navbar.php";
                                             <input id="surname" name="surname" type="text" value="" readonly="readonly" required />
                                         </div>
                                         <div class="col-sm-4">
-                                            <a href="#" onclick="oneChange('surname')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo cognome!">
+                                            <a href="#" onclick="oneChange('surname')" id="optional3" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo cognome!">
                                             <i class="fa fa-pencil"></i> Modifica cognome</a>
-                                        </div>
-                                    </div>
-                                     <br>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                        <i class="fa fa-globe"></i>
-                                                            <label for="province"> <b>Provincia</b> </label>
-                                                            <input id="province" name="province" type="text" value="" readonly="readonly" required/>
-                                        </div>
-                                        <div class="col-sm-4">
-                                               <a href="#" onclick="oneChange('province')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua provincia!">
-                                                                <i class="fa fa-pencil"></i> Modifica provincia</a>
                                         </div>
                                     </div>
                                      <br>
@@ -102,7 +90,7 @@ include "navbar.php";
                                     <div class="row">
                                         <div class="col">
                                         <i class="fa fa-user"></i>
-                                        <label for="email"> <b>Email: </b> </label>
+                                        <label for="email"> <b>Email </b> </label>
                                         <span id="email" name="email"></span>
                                         </div>
                                             
@@ -117,7 +105,7 @@ include "navbar.php";
                                             <input id="city" name="city" type="text" value="" readonly="readonly" required />
                                         </div>
                                         <div class="col-sm-4">
-                                            <a href="#" onclick="oneChange('city')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua citta di appartenenza">
+                                            <a href="#" onclick="oneChange('city')" id="optional4" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua citta di appartenenza">
                                             <i class="fa fa-pencil"></i> Modifica città</a>
                                         </div>
                                     </div>
@@ -125,12 +113,25 @@ include "navbar.php";
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-8">
+                                        <i class="fa fa-globe"></i>
+                                                            <label for="province"> <b>Provincia</b> </label>
+                                                            <input id="province" name="province" type="text" value="" readonly="readonly" required/>
+                                        </div>
+                                        <div class="col-sm-4">
+                                               <a href="#" onclick="oneChange('province')" id="optional5" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua provincia!">
+                                                                <i class="fa fa-pencil"></i> Modifica provincia</a>
+                                        </div>
+                                    </div>
+                                     <br>
+                                     <hr>
+                                    <div class="row">
+                                        <div class="col-sm-8">
                                             <i class="fa fa-globe"></i>
                                                             <label for="cap"> <b>CAP</b> </label>
                                                             <input id="cap" name="cap" type="number" value="" readonly="readonly" required />
                                         </div>
                                         <div class="col-sm-4">
-                                            <a href="#" onclick="oneChange('cap')" id="optional" data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo codice postale!">
+                                            <a href="#" onclick="oneChange('cap')" id="optional6" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo codice postale!">
                                                                 <i class="fa fa-pencil"></i> Modifica CAP</a>
                                         </div>
                                     </div>
@@ -149,12 +150,13 @@ include "navbar.php";
                             </div>
                         </div><!-- /Card body -->
                     </div><!-- /Card -->
-
+                    </div>
                     <!--Feedback card-->
+                    <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                         <div class="text-center">
-                            <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"> <strong>Feedback </strong> </h1>
+                            <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.1s"> <strong>Feedback </strong> </h1>
                             <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
                         </div>
                         <div class="row text-center">
@@ -175,25 +177,27 @@ include "navbar.php";
                             <h1 id="percentage"></h1>
                             </div>
                         </div>
-                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s" id="feedbackElements">
                         <div class="row text-center" id="feedbackElements">
                             <div class="col-sm-12">
                                <h2> <strong>Valuta utente </strong></h2>
                             </div>
                             <div class="col-sm-6">
                             <form action="../php/feedback.php?" method="GET">
-                                <button class="btn btn-success btn-lg" id="positiveMark"> <span class="fa fa-thumbs-up"> </span></button>
+                                <button class="btn btn-outline-primary btn-lg" id="positiveMark"> <span class="fa fa-thumbs-up"> </span></button>
                                 <input type="hidden" name="mark" id="mark" value=1>
                                 </form>
                             </div>
                             <div class="col-sm-6">
                             <form action="../php/feedback.php?" method="GET">
-                                <button class=" btn btn-danger btn-lg" id="negativeMark"> <span class="fa fa-thumbs-down"></span> </button>
+                                <button class=" btn btn-outline-primary btn-lg" id="negativeMark"> <span class="fa fa-thumbs-down"></span> </button>
                                 <input type="hidden" name="mark" id="mark" value=0>
+                                </form>
                             </div>
                             <div class"container text-center" id="afterFeedback"></div>
                         </div>
                     </div> <!--/Feedback card-->
+                    </div>
                 </div>
                     
                 </div>
