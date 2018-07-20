@@ -7,7 +7,8 @@
   $isSessionSet = false;
   if(isset($_SESSION["utente"])){
       //login fatto!
-    $isSessionSet = true;   //cosi cambio l'output!
+    
+    header("location: index_with_login_made.php");
   }
 ?>
 
@@ -53,13 +54,7 @@
                             <strong>Prova ora, non è mai stato cosi semplice.</strong>
                         </h5>
 
-                        <?php
-                        if (isset($_SESSION['utente'])) {
-                            include 'search_ad.php';
-                        } else {
-                            echo '<a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" href="#navbar-example2-informations">Scopri di più!</a>';
-                        }
-                        ?>
+                        <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" href="#navbar-example2-informations">Scopri di più!</a>
                         
                     </div>
                 </div>
@@ -126,7 +121,7 @@
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
-    <script type="text/javascript" src="../js/videoGameSwap.js"></script>
+    
   
   </body>
   </html>

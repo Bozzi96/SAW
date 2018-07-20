@@ -42,18 +42,16 @@
                         <div class="row">
                             <div class="col-sm-3 font-weight-bold">Prezzo</div>
                             <div class="col-sm-5" id="price"></div>
-                        </div>
-                        <!-- Chat sotto le info dell'annuncio -->
-                        <div class="row container" id="chat_container">
-                            <div class="container" id="messages_container">
-                                
+                        </div><br>
+                        <div class="row">
+                            <div class="container">
+                            <!--Google map-->
+                            <div id="map-container" class="z-depth-1" style="height: 400px; width:800px;"></div>
                             </div>
-                            <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
-                            <button type="button" onclick="send_message(current_ad);">Invia</button>
                         </div>               
                     </div>
                     <!-- Parte destra: proprietario -->
-                    <div class="col-sm-3">
+                    <div class="col-sm-3"><br>
                         <div class="card" style="width: auto">
                             <img class="card-img-top" id="profile_img" src="" alt="Card image">
                             <div class="card-body">
@@ -65,7 +63,16 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer"></div>
+            <div class="card-footer">
+                <!-- Chat sotto le info dell'annuncio -->
+                        <div class="row container" id="chat_container">
+                            <div class="container" id="messages_container">
+                                
+                            </div>
+                            <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
+                            <button type="button" onclick="send_message(current_ad);">Invia</button>
+                        </div> 
+            </div>
         </div>    
     </div>
 
@@ -90,6 +97,7 @@
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
     <!-- Our JS -->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyB58OmlW7yIXR--pf3dE5djLqEVI0UqujY"></script>
     <script src="../js/localization.js"></script>
     <script src="../js/view_ad.js"></script>
 </body>
