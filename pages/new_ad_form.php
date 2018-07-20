@@ -24,25 +24,34 @@
     <!-- Titolo introduttivo della pagina -->
     <h1 class="display-3">Pubblica un nuovo annuncio</h1>
     <br>
-    <div class="container">
+    <div class="container ">
+
+     <!-- Card -->
+        <div class="card w-50 "><!--ridimensionamento della card -> la sposto sulla sinistra-->
+        
+            <!-- Card body -->
+            <div class="card-body">
+
     <!-- Inserimento delle info relative al nuovo annuncio -->
     <form action="../php/new_ad.php" method="POST" id="ad_form">
         <label for="v_name">Videogioco</label>
         <input type="text" class="form-control" name="v_name" maxlength="40" required><br>
         <label for="console">Console</label><br>
-        <select name="console" form="ad_form" required>
-            <optgroup label="PlayStation">
-                <option value="PS4">PS4</option>
-                <option value="PS3">PS3</option>
-            </optgroup>
-            <optgroup label="XBOX">
-                <option value="XBOX ONE">XBOX ONE</option>
-                <option value="XBOX 360">XBOX 360</option>
-            </optgroup>
-            <optgroup label="Nintendo">
-                <option value="WII U">WII U</option>
-            </optgroup>
-        </select>
+        <select class="custom-select" id="inputGroupSelect01" name="console" form="ad_form" required>
+                    
+                    <optgroup label="PlayStation">
+                        <option value="PS4">PS4</option>
+                        <option value="PS3">PS3</option>
+                    </optgroup>
+                    <optgroup label="XBOX">
+                        <option value="XBOX ONE">XBOX ONE</option>
+                        <option value="XBOX 360">XBOX 360</option>
+                    </optgroup>
+                        <optgroup label="Nintendo">
+                        <option value="WII U">WII U</option>
+                    </optgroup>
+         </select>
+        
         <br><br>
         <label for="loan_length">Durata del prestito</label>
         <div class="input-group mb-3">
@@ -58,9 +67,14 @@
                 <span class="input-group-text">€</span>
             </div>
         </div>
-        <br>    
-        <input type="submit" class="btn btn-primary" value="Pubblica">
+          
+        
+        <div class="text-center py-4 mt-3">
+                        <input type="submit" class="btn btn-outline-elegant " value="Pubblica">
+                    </div>
     </form>
+    </div>
+</div>
     </div>
     
     <?php include 'footer.php'; ?>
