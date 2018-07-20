@@ -11,13 +11,13 @@ session_start();
         }
         include("../db/mysql_credentials.php");
         $con = new mysqli($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
-        $query = "SELECT nome, cognome, email, citta, provincia, cap FROM utenti WHERE email=?";
+        $query = "SELECT nome, cognome, email, citta, provincia, cap, feed_positivi, feed_negativi FROM utenti WHERE email=?";
         $stmt = $con->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
         //Ottengo il risultato dalla query
         $res = array();
-        $stmt->bind_result($res[0], $res[1], $res[2], $res[3], $res[4], $res[5]);
+        $stmt->bind_result($res[0], $res[1], $res[2], $res[3], $res[4], $res[5], $res[6], $res[7]);
         $stmt->fetch();
          //variabile necessaria per distinguere i due casi
         if (!strcmp( $_SESSION['utente']['email'], $email)) //l'utente sta andando nella propria pagina del profilo

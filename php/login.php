@@ -45,7 +45,7 @@
     if(mysqli_num_rows($result) == 1){//se la risposta contiene una tupla la query è andata abuon fine
             $_SESSION['utente'] = $row;
             mysqli_close($con);
-            header("location: ../pages/index_with_login_made.php");
+            header("location: ../pages/index.php");
             exit();
             
     }else{
