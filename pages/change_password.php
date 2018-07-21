@@ -64,7 +64,10 @@
                         <label for="oldPassword" class="font-weight-light">Ripeti password</label>
                         <div id="afterpsw">
                                     <?php
-                                        session_start();
+                                        if (!isset($_SESSION)) {
+                                            session_start();
+                                        }
+                                        
                                         //Notifica di avvenuta modifica della password
                                         if(isset($_SESSION['returnValue']) && $_SESSION['returnValue']===1)
                                             echo '<div class="alert alert-success"> Password modificata!</div>';

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,21 +17,23 @@
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-    
-    <title>Page Title</title> <!-- Ci sarà l'inflate del titolo dell'annuncio -->
+
+    <title></title>
+    <!-- Ci sarà l'inflate del titolo dell'annuncio -->
 </head>
+
 <body>
     <?php include 'navbar.php'; ?>
     <!-- Info dell'annuncio riportate qui -->
     <div class="container" id="ad_card_wrapper">
         <div class="card">
             <div class="card-header">
-                <h1 class="card-title" id="ad_title">Titolo di prova</h1>
+                <h1 class="card-title" id="ad_title"></h1>
             </div>
             <div class="card-body">
                 <div class="row">
                     <!-- Parte sinitra: annuncio -->
-                    <div class="col-sm-9">    
+                    <div class="col-sm-9">
                         <div class="row">
                             <div class="col-sm-3 font-weight-bold">Console</div>
                             <div class="col-sm-5" id="console"></div>
@@ -42,16 +45,18 @@
                         <div class="row">
                             <div class="col-sm-3 font-weight-bold">Prezzo</div>
                             <div class="col-sm-5" id="price"></div>
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="row">
                             <div class="container">
-                            <!--Google map-->
-                            <div id="map-container" class="z-depth-1" style="height: 400px;"></div>
+                                <!--Google map-->
+                                <div id="map-container" class="z-depth-1" style="height: 400px;"></div>
                             </div>
-                        </div>               
+                        </div>
                     </div>
                     <!-- Parte destra: proprietario -->
-                    <div class="col-sm-3"><br>
+                    <div class="col-sm-3">
+                        <br>
                         <div class="card" style="width: auto">
                             <img class="card-img-top" id="profile_img" src="" alt="Card image">
                             <div class="card-body">
@@ -59,21 +64,21 @@
                                 <p class="card-text" id="location"></p>
                                 <a href="profile.php" class="btn btn-primary">Visualizza profilo</a>
                             </div>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
                 <!-- Chat sotto le info dell'annuncio -->
-                        <div class="row container" id="chat_container">
-                            <div class="container" id="messages_container">
-                                
-                            </div>
-                            <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
-                            <button type="button" onclick="send_message(current_ad);">Invia</button>
-                        </div> 
+                <div class="row container" id="chat_container">
+                    <div class="container" id="messages_container">
+
+                    </div>
+                    <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
+                    <button type="button" onclick="send_message(current_ad);">Invia</button>
+                </div>
             </div>
-        </div>    
+        </div>
     </div>
 
     <!-- Template HTML per il messaggio all'interno della chat -->
@@ -101,4 +106,5 @@
     <script src="../js/localization.js"></script>
     <script src="../js/view_ad.js"></script>
 </body>
+
 </html>

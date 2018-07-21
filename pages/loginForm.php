@@ -38,7 +38,9 @@
     <div class="container">
 
              <?php
-                session_start();
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
                 if (isset($_SESSION["login-errato"])) {
                     echo '<div class="alert alert-danger" role="alert"> Credenziali sbagliate!</div>';
                     unset($_SESSION["login-errato"]);
