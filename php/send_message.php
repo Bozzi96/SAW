@@ -57,4 +57,8 @@
         echo json_encode($sent);
     }
 
+    # Chiusura dello statement e della connessione
+    $stmt -> close();
+    $conn -> close();
+
 ?>
