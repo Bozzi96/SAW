@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="container">
                             <!--Google map-->
-                            <div id="map-container" class="z-depth-1" style="height: 400px; width:800px;"></div>
+                            <div id="map-container" class="z-depth-1" style="height: 400px;"></div>
                             </div>
                         </div>               
                     </div>
