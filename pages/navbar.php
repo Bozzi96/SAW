@@ -1,13 +1,11 @@
 <!--Navbar-->
     <?php
 
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+    session_start();
 
     $isSessionSet = false;
     $isRegistrationMade= false;
-//    session_start();
+    session_start();
     if (isset($_SESSION["utente"])){
        $isSessionSet = true;
     }
@@ -25,17 +23,16 @@
             <i class="fa fa-gamepad" aria-hidden="true"></i>
                 <strong> vgSWAP</strong>
             </a>
+            <div class="float-right">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="float-right"><!--floating right navbar elements-->
+            <!--floating right navbar elements-->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
                         <?php
-                        if (!isset($_SESSION)) {
-                            session_start();
-                        }
+                        session_start();
                             if($isSessionSet){
                                 //sessione impostata, login fatto!
                                 $nome = $_SESSION["utente"]["nome"];

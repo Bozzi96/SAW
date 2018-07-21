@@ -13,6 +13,7 @@
     <link href="../bootstrap/css/mdb.min.css" rel="stylesheet">
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="../css/videoGameSwap.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
@@ -37,9 +38,7 @@
     <div class="container">
 
              <?php
-                if (!isset($_SESSION)) {
-                    session_start();
-                }
+                session_start();
                 if (isset($_SESSION["login-errato"])) {
                     echo '<div class="alert alert-danger" role="alert"> Credenziali sbagliate!</div>';
                     unset($_SESSION["login-errato"]);
