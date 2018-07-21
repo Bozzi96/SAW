@@ -11,3 +11,12 @@ h1.display-3 {
     padding-top: 3em;
     padding-left: 2em;
 }
+body{
+            background-image: url("../images/foto_ps4.jpg");
+            /* Full height */
+            height: 100%; 
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
