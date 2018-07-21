@@ -5,7 +5,7 @@
     e li passa allo script JS che li visualizza nell'elenco.
     */
 
-    # E' necessario essere autenticati per ottenere tutti gli annunci (?)
+    # E' necessario essere autenticati per ottenere tutti gli annunci
     session_start();
 
     # Connessione al db
