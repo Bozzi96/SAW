@@ -13,6 +13,7 @@
     <link href="../bootstrap/css/mdb.min.css" rel="stylesheet">
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="../css/videoGameSwap.css">
+    <link rel="stylesheet" type="text/css" href="../css/SignUp.css">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
@@ -20,17 +21,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Registrazione</title>
-    <style>
-        body{
-            background-image: url("../images/foto_ps4.jpg");
-            /* Full height */
-            height: 100%; 
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
 </head>
 <body>
                 <!--  TO-DO: controllare fallimento della registrazione tramite sessione; -->
@@ -38,9 +28,7 @@
     <div class="container">
 
              <?php
-                if (!isset($_SESSION)) {
-                    session_start();
-                }
+                session_start();
                 if (isset($_SESSION["email-esistente"])) {
                     echo '<div class="alert alert-danger" role="alert"> Esiste gia un account con la mail: '.$_SESSION["email-esistente"].'!</div>';
                     unset($_SESSION["email-esistente"]);
@@ -127,7 +115,7 @@
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
                         <input type="password" name="password" id="Password" class="form-control" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="right" title="Utilizza una password sicura lunga almeno 8 caratteri. Si consiglia l'utilizzo di maiuscole e numeri." required>
-                        <label for="password" class="font-weight-light">Password (lunghezza minima:8) </label>
+                        <label for="password" class="font-weight-light">Password </label>
                     </div>
 
                      <!--Input password_confirm -->
