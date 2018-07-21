@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +18,7 @@
 
     <title>Nuovo annuncio</title>
 </head>
+
 <body>
 
     <?php include 'navbar.php'; ?>
@@ -26,61 +28,66 @@
     <br>
     <div class="container ">
 
-     <!-- Card -->
-        <div class="card w-50 "><!--ridimensionamento della card -> la sposto sulla sinistra-->
-        
+        <!-- Card -->
+        <div class="card w-50 ">
+            <!--ridimensionamento della card -> la sposto sulla sinistra-->
+
             <!-- Card body -->
             <div class="card-body">
 
-    <!-- Inserimento delle info relative al nuovo annuncio -->
-    <form action="../php/new_ad.php" method="POST" id="ad_form">
-        <label for="v_name">Videogioco</label>
-        <input type="text" class="form-control" name="v_name" maxlength="40" required><br>
-        <label for="console">Console</label><br>
-        <select class="custom-select" id="inputGroupSelect01" name="console" form="ad_form" required>
-                    
-                    <optgroup label="PlayStation">
-                        <option value="PS4">PS4</option>
-                        <option value="PS3">PS3</option>
-                    </optgroup>
-                    <optgroup label="XBOX">
-                        <option value="XBOX ONE">XBOX ONE</option>
-                        <option value="XBOX 360">XBOX 360</option>
-                    </optgroup>
+                <!-- Inserimento delle info relative al nuovo annuncio -->
+                <form action="../php/new_ad.php" method="POST" id="ad_form">
+                    <label for="v_name">Videogioco</label>
+                    <input type="text" class="form-control" name="v_name" maxlength="40" required>
+                    <br>
+                    <label for="console">Console</label>
+                    <br>
+                    <select class="custom-select" id="inputGroupSelect01" name="console" form="ad_form" required>
+
+                        <optgroup label="PlayStation">
+                            <option value="PS4">PS4</option>
+                            <option value="PS3">PS3</option>
+                        </optgroup>
+                        <optgroup label="XBOX">
+                            <option value="XBOX ONE">XBOX ONE</option>
+                            <option value="XBOX 360">XBOX 360</option>
+                        </optgroup>
                         <optgroup label="Nintendo">
-                        <option value="WII U">WII U</option>
-                    </optgroup>
-         </select>
-        
-        <br><br>
-        <label for="loan_length">Durata del prestito</label>
-        <div class="input-group mb-3">
-            <input type="number" class="form-control" name="loan_length" min="1" value="1" required> <!-- TODO: i/o a seconda del numero (js function)-->
-            <div class="input-group-append">
-                <span class="input-group-text">giorni</span>
-            </div>
-        </div>
-        <label for="price">Prezzo</label>
-        <div class="input-group mb-3">
-            <input type="number" class="form-control" name="price" min="0" value="1" required>
-            <div class="input-group-append">
-                <span class="input-group-text">€</span>
-            </div>
-        </div>
-          
-        
-        <div class="text-center py-4 mt-3">
+                            <option value="WII U">WII U</option>
+                        </optgroup>
+                    </select>
+
+                    <br>
+                    <br>
+                    <label for="loan_length">Durata del prestito</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="loan_length" min="1" value="1" required>
+                        <!-- TODO: i/o a seconda del numero (js function)-->
+                        <div class="input-group-append">
+                            <span class="input-group-text">giorni</span>
+                        </div>
+                    </div>
+                    <label for="price">Prezzo</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="price" min="0" value="1" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center py-4 mt-3">
                         <input type="submit" class="btn btn-outline-elegant " value="Pubblica">
                     </div>
-    </form>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-    </div>
-    
+
     <?php include 'footer.php'; ?>
 
     <!-- Optional JavaScript -->
-    
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- JQuery -->
     <script type="text/javascript" src="../bootstrap/js/jquery-3.2.1.min.js"></script>
@@ -92,4 +99,5 @@
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
 
 </body>
+
 </html>

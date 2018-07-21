@@ -12,7 +12,6 @@
     require '../db/connection.php';
 
     # Ottenimento parametri di ricerca
-    $stmt= null;
     if (isset($_SESSION['search_param'])) {
 
         # Console secondo cui eseguire la ricerca
