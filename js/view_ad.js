@@ -262,3 +262,21 @@ window.addEventListener("load", function(){
     // Visualizzazione della chat
     get_messages(current_ad_json);
 });
+
+
+/**
+ * Rende l'annuncio non più disponibile
+ */
+function buy_ad() {
+    document.getElementById("buyButton").innerText = "Comprato!";
+    document.getElementById("buyButton").disabled = "disabled";
+   fetch("../php/buy_ad.php");
+}
+
+/**
+ * Se si è nella pagina di  un proprio annuncio, rimuove il bottone "Compra"
+ */
+function remove_buyButton() {
+    var element = document.getElementById("buyButton");
+    element.parentNode.removeChild(element);
+}
