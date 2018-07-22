@@ -34,19 +34,6 @@ function fill_ad(ad_data) {
 }
 
 /**
- * Chiama lo script per ottenere i dati dell'annuncio appena inserito.
- * DA RIMUOVERE
- */
-function display_inserted_ad() {
-    fetch("../php/get_ad_info.php", {
-        // Permette di inviare cookie vari al server, quindi di mantenere la sessione
-        credentials: 'same-origin'
-    })
-    .then(response => response.json())
-    .then(ad_data => fill_ad(ad_data))
-}
-
-/**
  * Visualizza le informazioni di un particolare annuncio.
  * Quest'ultimo è stato cliccato nella pagina dei risultati
  * della ricerca.
@@ -64,23 +51,6 @@ function display_clicked_ad(ad_info) {
     })
     .then(response => response.json())
     .then(ad_data => fill_ad(ad_data));
-
-}
-
-/**
- * Distingue quale annuncio si vuole visualizzare (inserito o cliccato).
- * DA RIMUOVERE
- * @param {*} current_ad Annuncio che si vuole visualizzare
- */
-function display_ad(current_ad) {
-    // Check sull'origine della richiesta di visualizzazione annuncio
-    if (current_ad !== null) {
-        // Visualizza l'annuncio cliccato
-        display_clicked_ad(current_ad);
-    } else {
-        // Visualizza l'annuncio inserito
-        display_inserted_ad();
-    }
 }
 
 /**
@@ -258,7 +228,7 @@ var current_ad = JSON.parse(current_ad_json);
 
 window.addEventListener("load", function(){
     // Visualizza informazioni dell'annuncio
-    display_ad(current_ad_json);
+    display_clicked_ad(current_ad_json);
     // Visualizzazione della chat
     get_messages(current_ad_json);
 });
