@@ -56,7 +56,7 @@
                                 <div id="name" class="text-right"></div>
                                 <div class="md-form">
                                     <i class="fa fa-user prefix grey-text"></i>
-                                    <input type="text" name="name" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="top" title="Inserisci il tuo nome. " required>
+                                    <input type="text" name="name" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)"  required>
                                     <label for="name" class="font-weight-light">Nome</label>
                                 </div>
                                  
@@ -66,7 +66,7 @@
                                     <div id="surname" class="text-right"></div>
                                     <div class="md-form">
                                          <i class="fa fa-user prefix grey-text"></i>
-                                         <input type="text" name="surname" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="top" title="Inserisci il tuo cognome" required>
+                                         <input type="text" name="surname" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)"  required>
                                          <label for="surname" class="font-weight-light">Cognome</label>
                                     </div>
                         </div>
@@ -76,7 +76,7 @@
                     <div id="city" class="text-right"></div>
                     <div class="md-form">
                         <i class="fa fa-home prefix grey-text"></i>
-                        <input type="text" name="city" class="form-control"autocomplete="on" onchange="validate(this.name,this.value)"data-toggle="tooltip" data-placement="right" title="Inserisci la città in cui vivi. " required>
+                        <input type="text" name="city" class="form-control"autocomplete="on" onchange="validate(this.name,this.value)" required>
                         <label for="city" class="font-weight-light">Città</label>
                     </div>
 
@@ -108,7 +108,7 @@
                     </div>
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
-                        <input type="email" name="email" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="right" title="Inserisci un indirizzo email valido: xxxx@yyyyy.zz" required>
+                        <input type="email" name="email" class="form-control" autocomplete="on" onchange="validate(this.name,this.value)" required>
                         <label for="email" class="font-weight-light">Email</label>
                     </div>
         
@@ -126,6 +126,9 @@
                         <i class="fa fa-exclamation-triangle prefix grey-text"></i>
                         <input type="password" id="FormCard_passwordconfirm" class="form-control" oninput="verifypsw()" required>
                         <label for="FormCard_passwordconfirm" class="font-weight-light">Conferma password</label>
+                    </div><br>
+                    <div class="container">
+                        <p>Sei già registrato?<a href="loginForm.php">Accedi ora.</a></p>
                     </div>
         
                     <div class="text-center py-4 mt-3">
@@ -142,9 +145,7 @@
 
     </div>
 
-    <?php
-        include "footer.php";
-    ?>
+    
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

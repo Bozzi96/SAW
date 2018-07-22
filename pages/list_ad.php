@@ -25,6 +25,10 @@
     <h1 id="list_title">Risultati della ricerca</h1>
 
     <div class="container">
+        <div id="negative_answer" class="alert alert-danger" role="alert" hidden></div>
+    </div>
+
+    <div class="container">
         <!-- Lista degli annunci caricata dinamicamente -->
         <ul class="list-group" id="ads_list">
         </ul>

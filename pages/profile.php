@@ -41,10 +41,10 @@ include "navbar.php";
             <div class="card-body">
 
                 <div class="text-center">
-                        <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.1s" id="panel-title">
+                        <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 "  id="panel-title">
                             <strong>IL mio profilo</strong>
                         </h1>
-                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <hr class="hr-dark mt-4" >
 
                 </div>
                 <div class="panel-body text">
@@ -153,11 +153,11 @@ include "navbar.php";
                     </div>
                     <!--Feedback card-->
                     <div class="col-md-6">
-                    <div class="card">
+                    <div class="card ">
                         <div class="card-body">
                         <div class="text-center">
-                            <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.1s"> <strong>Feedback </strong> </h1>
-                            <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                            <h1 class="h1-reponsive black-text text-uppercase font-weight-bold mb-3 " > <strong>Feedback </strong> </h1>
+                            <hr class="hr-dark mt-4" >
                         </div>
                         <div class="row text-center">
                                         <div class="col-sm-6 feedbackIcon">

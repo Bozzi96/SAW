@@ -56,7 +56,7 @@
 
         <br>
         <!-- Card -->
-        <div class="card w-50 "><!--ridimensionamento della card -> la sposto sulla sinistra-->
+        <div class="card  flex-center border border-dark"><!--ridimensionamento della card -> la sposto sulla sinistra-->
         
             <!-- Card body -->
             <div class="card-body">
@@ -81,6 +81,7 @@
                         <input type="password" name="psw" id="psw" class="form-control" required>
                         <label for="password" class="font-weight-light">Password </label>
                     </div>
+              
         
                     <div class="text-center py-4 mt-3">
                         <button id="submitButton" class="btn btn-outline-elegant wow fadeInDown" data-wow-delay="0.4s" type="submit">Accedi</button>
@@ -96,9 +97,6 @@
 
     </div>
 
-    <?php
-        include "footer.php";
-    ?>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
