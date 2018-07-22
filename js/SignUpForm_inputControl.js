@@ -22,7 +22,7 @@ function validate(name, value) {
 
             //verifica la risposta:
             if (myObj[0].status == 'ok') {
-                var stringValid = " This " + name + " is valid!";
+                var stringValid = "";
                 stringValid = stringValid.fontcolor("green");
                 document.getElementById(name).innerHTML = stringValid;
 

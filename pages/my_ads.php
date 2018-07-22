@@ -21,9 +21,15 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php include 'navbar.php'; ?> <br><br><br>
+
     <!-- TODO: inserire un titolo significativo -->
     <h1 id="list_title">I miei annunci</h1>
+
+    <div class="container">
+        <div id="negative_answer" class="alert alert-danger" role="alert" hidden></div>
+    </div>
+        
 
     <div class="container">
         <!-- Lista degli annunci caricata dinamicamente -->

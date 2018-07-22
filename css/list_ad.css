@@ -1,3 +1,6 @@
+body, html{
+    height: 100%;
+}
 h1#list_title {
     font-family: 'Orbitron', sans-serif;
     padding-top: 1em;

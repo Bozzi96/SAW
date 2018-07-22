@@ -16,6 +16,18 @@ function get_ad_data() {
 }
 
 /**
+ * Verifica la lista di annunci è vuota o meno.
+ * @param {*} obj  info degli annunci ottenuti da server
+ */
+function isEmpty(obj) {
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop))
+            return false;
+    }
+    return true;
+}
+
+/**
  * Stampa a video gli annunci raccolti dal server in una
  * lista costruita dinamicamente. Ogni annuncio è costruito
  * a partire dai dati ritornati dal server.
@@ -23,6 +35,11 @@ function get_ad_data() {
  * @param ads_data Info degli annunci ottenuti dal server
  */
 function display_ads(ads_data) {
+    if (isEmpty(ads_data)) {
+        document.getElementById("negative_answer").innerHTML = "Nessun annuncio trovato.";
+        document.getElementById("negative_answer").removeAttribute("hidden");
+    }
+
     // Inserimento di un annuncio per ogni entry dell'array "ads_data"
     ads_data.forEach(ad_data => {
         // Generazione codice HTML dell'annuncio
