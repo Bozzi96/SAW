@@ -28,7 +28,20 @@
     <div class="container" id="ad_card_wrapper">
         <div class="card">
             <div class="card-header">
-                <h1 class="card-title" id="ad_title"></h1>
+                <h1 class="card-title" id="ad_title"> <span class="text-success" id="venduto"></span> </h1>
+                
+                <!-- Gruppo bottoni per comprare un videogioco -->
+                
+                        <button type="button" class="btn btn-success dropdown-toggle" id="buyButton" data-toggle="dropdown">
+                            Compra
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="rimuovi dropdown-item" style="cursor: pointer " onclick="buy_ad()" >Voglio acquistare questo videogioco, procedi</li>
+                        </ul>
+                
+                
+                
             </div>
             <div class="card-body">
                 <div class="row">
@@ -106,5 +119,13 @@
     <script src="../js/localization.js"></script>
     <script src="../js/view_ad.js"></script>
 </body>
+
+<?php
+session_start();
+$mails = strcmp($_SESSION['target_user'], $_SESSION['utente']['email']);
+//Se si è nella pagina di un proprio annuncio, si rimuove il pulsante "Compra"
+if(isset($_SESSION['target_user']) && $mails==0)
+echo "<script> remove_buyButton() </script> ";
+?>
 
 </html>
