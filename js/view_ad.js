@@ -162,7 +162,7 @@ function fill_message(message_code, message_data) {
 
     // Se l'autore del messaggio è il proprietario dell'annuncio si evidenzia
     if (current_ad.owner_email === message_data.autore) {
-        sender.style.color = "#cc5803";
+        sender.style.color = " #428bca";
     }
 
     return message;
