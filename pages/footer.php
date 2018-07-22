@@ -1,5 +1,5 @@
 <!--Footer-->
-<footer class="page-footer font-small stylish-color-dark pt-4 mt-4">
+<footer class="page-footer font-small stylish-color-dark pt-4 mt-4 ">
 
     <!--Footer Links-->
     <div class="container text-center text-md-left">
@@ -79,11 +79,10 @@
             </div>
             <!--/.Fourth column-->
         </div>
-    </div><br>
+    </div>
     <!--/.Footer Links-->
 
     <hr><!--separator-->
-    <br>
     <!--Social buttons-->
     <div class="text-center">
         <ul class="list-unstyled list-inline">
@@ -108,7 +107,7 @@
                 </a>
             </li>
         </ul>
-    </div><br>
+    </div>
     <!--/.Social buttons-->
 
     <!--Copyright-->
