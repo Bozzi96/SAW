@@ -186,25 +186,8 @@ function get_ad_from_list(button) {
     return ad_info;
 }
 
-function new_ad_check() {
-    fetch("../php/new_ad_check.php")
-    .then(response => response.json())
-    .then(new_ad_inserted => {
-        var alert = document.getElementById("new_ad_alert");
-        if (new_ad_inserted === 1) {
-            alert.className += " alert-success"; // spazio iniziale essenziale
-            alert.innerHTML = "Annuncio inserito correttamente."
-            alert.removeAttribute("hidden");
-        }
-    })
-}
-
 // A caricamento completato, la pagina inizia a recuperare i dati dal server
-window.addEventListener("load", function(){
-    // Visualizzazione alert di avvenuto inserimento
-    new_ad_check();
-    get_ad_data();
-});
+window.addEventListener("load", get_ad_data());
 // Per ogni annuncio nella lista si collega un listener per visualizzare
 // la pagina di dettaglio.
 var list = document.getElementById("ads_list");
