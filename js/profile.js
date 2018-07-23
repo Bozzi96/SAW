@@ -16,8 +16,6 @@ function oneChange(element) {
 //funzione per riempire correttamente i campi al caricamento della pagina
 window.addEventListener("load", function () {
 
-        //la pagina non viene mostrata finchè i campi non sono stati riempiti
-        document.getElementsByTagName("BODY")[0].style.display = "none";
         fetch("../php/select_user.php", {
                 credentials: "same-origin"             //mantiene i dati di sessione
         })
@@ -60,9 +58,6 @@ window.addEventListener("load", function () {
                                 document.getElementById("optional"+j).removeAttribute("hidden");
                                 
                         }                         
-                        //riempiti i campi, viene mostrata la pagina
-                        document.getElementsByTagName("BODY")[0].style.display = "block";
-
                 })
 
 });

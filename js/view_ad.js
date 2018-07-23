@@ -219,6 +219,46 @@ function send_message(current_ad) {
     });
 }
 
+
+/**
+ * Rende l'annuncio venduto e modifica la pagina di conseguenza
+ */
+function buy_ad(current_ad_json) {
+    
+    fetch("../php/buy_ad.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: current_ad_json
+    })
+    .then(response=>response.json())
+    .then(data => {
+        document.getElementById("buyButton").innerText = "Comprato!";
+        document.getElementById("buyButton").disabled = "disabled";
+        document.getElementById("image_venduto").removeAttribute("hidden");
+    })
+}
+
+function display_buyButton(current_ad_json) {
+    fetch("../php/get_buyButton.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: current_ad_json
+    })
+    .then(response=>response.json())
+    .then(ad_status=> {
+        window.console.log(ad_status);
+        if (ad_status === 1) {
+            document.getElementById("buyButton").removeAttribute("hidden");
+        }
+    })
+}
+
 // Recupero delle info dell'annuncio: rimangono memorizzate qui
 // così che le future chiamate ajax non debbano riprenderle ogni volta.
 var current_ad_json = window.sessionStorage.getItem("ad_info");
@@ -228,7 +268,9 @@ var current_ad = JSON.parse(current_ad_json);
 
 window.addEventListener("load", function(){
     // Visualizza informazioni dell'annuncio
-    display_clicked_ad(current_ad_json);
+    display_ad(current_ad_json);
+    // Visualizza il bottone "Compra"
+    display_buyButton(current_ad_json);
     // Visualizzazione della chat
     get_messages(current_ad_json);
 });
