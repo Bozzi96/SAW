@@ -1,8 +1,8 @@
 <?php
 
     /*
-    Questo script interroga il database e ottiene le informazioni relative all'annuncio,
-    dopodiché le converte in formato JSON e le ritorna al codice JS che le ha richieste.
+    Questo script interroga il database e ottiene le
+    informazioni relative all'annuncio che si vuole visualizzare.
     */
 
     # La sessione contiene i dati per visualizzare l'annuncio corretto
@@ -11,27 +11,14 @@
     # Connessione al db
     require '../db/connection.php';
 
-    # Recupero dei dati da visualizzare
-    if (isset($_SESSION['new_ad'])) {
-        # L'annuncio da visualizzare è quello appena inserito dall'utente
-        
-        $email = $_SESSION['new_ad']['email'];    # i dati sono già sanitizzati
-        $v_name = $_SESSION['new_ad']['v_name'];
-        $console = $_SESSION['new_ad']['console'];
-
-        # Invalida dell'array di sessione
-        unset($_SESSION['new_ad']);
-    }
-    else {
-        # L'annuncio da visualizzare è stato cliccato nella lista.
-        # La funzione "file_get_contents()" ottiene le informazioni
-        # inviate dal client per recuperare l'annuncio dal database.
-        $ad_info = json_decode(file_get_contents("php://input"));
-        
-        $email = $ad_info -> owner_email;
-        $v_name = $ad_info -> v_name;
-        $console = $ad_info -> console;
-    }
+    # L'annuncio da visualizzare è stato cliccato nella lista.
+    # La funzione "file_get_contents()" ottiene le informazioni
+    # inviate dal client per recuperare l'annuncio dal database.
+    $ad_info = json_decode(file_get_contents("php://input"));
+    
+    $email = $ad_info -> owner_email;
+    $v_name = $ad_info -> v_name;
+    $console = $ad_info -> console;
 
     # Interrogazione del database: ritorna una entry contenente l'annuncio e il suo proprietario.
     $stmt = $conn -> prepare("

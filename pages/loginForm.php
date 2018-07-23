@@ -56,7 +56,7 @@
 
         <br>
         <!-- Card -->
-        <div class="card w-50 flex-center border border-dark"><!--ridimensionamento della card -> la sposto sulla sinistra-->
+        <div class="card  flex-center border border-dark"><!--ridimensionamento della card -> la sposto sulla sinistra-->
         
             <!-- Card body -->
             <div class="card-body">

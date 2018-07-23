@@ -74,8 +74,12 @@
                     <div class="container" id="messages_container">
 
                     </div>
-                    <input type="text" id="message" maxlength="200" placeholder="Scrivi un messaggio" size="30">
-                    <button type="button" onclick="send_message(current_ad);">Invia</button>
+                    <div class="input-group mt-2">
+                        <input type="text" id="message" class="form-control" maxlength="200" placeholder="Scrivi un messaggio">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-sm" type="button" onclick="send_message(current_ad);">Invia</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
