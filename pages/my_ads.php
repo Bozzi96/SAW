@@ -29,11 +29,6 @@
     <div class="container">
         <div id="negative_answer" class="alert alert-danger" role="alert" hidden></div>
     </div>
-
-    <!-- Alert per notificare l'avvenuto inserimento di un nuovo annuncio -->
-    <div class="container">
-        <div id="new_ad_alert" class="alert" role="alert" hidden></div>
-    </div>
         
 
     <div class="container">

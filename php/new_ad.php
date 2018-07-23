@@ -28,15 +28,21 @@
     $status = "Disponibile";
     $stmt -> execute();
 
-    # Setting della variabile di sessione per mostrare l'avvenuto inserimento
-    $_SESSION['new_ad'] = true;
+    # Array di sessione per indicare che è appena stato inserito un nuovo annuncio.
+    # Necessario per il redirect finale, così può sapere quale annuncio visualizzare.
+    $new_ad = array(
+        "email" => $email,
+        "v_name" => $v_name,
+        "console" => $console
+    );
+    $_SESSION['new_ad'] = $new_ad;
 
     # Chiusura della connessione
     $stmt -> close();
     $conn -> close();
 
     # Reindirizzamento alla pagina di visualizzazione annuncio
-    header("location: ../pages/my_ads.php");
+    header("location: ../pages/view_ad.php");
     exit(); # same as die()
 
 ?>
