@@ -63,6 +63,7 @@
                             </div>
                         </div>
                     </div>
+                    <img src="../images/venduto.jpg" hidden alt="Venduto" id="image_venduto" class="venduto">
                     <!-- Parte destra: proprietario -->
                     <div class="col-sm-3">
                         <br>

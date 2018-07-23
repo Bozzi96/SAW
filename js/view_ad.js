@@ -268,7 +268,7 @@ var current_ad = JSON.parse(current_ad_json);
 
 window.addEventListener("load", function(){
     // Visualizza informazioni dell'annuncio
-    display_ad(current_ad_json);
+    display_clicked_ad(current_ad_json);
     // Visualizza il bottone "Compra"
     display_buyButton(current_ad_json);
     // Visualizzazione della chat
