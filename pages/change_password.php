@@ -92,7 +92,9 @@
             
     </div><br><br><br>
 
-    
+    <?php
+    include "footer.php";
+    ?>
 
     
      <!-- Optional JavaScript -->
