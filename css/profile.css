@@ -20,3 +20,15 @@ body {
 .panel-body {
     font-size: 1.1em;
 }
+
+
+/*Regola per rimuovere lo spin button in un input type="number"*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { /*Chrome, Safari, IE*/
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type='number'] { /* Firefox*/
+    -moz-appearance:textfield;
+}

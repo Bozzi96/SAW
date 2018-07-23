@@ -239,6 +239,7 @@ unset($_SESSION['num']);
 //notifica di valutazione
 if(isset($_SESSION['returnValue']))
         echo "<script> displayFeedback(" .$_SESSION['returnValue']. ") </script>";
+//unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
 unset($_SESSION['returnValue']);
 
 ?>
