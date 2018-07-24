@@ -1,5 +1,5 @@
 /*
- * Questo script ottiene i dati degli annunci pubblicati
+ * Questo script ottiene i dati degli annunci acquistati
  * dall'utente loggato e li carica dinamicamente
  * nella lista della pagina.
  */
@@ -11,7 +11,7 @@
  * memorizzati nel server.
  */
 function get_ad_data() {
-    fetch("../php/getall_my_ads.php")
+    fetch("../php/getall_purchased_ads.php")
     .then(response => response.json())
     .then(ads_data => display_ads(ads_data))
 }
@@ -36,9 +36,9 @@ function isEmpty(obj) {
  * @param ads_data Info degli annunci ottenuti dal server
  */
 function display_ads(ads_data) {
-    if(isEmpty(ads_data)){
+    if(isEmpty(ads_data)) {
         document.getElementById("negative_answer").innerHTML = 
-            "Non hai pubblicato alcun annuncio.";
+            "Non hai comprato alcun annuncio.";
         document.getElementById("negative_answer").removeAttribute("hidden");
     }
     // Inserimento di un annuncio per ogni entry dell'array "ads_data"
@@ -122,88 +122,55 @@ function create_ad() {
  * @param {*} event Ciò che ha provocato la chiamata di questa funzione
  */
 function show_ad(event) {
-    // Bottone che ha catturato l'evento
-    let button = event.target;
-
-    if (button.className.includes("dettagli")) {
-        // Si vuole visualizzare l'annuncio nel dettaglio
-        let ad_info = get_ad_from_list(button);
-
+    // Elemento che ha catturato l'evento
+    let target = event.target;
+    if (target.tagName !== "BUTTON") {
+        // Se non è un bottone all'interno della lista non c'è nulla da fare
+        return;
+    }
+    else {
+        // Recupero delle informazioni riguardo all'annuncio cliccato
+        let clicked_ad = target.closest("div.card");
+        let title = clicked_ad.getElementsByClassName("card-title")[0];
+        let fields = clicked_ad.getElementsByClassName("col-sm-5");
+        // Codifica in formato JSON per poter essere passate al server nella richiesta
+        let ad_info = JSON.stringify({
+            "owner_email": title.dataset.owner_email,
+            "v_name": title.innerHTML,
+            "console": fields[0].innerHTML, // console
+        });
         // Salvataggio dei dati in sessionStorage così da poter essere recuperati
         // dalla pagina "view_ad.html"
         sessionStorage.setItem("ad_info", ad_info);
-
         // Redirect verso la pagina di visualizzazione annuncio
         window.location.href = "../pages/view_ad.php";
-    }
-    else if (button.className.includes("rimuovi")) {
-        // L'utente vuole rimuovere l'annuncio (e ha già confermato)
-        let ad_info = get_ad_from_list(button);
-        
-        // Rimozione dell'annuncio dal database
-        fetch("../php/remove_ad.php", {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: ad_info
-        })
-        .then(response => response.json())
-        .then(removed => {
-            if (removed === 1) {
-                // Rimozione avvenuta con successo.
-                // La pagina viene ricaricata by-passando la cache
-                window.location.reload(true);
-            } else {
-                window.console.log("Annuncio non rimosso!");
-            }
-        });
 
-    } else {
-        // Non è stato cliccato un bottone all'interno della lista
-        return;
     }
 }
 
 /**
- * Ottiene le informazioni dell'annuncio su cui è stato cliccato
- * uno dei bottoni disponibili.
- * @param {*} button Bottone cliccato nella lista
+ * Visualizza il banner di conferma acquisto nel caso
+ * si sia stati reindirizzati a questa pagina dopo un
+ * acquisto.
  */
-function get_ad_from_list(button) {
-    // Recupero delle informazioni riguardo all'annuncio cliccato
-    let clicked_ad = button.closest("div.card");
-    let title = clicked_ad.getElementsByClassName("card-title")[0];
-    let fields = clicked_ad.getElementsByClassName("col-sm-5");
-
-    // Codifica in formato JSON per poter essere passate al server nella richiesta
-    let ad_info = JSON.stringify({
-        "owner_email": title.dataset.owner_email,
-        "v_name": title.innerHTML,
-        "console": fields[0].innerHTML, // console
-    });
-
-    return ad_info;
-}
-
-function new_ad_check() {
-    fetch("../php/new_ad_check.php")
-    .then(response => response.json())
-    .then(new_ad_inserted => {
-        var alert = document.getElementById("new_ad_alert");
-        if (new_ad_inserted === 1) {
-            alert.className += " alert-success"; // spazio iniziale essenziale
-            alert.innerHTML = "Annuncio inserito correttamente."
-            alert.removeAttribute("hidden");
-        }
-    })
+function just_purchased_ad() {
+    var flag = window.sessionStorage.getItem("flag");
+    if (flag != null) {
+        // Un annuncio è stato appena comprato
+        let alert = document.getElementById("purchased_ad_alert");
+        alert.className += " alert-success";
+        alert.innerHTML = "Ottimo! Hai appena comprato un annuncio."
+        alert.removeAttribute("hidden");
+    }
+    // Unset del flag
+    window.sessionStorage.removeItem("flag");
 }
 
 // A caricamento completato, la pagina inizia a recuperare i dati dal server
-window.addEventListener("load", function(){
-    // Visualizzazione alert di avvenuto inserimento
-    new_ad_check();
+window.addEventListener("load", function() {
+    // Visualizzazione banner di conferma annuncio se opportuno
+    just_purchased_ad();
+    // Ottenimento dati dal server
     get_ad_data();
 });
 // Per ogni annuncio nella lista si collega un listener per visualizzare

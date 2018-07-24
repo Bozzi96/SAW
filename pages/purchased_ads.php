@@ -21,20 +21,22 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?> <br><br><br>
+    <?php include 'navbar.php'; ?>
+    <br>
+    <br>
+    <br>
 
-    <h1 id="list_title">I miei annunci</h1>
+    <h1 id="list_title">Annunci acquistati</h1>
 
     <!-- Alert per notificare la mancanza di annunci da visualizzare -->
     <div class="container">
         <div id="negative_answer" class="alert alert-danger" role="alert" hidden></div>
     </div>
 
-    <!-- Alert per notificare l'avvenuto inserimento di un nuovo annuncio -->
+    <!-- Alert per notificare l'avvenuto acquisto di un nuovo annuncio -->
     <div class="container">
-        <div id="new_ad_alert" class="alert" role="alert" hidden></div>
+        <div id="purchased_ad_alert" class="alert" role="alert" hidden></div>
     </div>
-        
 
     <div class="container">
         <!-- Lista degli annunci caricata dinamicamente -->
@@ -64,16 +66,6 @@
                     </div>
                     <br>
                     <button type="button" class="dettagli btn btn-primary">Dettagli</button>
-                    <!-- Gruppo bottoni per rimuovere l'annuncio -->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                            Rimuovi
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="rimuovi dropdown-item" style="cursor: pointer">Sono sicuro, rimuovi l'annuncio</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </li>
@@ -92,7 +84,7 @@
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
     <!-- Our JS -->
-    <script src="../js/my_ads.js"></script>
+    <script src="../js/purchased_ads.js"></script>
 
 </body>
 

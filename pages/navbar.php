@@ -50,9 +50,9 @@
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="../php/my_profile.php">Il mio profilo</a>
-                                    <a class="dropdown-item" href="new_ad_form.php">Pubblica annuncio</a>
                                     <a class="dropdown-item" href="my_ads.php">I miei annunci</a>
-                                    <a class="dropdown-item" href="#">Help?</a>
+                                    <a class="dropdown-item" href="purchased_ads.php">Annunci acquistati</a>
+                                    <a class="dropdown-item" href="new_ad_form.php">Pubblica annuncio</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../php/logout.php">Esci<i class="fa fa-sign-out" aria-hidden="true"></i></a>
                                     </div>

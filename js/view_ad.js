@@ -235,9 +235,18 @@ function buy_ad(current_ad_json) {
     })
     .then(response=>response.json())
     .then(data => {
+        // Visualizzazione conferma dell'acquisto
         document.getElementById("buyButton").innerText = "Comprato!";
         document.getElementById("buyButton").disabled = "disabled";
         document.getElementById("image_venduto").removeAttribute("hidden");
+
+        // Reindirizzamento nella pagina "Annunci acquistati" dopo .5 secondi
+        setTimeout(function() {
+            // Passaggio di un flag alla pagina per visualizzare il banner di conferma
+            var purchased = 1;
+            window.sessionStorage.setItem("flag", JSON.stringify(purchased));
+            window.location.href = "../pages/purchased_ads.php";
+        }, 1000);
     })
 }
 
