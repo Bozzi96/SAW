@@ -34,6 +34,21 @@ function fill_ad(ad_data) {
 }
 
 /**
+ * Visualizza l'affidabilità del proprietario dell'annuncio.
+ * @param {*} ad_data Dati dell'annuncio e del proprietario
+ */
+function display_feedback(ad_data) {
+    if (ad_data.feed_positivi + ad_data.feed_negativi === 0) {
+        // L'utente non è mai stato valutato: il campo diventa non visibile
+        document.getElementById("owner_feedback").style.display = "none";
+    }
+    // Calcolo dell'affidabilità
+    var reliability = ad_data.feed_positivi * 100 / (ad_data.feed_positivi + ad_data.feed_negativi);
+    // Visualizzazione dell'affidabilità
+    document.getElementById("owner_feedback").innerHTML += reliability.toFixed(0) + "%";
+}
+
+/**
  * Visualizza le informazioni di un particolare annuncio.
  * Quest'ultimo è stato cliccato nella pagina dei risultati
  * della ricerca.
@@ -50,7 +65,10 @@ function display_clicked_ad(ad_info) {
         body: ad_info
     })
     .then(response => response.json())
-    .then(ad_data => fill_ad(ad_data));
+    .then(ad_data => {
+        fill_ad(ad_data);
+        display_feedback(ad_data);
+    });
 }
 
 /**
