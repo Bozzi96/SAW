@@ -40,6 +40,7 @@ function display_ads(ads_data) {
         document.getElementById("negative_answer").innerHTML = 
             "Non hai pubblicato alcun annuncio.";
         document.getElementById("negative_answer").removeAttribute("hidden");
+        document.getElementById("fix-footer").innerHTML = "<br><br><br><br><br><br><br><br>";
     }
     // Inserimento di un annuncio per ogni entry dell'array "ads_data"
     ads_data.forEach(ad_data => {

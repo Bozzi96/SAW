@@ -29,7 +29,7 @@
     <div class="container ">
 
         <!-- Card -->
-        <div class="card w-50 ">
+        <div class="card w-50 border border-dark">
             <!--ridimensionamento della card -> la sposto sulla sinistra-->
 
             <!-- Card body -->

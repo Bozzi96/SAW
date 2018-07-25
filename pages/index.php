@@ -70,29 +70,30 @@
         <div class="row  ">
             <div class="col-md-4 border-right border-dark">
                 <h2 class="text-center">COS'E'?</h2>
-                <p class="text-left">Duis ut massa mi. Quisque commodo augue vel congue venenatis. Praesent in leo magna. Vestibulum placerat metus dolor, non
-                tempus quam faucibus et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut magna
-                leo, dapibus ac risus id, auctor pulvinar ligula. Ut id dictum magna. Aenean ac pulvinar neque, at fermentum turpis. Orci
-                varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut est ipsum, ultrices eget ante eu, imperdiet
-                sollicitudin diam. Integer ac erat eget mauris pulvinar consectetur.
+                <p class="text-left"><b>vgSWAP</b> è una piattaforma studiata appositamente per lo sharing di videogiochi nella maniera piu semplice che ci sia.
+                Attraverso poche e semplici mosse è possibile cominciare a condivere tutti i giochi che avete in casa e che ora non usate piu.
+                Potete inserire un gioco per averne in cambio un altro durante un arco temporale che decidete, oppure noleggiarlo, sempre durante un 
+                arco temporale prefissato e ad una tariffa arbitraria all'utente.
+                Essendo una piattaforma di sharing, gli accordi a seguito di una condivisione/noleggio sono da concordare tra i due utenti interessati
+                tramite la chat interna della piattaforma oppure tramite email.
                </p>
             </div>
             <div class="col-md-4 border-right border-dark">
                 <h2 class="text-center">PERCHE'?</h2>
-                <p class="text-left">Curabitur tincidunt sapien eros, quis consectetur leo tincidunt dapibus. Morbi molestie molestie massa, gravida iaculis massa
-                varius eget. Vivamus vitae arcu a magna efficitur fringilla. Proin lacinia nunc sit amet elementum mollis. Nullam in lorem
-                lacus. Fusce ullamcorper lorem eget lacus efficitur, sed elementum lacus faucibus. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas. In tincidunt et sapien rhoncus semper. Nunc et condimentum felis,
-                ac elementum turpis. Etiam sollicitudin dignissim ultrices. Aenean laoreet dolor eu eleifend accumsan.</p>
+                <p class="text-left">La piattaforma è pensata per tutti gli amanti dei videogames e che, allo stesso tempo, ne odiano il prezzo cosi elevato.
+                Per questo abbiamo pensato, quando si finisce un gioco, oppure ci si stufa, al posto di lasciarlo sul mobile a  prendere polvere, condividerlo
+                a persone che non lo hanno mai usato in cambio di un altro gioco, che, viceversa, non è mai stato provato evitando di comprarli nuovi di
+                volta in volta. Quindi, è possibile inserire uno o piu videogames per averne in cambio altri, oppure noleggiarli.</p>
                 
             </div>
             <div class="col-md-4 ">
                 <h2 class="text-center">COME?</h2>
-                <p class="text-left"> Mauris ante eros, molestie venenatis lectus vel, imperdiet hendrerit augue. Suspendisse luctus et velit volutpat pharetra.
-                Donec porttitor malesuada lorem vitae egestas. Etiam eu scelerisque purus. Phasellus sit amet ante sit amet nisi ultricies
-                ullamcorper. Aliquam vel cursus tellus. Nulla in ante ac enim venenatis viverra ornare id metus.</p>
+                <p class="text-left"> E' sufficiente registrarsi alla piattaforma e accedervi per cominciare ad utilizzarla. Una volta loggati è possibile gestire tutte le
+                informazioni associate al vostro profilo nella sezione "il mio profilo", vedere tutti gli annunci inseiti attraverso la sezione "i miei annunci",
+                pubblicare un annuncio per renderlo visibile a tutti gli utenti  in "pubblica annuncio" e, ovviamente, fare una ricerca cliccando direttamente sul 
+                logo in alto a sinistra della barra di navigazione.</p>
                 <div class="text-center">
-                    <a class="btn btn-outline-elegant wow fadeInDown" data-wow-delay="0.4s" href="SignUp.php">SignUp now</a>
+                    <a class="btn btn-outline-elegant wow fadeInDown" data-wow-delay="0.4s" href="SignUp.php">Registrati ora</a>
                 </div>
             </div>
         </div>

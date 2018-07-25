@@ -64,10 +64,10 @@
                                 //non è ancora stato fatto il login
                                 echo '<ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
-                                    <a class="nav-link" href="loginForm.php">Login<i class="fa fa-sign-in" aria-hidden="true"></i> </a>
+                                    <a class="nav-link" href="loginForm.php">Accedi<i class="fa fa-sign-in" aria-hidden="true"></i> </a>
                                     </li>
                                     <li class="nav-item">
-                                     <a class="nav-link" href="#">Help
+                                     <a class="nav-link" href="#">Aiuto
                                     <i class="fa fa-question" aria-hidden="true"></i></a>
                                     </li>
                                     </ul>';
@@ -75,14 +75,14 @@
                                 //default: homepage classica
                                 echo '<ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
-                                    <a class="nav-link" href="loginForm.php">Login<i class="fa fa-sign-in" aria-hidden="true"></i> </a>
+                                    <a class="nav-link" href="loginForm.php">Accedi<i class="fa fa-sign-in" aria-hidden="true"></i> </a>
                                     </li>
                                     <li class="nav-item">
-                                    <a class="nav-link" href="SignUp.php">Sign Up
+                                    <a class="nav-link" href="SignUp.php">Registrati
                                     <i class="fa fa-level-up" aria-hidden="true"></i></a>
                                     </li>
                                     <li class="nav-item">
-                                     <a class="nav-link" href="#">Help
+                                     <a class="nav-link" href="#">Aiuto
                                     <i class="fa fa-question" aria-hidden="true"></i></a>
                                     </li>
                                     </ul>';

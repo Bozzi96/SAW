@@ -38,6 +38,7 @@ function display_ads(ads_data) {
     if (isEmpty(ads_data)) {
         document.getElementById("negative_answer").innerHTML = "Nessun annuncio trovato.";
         document.getElementById("negative_answer").removeAttribute("hidden");
+        document.getElementById("fix-footer").innerHTML = "<br><br><br><br><br><br>";
     }
 
     // Inserimento di un annuncio per ogni entry dell'array "ads_data"

@@ -31,6 +31,7 @@
     <!-- Alert per notificare la mancanza di annunci da visualizzare -->
     <div class="container">
         <div id="negative_answer" class="alert alert-danger" role="alert" hidden></div>
+        <p id="fix-footer"></p>
     </div>
 
     <!-- Alert per notificare l'avvenuto acquisto di un nuovo annuncio -->
