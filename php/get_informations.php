@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $myObj;
+    $myObj = new stdClass();
     
         if(isset($_SESSION["utente"])){
             $citta = $_SESSION['utente']['citta'];
