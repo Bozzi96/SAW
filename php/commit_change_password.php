@@ -1,18 +1,20 @@
 <?php
-
 session_start();
+
+//Instaurazione connessione
 include("../db/mysql_credentials.php");
 $con = new mysqli($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
 
+//Salvataggio parametri
 $oldPassword = $_POST['oldPassword'];
 $newPassword = $_POST['newPassword'];
 $repeatPassword = $_POST['repeatPassword'];
+$email = $_SESSION['utente']['email'];
 
-$email= $_SESSION['utente']['email'];
 //La prima query serve per ottenere la vecchia password e verificare la correttezza
-$query ="SELECT psw FROM utenti WHERE email='$email'";
+$query = "SELECT psw FROM utenti WHERE email='$email'";
 $res = $con->query($query);
-$oldpsw= $res->fetch_object();
+$oldpsw = $res->fetch_object();
 
 //Valore di ritorno per distinguere i casi di successo o insuccesso
 $returnValue=0;
@@ -33,7 +35,7 @@ $returnValue = -1;
 }
 $con->close();
 //redirect verso la pagina precedente
-$_SESSION['returnValue']= $returnValue;
+$_SESSION['returnValue'] = $returnValue;
 header("location: ../pages/change_password.php");
 exit();  //same as die();
 ?>

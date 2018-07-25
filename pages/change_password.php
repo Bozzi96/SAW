@@ -20,7 +20,7 @@
     <!--essenziale per strutture responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Cambia la password</title>
+    <title>Modifica la tua password</title>
     
 
 </head>
@@ -33,7 +33,7 @@
 
     <div class="container">
         <!-- Card -->
-        <div class="card w-50"><!--ridimensionamento della card -> la sposto sulla sinistra-->
+        <div class="card w-50"><!--ridimensionamento della card -->
         
             <!-- Card body -->
             <div class="card-body">
@@ -48,19 +48,19 @@
                         
                         <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" name="oldPassword" id="oldPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la password attuale!" required>
+                        <input type="password" name="oldPassword" id="oldPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la password attuale" required>
                         <label for="oldPassword" class="font-weight-light">Vecchia password</label>
                         </div>
 
                         <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" name="newPassword" id="newPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la nuova password.Utilizza una password sicura lunga almeno 8 caratteri. Si consiglia l'utilizzo di maiuscole e numeri." required>
+                        <input type="password" name="newPassword" id="newPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la nuova password. Lunghezza minima: 8 caratteri." required>
                         <label for="newPassword" class="font-weight-light">Nuova password</label>
                         </div>
 
                         <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" name="repeatPassword" id="repeatPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="reinserisci la nuova password" required>
+                        <input type="password" name="repeatPassword" id="repeatPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Reinserisci la nuova password" required>
                         <label for="oldPassword" class="font-weight-light">Ripeti password</label>
                         <div id="afterpsw">
                                     <?php
@@ -74,7 +74,7 @@
                                             //Notifica di errore nella modifica della password
                                             else if(isset($_SESSION['returnValue']) && $_SESSION['returnValue']===-1)
                                             echo '<div class="alert alert-danger"> Errore, password non modificata!</div>';
-                                            //unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
+                                            //Unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
                                             unset($_SESSION['returnValue']);
                                     ?>
 
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="text-center py-4 mt-3">
-                        <button id="submitButton" class="btn btn-outline-elegant wow fadeInDown" data-wow-delay="0.4s" disabled="true" type="submit">Salva la modifica della password"</button>
+                        <button id="submitButton" class="btn btn-outline-elegant wow fadeInDown" data-wow-delay="0.4s" disabled="true" type="submit">Salva la modifica della password</button>
                         </div>
                     </form>
                     </div>
@@ -111,6 +111,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
     <script type="text/javascript" src="../js/SignUpForm_inputControl.js"></script>
+    <!-- Our JS -->
     <script src="../js/change_password.js"></script>
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
     

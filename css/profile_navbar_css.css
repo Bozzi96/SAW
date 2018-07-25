@@ -1,6 +1,6 @@
-/*modifico selettore bootstrap per dare del margine sinistro alla scritta del logo nella navbar*/
+/* Modifica del selettore bootstrap per dare del margine sinistro alla scritta del logo nella navbar*/
 .navbar-brand {
-    font-family: 'Orbitron', sans-serif;/*indica il font di Google per la scritta del logo nella navbar*/
+    font-family: 'Orbitron', sans-serif; /* Font di Google per la scritta del logo nella navbar*/
     display: inline-block;
     padding-top: .3125rem;
     padding-bottom: .3125rem;
@@ -8,10 +8,10 @@
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
-    margin-left:  0rem;/*!!*/
+    margin-left:  0rem;
 }
 
-/* animazione navbar*/
+/* Animazione navbar*/
 .top-nav-collapse {
     background-color: #000000 !important; 
 }
@@ -41,7 +41,7 @@ h5 {
         height: 700px; 
     } 
 }
-/* fine navigazione navbar*/
+/* Fine navigazione navbar*/
 
 body{
     background-color: rgb(163, 163, 163);
