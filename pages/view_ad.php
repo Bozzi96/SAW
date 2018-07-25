@@ -72,7 +72,7 @@
                             <img class="card-img-top" id="profile_img" src="" alt="Card image">
                             <div class="card-body">
                                 <h4 class="card-title" id="ad_owner"></h4>
-                                <h5 id="owner_feedback">Affidabilità: </h5>
+                                <h5 id="owner_feedback">Affidabilita&#768;: </h5>
                                 <p class="card-text" id="location"></p>
                                 <a href="profile.php" class="btn btn-primary">Visualizza profilo</a>
                             </div>

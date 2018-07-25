@@ -69,9 +69,9 @@
         <br><br><br>
         <div class="row  ">
             <div class="col-md-4 border-right border-dark">
-                <h2 class="text-center">COS'E'?</h2>
-                <p class="text-left"><b>vgSWAP</b> è una piattaforma studiata appositamente per lo sharing di videogiochi nella maniera piu semplice che ci sia.
-                Attraverso poche e semplici mosse è possibile cominciare a condivere tutti i giochi che avete in casa e che ora non usate piu.
+                <h2 class="text-center">COS'E&#769;?</h2>
+                <p class="text-left"><b>vgSWAP</b> è una piattaforma studiata appositamente per lo sharing di videogiochi nella maniera piu&#768; semplice che ci sia.
+                Attraverso poche e semplici mosse è possibile cominciare a condivere tutti i giochi che avete in casa e che ora non usate piu&#768;.
                 Potete inserire un gioco per averne in cambio un altro durante un arco temporale che decidete, oppure noleggiarlo, sempre durante un 
                 arco temporale prefissato e ad una tariffa arbitraria all'utente.
                 Essendo una piattaforma di sharing, gli accordi a seguito di una condivisione/noleggio sono da concordare tra i due utenti interessati
@@ -79,17 +79,17 @@
                </p>
             </div>
             <div class="col-md-4 border-right border-dark">
-                <h2 class="text-center">PERCHE'?</h2>
-                <p class="text-left">La piattaforma è pensata per tutti gli amanti dei videogames e che, allo stesso tempo, ne odiano il prezzo cosi elevato.
-                Per questo abbiamo pensato, quando si finisce un gioco, oppure ci si stufa, al posto di lasciarlo sul mobile a  prendere polvere, condividerlo
-                a persone che non lo hanno mai usato in cambio di un altro gioco, che, viceversa, non è mai stato provato evitando di comprarli nuovi di
-                volta in volta. Quindi, è possibile inserire uno o piu videogames per averne in cambio altri, oppure noleggiarli.</p>
+                <h2 class="text-center">PERCHE&#769;?</h2>
+                <p class="text-left">La piattaforma è pensata per tutti gli amanti dei videogames e che, allo stesso tempo, ne odiano il prezzo cosi&#768; elevato.
+                Per questo abbiamo pensato, quando si finisce un gioco oppure ci si stufa, al posto di lasciarlo sul mobile a  prendere polvere, lo si puo condividere
+                con persone che non lo hanno mai usato in cambio di un altro gioco.In questo modo si possono provare sempre giochi diversi evitando di comprarli nuovi di volta in volta.
+                Quindi, è possibile inserire uno o piu videogames per averne in cambio altri, oppure noleggiarli.</p>
                 
             </div>
             <div class="col-md-4 ">
                 <h2 class="text-center">COME?</h2>
-                <p class="text-left"> E' sufficiente registrarsi alla piattaforma e accedervi per cominciare ad utilizzarla. Una volta loggati è possibile gestire tutte le
-                informazioni associate al vostro profilo nella sezione "il mio profilo", vedere tutti gli annunci inseiti attraverso la sezione "i miei annunci",
+                <p class="text-left"> E&#769; sufficiente registrarsi alla piattaforma e accedervi per cominciare ad utilizzarla. Una volta loggati è possibile gestire tutte le
+                informazioni associate al vostro profilo nella sezione "il mio profilo", vedere tutti gli annunci inseriti attraverso la sezione "i miei annunci",
                 pubblicare un annuncio per renderlo visibile a tutti gli utenti  in "pubblica annuncio" e, ovviamente, fare una ricerca cliccando direttamente sul 
                 logo in alto a sinistra della barra di navigazione.</p>
                 <div class="text-center">

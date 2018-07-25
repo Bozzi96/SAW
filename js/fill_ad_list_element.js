@@ -90,7 +90,7 @@ function fill_ad(ad_code, ad_data) {
     title.dataset.owner_email = ad_data.email; // metadato: è la mail del proprietario
     fields[0].innerHTML = ad_data.console;
     fields[1].innerHTML = ad_data.durata + " giorni";
-    fields[2].innerHTML = ad_data.prezzo + " €";
+    fields[2].innerHTML = ad_data.prezzo + " &euro;";
 
     return ad;
 }

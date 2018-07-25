@@ -19,7 +19,7 @@ function fill_ad(ad_data) {
     document.getElementById("ad_title").innerHTML = ad_data.nome_videogioco;
     document.getElementById("console").innerHTML = ad_data.console;
     document.getElementById("loan_length").innerHTML = ad_data.durata + " giorni";
-    document.getElementById("price").innerHTML = ad_data.prezzo + " €";
+    document.getElementById("price").innerHTML = ad_data.prezzo + " &euro;";
 
     // Filling del proprietario dell'annuncio
     document.getElementById("ad_owner").innerHTML = ad_data.nome + " " + ad_data.cognome;
