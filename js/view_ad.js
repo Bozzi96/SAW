@@ -272,7 +272,8 @@ function display_badge(ad_info) {
     if (ad_info[1] === 1) {
         document.getElementById("badges_span").innerHTML += '  <span class="badge badge-info">Proprietario</span>  ';
         if (ad_info[0] === 0) {
-            document.getElementById("badges_span").innerHTML += '  <span class="badge badge-danger">Venduto</span>  '
+            document.getElementById("badges_span").innerHTML += '  <span class="badge badge-danger">Venduto a:  <i>' + ad_info[2] +
+            ' (' + ad_info[3] + " " + ad_info[4] + ') </i>   </span>  '
         }
     }
     if (ad_info[1] === -1) {

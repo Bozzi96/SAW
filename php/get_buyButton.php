@@ -16,7 +16,6 @@ $query = "SELECT stato, compratore
 $result = $con->query($query);
 $row = $result->fetch_object();
 
-//Casi possibili: annuncio comprato, l'utente loggato è compratore o venditore
 //variabile che tiene traccia dello stato dell'annuncio e dell'utente
 $response = array();
 
@@ -43,7 +42,22 @@ if (strcmp($_SESSION['utente']['email'] , $venditore)==0) {
     else {
         $response[] = 0;
     }
-    
+//Recupero delle informazioni sul compratore
+if($row->compratore!=null) {
+    $response[] = $row->compratore;
+    $query = "SELECT nome, cognome
+          FROM utenti
+          WHERE email = '$row->compratore'";
+$result = $con->query($query);
+$row = $result->fetch_object();
+
+//Salvataggio informazioni
+$response[] = $row->cognome;
+$response[] = $row->nome;
+        
+
+}
+
 echo json_encode($response);
 $con->close();
 ?>
