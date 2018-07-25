@@ -40,7 +40,7 @@
 
         <br>
         <!-- Card -->
-        <div class="card w-50 "><!--ridimensionamento della card -> la sposto sulla sinistra-->
+        <div class="card w-50 border border-dark"><!--ridimensionamento della card -> la sposto sulla sinistra-->
         
             <!-- Card body -->
             <div class="card-body">
@@ -116,7 +116,7 @@
                     <div id="password" class="text-right"></div>
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" name="password" id="Password" class="form-control" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="right" title="Utilizza una password sicura lunga almeno 8 caratteri. Si consiglia l'utilizzo di maiuscole e numeri." required>
+                        <input type="password" name="password" id="Password" class="form-control" minlength="8" onchange="validate(this.name,this.value)" data-toggle="tooltip" data-placement="right" title="Utilizza una password sicura lunga almeno 8 caratteri. Si consiglia l'utilizzo di maiuscole e numeri." required>
                         <label for="password" class="font-weight-light">Password </label>
                     </div>
 

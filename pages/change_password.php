@@ -24,6 +24,11 @@
     
 
 </head>
+<style>
+body{
+    background-color: rgb(4, 6, 44);
+}
+</style>
 
 <body>
     <?php
@@ -33,7 +38,7 @@
 
     <div class="container">
         <!-- Card -->
-        <div class="card w-50"><!--ridimensionamento della card -->
+        <div class="card w-50 border border-dark"><!--ridimensionamento della card -->
         
             <!-- Card body -->
             <div class="card-body">
@@ -48,13 +53,13 @@
                         
                         <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" name="oldPassword" id="oldPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la password attuale" required>
+                        <input type="password" name="oldPassword" id="oldPassword" class="form-control" minlength="8" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la password attuale" required>
                         <label for="oldPassword" class="font-weight-light">Vecchia password</label>
                         </div>
 
                         <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" name="newPassword" id="newPassword" class="form-control" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la nuova password. Lunghezza minima: 8 caratteri." required>
+                        <input type="password" name="newPassword" id="newPassword" class="form-control" minlength="8" onchange="verifypsw()" oninput="verifypsw()" data-toggle="tooltip" data-placement="right" title="Inserisci la nuova password. Lunghezza minima: 8 caratteri." required>
                         <label for="newPassword" class="font-weight-light">Nuova password</label>
                         </div>
 
@@ -91,10 +96,6 @@
         </div>
             
     </div><br><br><br>
-
-    <?php
-    include "footer.php";
-    ?>
 
     
      <!-- Optional JavaScript -->

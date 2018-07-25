@@ -10,6 +10,8 @@
 
     //ottenere il codice postale e citta.
 
+  }else{
+      header("location: index.php");
   }
 ?>
 
