@@ -28,7 +28,7 @@
     <div class="container" id="ad_card_wrapper">
         <div class="card">
             <div class="card-header">
-                <h1 class="card-title" id="ad_title"></h1>
+                <h1 class="card-title" id="ad_title"></h1> <span id="badges_span" class="badges_span"></span>
                 <!-- Gruppo bottoni per comprare un videogioco -->
                 <button type="button" class="btn btn-success dropdown-toggle" id="buyButton" data-toggle="dropdown" hidden>
                             Compra

@@ -268,7 +268,25 @@ function buy_ad(current_ad_json) {
     })
 }
 
-function display_buyButton(current_ad_json) {
+function display_badge(ad_info) {
+    if (ad_info[1] === 1) {
+        document.getElementById("badges_span").innerHTML += '  <span class="badge badge-info">Proprietario</span>  ';
+        if (ad_info[0] === 0) {
+            document.getElementById("badges_span").innerHTML += '  <span class="badge badge-danger">Venduto a:  <i>' + ad_info[2] +
+            ' (' + ad_info[3] + " " + ad_info[4] + ') </i>   </span>  '
+        }
+    }
+    if (ad_info[1] === -1) {
+        document.getElementById("badges_span").innerHTML += '  <span class="badge badge-success">Acquistato</span>  ';
+    }
+}
+
+
+/**
+ *  Funzione che mostra le modifiche in base alla disponibilità dell'annuncio
+ * @param {*} current_ad_json 
+ */
+function display_buyInfo(current_ad_json) {
     fetch("../php/get_buyButton.php", {
         method: "POST",
         headers: {
@@ -278,11 +296,14 @@ function display_buyButton(current_ad_json) {
         body: current_ad_json
     })
     .then(response=>response.json())
-    .then(ad_status=> {
-        window.console.log(ad_status);
-        if (ad_status === 1) {
+    .then(ad_info=> {
+        window.console.log(ad_info);
+        if (ad_info[0] === 1 && ad_info[1]!=1) {
+            //Annuncio disponibile e l'utente non è il proprietario dell'annuncio
+            //quindi il pulsante viene mostrato
             document.getElementById("buyButton").removeAttribute("hidden");
         }
+        display_badge(ad_info);
     })
 }
 
@@ -297,7 +318,7 @@ window.addEventListener("load", function(){
     // Visualizza informazioni dell'annuncio
     display_clicked_ad(current_ad_json);
     // Visualizza il bottone "Compra"
-    display_buyButton(current_ad_json);
+    display_buyInfo(current_ad_json);
     // Visualizzazione della chat
     get_messages(current_ad_json);
 });
