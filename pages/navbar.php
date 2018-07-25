@@ -79,11 +79,6 @@
                                     <li class="nav-item">
                                     <a class="nav-link" href="SignUp.php">Registrati
                                     <i class="fa fa-level-up" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                     <a class="nav-link" href="#">Aiuto
-                                    <i class="fa fa-question" aria-hidden="true"></i></a>
-                                    </li>
                                     </ul>';
                             }
                         ?>

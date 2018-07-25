@@ -82,6 +82,7 @@
             </div>
             <div class="card-footer">
                 <!-- Chat sotto le info dell'annuncio -->
+                <h3>Chat</h3>
                 <!-- Alert per notificare l'avvenuto inserimento di un nuovo annuncio -->
                 <div class="container">
                     <div id="private_chat_alert" class="alert" role="alert" hidden></div>
