@@ -47,30 +47,32 @@
     ?>
     <br><br><br><br><br><br>
 
+
     <!-- Grid row -->
     
         <div class="container">
-            <div class="row">
+            <div class="row flex-center">
                 
                     <div class="text-center">
                         <h3 class="h1-reponsive black-text text-uppercase  mb-3 wow fadeInDown" data-wow-delay="0.3s" style="font-family: 'Orbitron', sans-serif; ">
-                            <strong>INSERISCI   IL  NOME  DEL  VIDEOGIOCO  E  LA  TUA  PIATTAFORMA  PER  FARE  UNA  RICERCA</strong>
+                            <strong>Cerca un videogioco</strong>
                         </h3>
-                        <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
-                        <h5 class="text-uppercase mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">
-                            <strong></strong>
-                        </h5>
-
+                    </div>
+               
+            </div>
+            
                         <?php
                         if ($isSessionSet) {
                             //ulteriore check
                             include 'search_ad.php';
                         }
                         ?>
-                        
-                    </div>
-               
-            </div><br>
+
+                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <div class="text-center">
+                        <a href="new_ad_form.php" class="btn btn-outline-elegant btn-lg ">Pubblica un annuncio</a>
+                        </div>
+                        <hr class="hr-dark mt-4 wow fadeInDown" data-wow-delay="0.4s">
                         <!--Google map-->
                         <div id="map-container" class="z-depth-1" style="height: 400px;"></div>
                         

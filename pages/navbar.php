@@ -57,7 +57,6 @@
                                     <a class="dropdown-item" href="../php/logout.php">Esci<i class="fa fa-sign-out" aria-hidden="true"></i></a>
                                     </div>
                                     </div>
-    
                                     </ul>';
 
                             }elseif ($isRegistrationMade) {
