@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 //Instaurazione della connessione
 require "../db/mysql_credentials.php";
 $con = new mysqli($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
@@ -18,7 +19,6 @@ $con->query($query);
 
 
 //Query di aggiornamento dell'annuncio venduto
-
 $query = "UPDATE annunci 
           SET compratore = '$compratore', stato = 'Venduto'
           WHERE email = '$venditore' AND console = '$console' AND nome_videogioco = '$v_name' ";
@@ -26,5 +26,6 @@ $con->query($query);
 $con->commit();
 $sold=1; //flag
 echo json_encode($sold);
+
 $con->close();
 ?>

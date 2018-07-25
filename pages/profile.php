@@ -52,7 +52,7 @@ include "navbar.php";
                                 <form action="../php/save_profile_changes.php" method="POST" id="form">
                                     <div class="row">
                                             <div class="col-sm-6">
-                                                    <a href="#" onclick="modify()" id="optional0" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare tutti i campi che vuoi del tuo profilo!">
+                                                    <a href="#" onclick="modify()" id="optional0" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per poter modificare tutti i campi del profilo">
                                                     <i class="fa fa-pencil"></i> Modifica profilo</a>
                                             </div>
                                             <div class="col-sm-6">
@@ -68,7 +68,7 @@ include "navbar.php";
                                             <input id="name" name="name" type="text" value="" readonly="readonly" required/>
                                         </div>
                                         <div class="col-sm-4">
-                                             <a href="#" onclick="oneChange('name')" id="optional2" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo nome!">
+                                             <a href="#" onclick="oneChange('name')" id="optional2" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo nome">
                                             <i class="fa fa-pencil"></i> Modifica nome</a>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@ include "navbar.php";
                                             <input id="surname" name="surname" type="text" value="" readonly="readonly" required />
                                         </div>
                                         <div class="col-sm-4">
-                                            <a href="#" onclick="oneChange('surname')" id="optional3" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo cognome!">
+                                            <a href="#" onclick="oneChange('surname')" id="optional3" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo cognome">
                                             <i class="fa fa-pencil"></i> Modifica cognome</a>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@ include "navbar.php";
                                             <input id="city" name="city" type="text" value="" readonly="readonly" required />
                                         </div>
                                         <div class="col-sm-4">
-                                            <a href="#" onclick="oneChange('city')" id="optional4" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua citta di appartenenza">
+                                            <a href="#" onclick="oneChange('city')" id="optional4" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua città">
                                             <i class="fa fa-pencil"></i> Modifica città</a>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@ include "navbar.php";
                                                             <input id="province" name="province" type="text" value="" readonly="readonly" required/>
                                         </div>
                                         <div class="col-sm-4">
-                                               <a href="#" onclick="oneChange('province')" id="optional5" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua provincia!">
+                                               <a href="#" onclick="oneChange('province')" id="optional5" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente la tua provincia">
                                                                 <i class="fa fa-pencil"></i> Modifica provincia</a>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@ include "navbar.php";
                                                             <input id="cap" name="cap" type="number" value="" readonly="readonly" required />
                                         </div>
                                         <div class="col-sm-4">
-                                            <a href="#" onclick="oneChange('cap')" id="optional6" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo codice postale!">
+                                            <a href="#" onclick="oneChange('cap')" id="optional6" hidden data-toggle="tooltip" data-placement="top" title="Clicca qui per modificare solamente il tuo CAP">
                                                                 <i class="fa fa-pencil"></i> Modifica CAP</a>
                                         </div>
                                     </div>
@@ -151,6 +151,7 @@ include "navbar.php";
                         </div><!-- /Card body -->
                     </div><!-- /Card -->
                     </div>
+
                     <!--Feedback card-->
                     <div class="col-md-6">
                     <div class="card ">
@@ -208,8 +209,7 @@ include "footer.php";
 ?>
 
     
-    <!-- Optional JavaScript -->
-    <script src="../js/profile.js"></script>
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- JQuery -->
     <script type="text/javascript" src="../bootstrap/js/jquery-3.2.1.min.js"></script>
@@ -219,6 +219,8 @@ include "footer.php";
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../bootstrap/js/mdb.min.js"></script>
+    <!-- Our JS -->
+    <script src="../js/profile.js"></script>
     <script type="text/javascript" src="../js/videoGameSwap.js"></script>
     <script type="text/javascript" src="../js/SignUpForm_inputControl.js"></script>
     
@@ -227,21 +229,18 @@ include "footer.php";
 if (!isset($_SESSION)) {
     session_start();
 }
-#variabile di sessione predefinita causa problemi
-#$_SESSION['target_user']= "lollibozzi@gmail.com";
 
 //Notifica di avvenuta modifica del profilo tramite funzione js
 if(isset($_SESSION['num']) && $_SESSION['num']===1)
         echo "<script> displayChanges() </script>";    
-//unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
+//Unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
 unset($_SESSION['num']);
 
-//notifica di valutazione
+//Notifica di valutazione
 if(isset($_SESSION['returnValue']))
         echo "<script> displayFeedback(" .$_SESSION['returnValue']. ") </script>";
-//unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
+//Unset della variabile, in modo da non visualizzare la notifica nel caso di ricaricamento della pagina
 unset($_SESSION['returnValue']);
-
 ?>
 
 
