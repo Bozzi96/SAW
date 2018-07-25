@@ -14,10 +14,10 @@ h5#owner_feedback {
 }
 
 #messages_container {
-    width: 100%;
+    width: 95%;
     height: 15em;
+    border-radius: 5px;
     background-color: #cccccc;
-    margin-top: 2em;
     overflow: auto; /* Mostra la scroll bar quando necessaria */
 }
 
@@ -46,6 +46,11 @@ p.message_time {
 input#message {
     height: 70%;
     margin-top: .5em;
+}
+
+div.input-group {
+    width: 95%;
+    margin: 0 auto;
 }
 
 .venduto {

@@ -268,17 +268,41 @@ function buy_ad(current_ad_json) {
     })
 }
 
+/**
+ * Visualizza i badges opportuni a seconda dello stato dell'annuncio
+ * e dell'utente che lo sta visualizzando.
+ * @param {*} ad_info Informazioni relative all'annuncio
+ */
 function display_badge(ad_info) {
     if (ad_info[1] === 1) {
+        // L'utente loggato è il proprietario
         document.getElementById("badges_span").innerHTML += '  <span class="badge badge-info">Proprietario</span>  ';
         if (ad_info[0] === 0) {
+            // Inoltre l'annuncio è venduto
             document.getElementById("badges_span").innerHTML += '  <span class="badge badge-danger">Venduto a:  <i>' + ad_info[2] +
-            ' (' + ad_info[3] + " " + ad_info[4] + ') </i>   </span>  '
+            ' (' + ad_info[3] + " " + ad_info[4] + ') </i>   </span>  ';
+            display_private_chat_alert();
         }
     }
     if (ad_info[1] === -1) {
+        // L'utente loggato ha acquistato l'annuncio
         document.getElementById("badges_span").innerHTML += '  <span class="badge badge-success">Acquistato</span>  ';
+        display_private_chat_alert();
     }
+}
+
+/**
+ * Visualizza un alert per notificare che la chat è privata
+ * dal momento dell'acquisto in poi.
+ */
+function display_private_chat_alert() {
+    // Si informa che la chat è privata tra compratore e venditore
+    let private_chat_alert = document.getElementById("private_chat_alert");
+    private_chat_alert.className += " alert-info";
+    private_chat_alert.innerHTML = "<strong>Ricorda!</strong> Dal momento dell'acquisto, " + 
+        "la chat è visibile solamente a te e " +
+        "all'altro utente coinvolto nello scambio.";
+    private_chat_alert.removeAttribute("hidden");
 }
 
 

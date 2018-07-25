@@ -28,16 +28,17 @@
     <div class="container" id="ad_card_wrapper">
         <div class="card">
             <div class="card-header">
-                <h1 class="card-title" id="ad_title"></h1> <span id="badges_span" class="badges_span"></span>
+                <h1 class="card-title" id="ad_title"></h1>
+                <span id="badges_span" class="badges_span"></span>
                 <!-- Gruppo bottoni per comprare un videogioco -->
                 <button type="button" class="btn btn-success dropdown-toggle" id="buyButton" data-toggle="dropdown" hidden>
-                            Compra
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="rimuovi dropdown-item" style="cursor: pointer " onclick="buy_ad(current_ad_json)" >Voglio acquistare questo videogioco, procedi</li>
-                        </ul>
-                
+                    Compra
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="rimuovi dropdown-item" style="cursor: pointer " onclick="buy_ad(current_ad_json)">Voglio acquistare questo videogioco, procedi</li>
+                </ul>
+
             </div>
             <div class="card-body">
                 <div class="row">
@@ -81,7 +82,12 @@
             </div>
             <div class="card-footer">
                 <!-- Chat sotto le info dell'annuncio -->
-                <div class="row container" id="chat_container">
+                <!-- Alert per notificare l'avvenuto inserimento di un nuovo annuncio -->
+                <div class="container">
+                    <div id="private_chat_alert" class="alert" role="alert" hidden></div>
+                </div>
+
+                <div class="row" id="chat_container">
                     <div class="container" id="messages_container">
 
                     </div>
