@@ -52,8 +52,8 @@ $result = $con->query($query);
 $row = $result->fetch_object();
 
 //Salvataggio informazioni
-$response[] = $row->cognome;
 $response[] = $row->nome;
+$response[] = $row->cognome;
         
 
 }

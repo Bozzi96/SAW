@@ -298,8 +298,9 @@ function display_buyInfo(current_ad_json) {
     .then(response=>response.json())
     .then(ad_info=> {
         window.console.log(ad_info);
-        if (ad_info[0] === 1) {
-            //Annuncio disponibile
+        if (ad_info[0] === 1 && ad_info[1]!=1) {
+            //Annuncio disponibile e l'utente non è il proprietario dell'annuncio
+            //quindi il pulsante viene mostrato
             document.getElementById("buyButton").removeAttribute("hidden");
         }
         display_badge(ad_info);
