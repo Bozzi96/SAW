@@ -36,7 +36,7 @@
     <!--essenziale per strutture responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Homepage</title>
+    <title>vgSWAP</title>
   </head>
 
   <body>
