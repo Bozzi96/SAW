@@ -18,7 +18,7 @@ function validate(name, value) {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);//parsa i dati arrivati in formato JSON
+            myObj = JSON.parse(this.responseText); //parsa i dati arrivati in formato JSON
 
             //verifica la risposta:
             if (myObj[0].status == 'ok') {
@@ -27,7 +27,7 @@ function validate(name, value) {
                 document.getElementById(name).innerHTML = stringValid;
 
             } else if (myObj[0].status == 'ko') {
-                var stringNotValid = " This " + name + " is not valid!";
+                var stringNotValid = "Inserimento non valido";
                 stringNotValid = stringNotValid.fontcolor("red");
                 document.getElementById(name).innerHTML = stringNotValid;
 
@@ -53,19 +53,18 @@ function verifypsw() {
 
     var psw1 = document.getElementById("Password").value;
     var psw2 = document.getElementById("FormCard_passwordconfirm").value;
-    var compare = strcmp(psw2,psw1);
+    var compare = strcmp(psw2, psw1);
 
-        if (compare == 0) {//se le strinche sono uguali ...
-            var string = "Le due password corrispondono!";
-            var color = string.fontcolor("green");
-            document.getElementById("FormCard_passwordconfirm-upperdiv").innerHTML = color;
-            document.getElementById("submitButton").removeAttribute("disabled");
-        }
-        else {
-            var string = "Le due password non corrispondono!";
-            var color = string.fontcolor("red");
-            document.getElementById("FormCard_passwordconfirm-upperdiv").innerHTML = color;
-            document.getElementById("FormCard_passwordconfirm").innerHTML = "";
-            document.getElementById("submitButton").setAttribute("disabled", "true");
-        }
+    if (compare == 0) { //se le stringhe sono uguali ...
+        var string = "Le due password corrispondono!";
+        var color = string.fontcolor("green");
+        document.getElementById("FormCard_passwordconfirm-upperdiv").innerHTML = color;
+        document.getElementById("submitButton").removeAttribute("disabled");
+    } else {
+        var string = "Le due password non corrispondono!";
+        var color = string.fontcolor("red");
+        document.getElementById("FormCard_passwordconfirm-upperdiv").innerHTML = color;
+        document.getElementById("FormCard_passwordconfirm").innerHTML = "";
+        document.getElementById("submitButton").setAttribute("disabled", "true");
+    }
 }

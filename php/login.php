@@ -31,16 +31,10 @@
     $stmt->bind_param("ss",$email,$password);
     $stmt->execute();
 
-    $result = $stmt->get_result();//ottieni il risultato
-    $row = $result -> fetch_assoc();//convertilo in un array
+    $result = $stmt->get_result(); //ottieni il risultato
+    $row = $result -> fetch_assoc(); //convertilo in un array
 
-    ///////////////////////////////////////
-    //$query = "SELECT * FROM utenti WHERE email='$email' AND psw='$password'";
-    //$result = mysqli_query($con, $query);
-    //$row = mysqli_fetch_assoc($result);
-    ///////////////////////////////////////
-
-    if(mysqli_num_rows($result) == 1){//se la risposta contiene una tupla la query è andata abuon fine
+    if(mysqli_num_rows($result) == 1){ //se la risposta contiene una tupla la query è andata abuon fine
             $_SESSION['utente'] = $row;
             mysqli_close($con);
             header("location: ../pages/index.php");

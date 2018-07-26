@@ -57,19 +57,19 @@ function display_feedback(ad_data) {
  */
 function display_clicked_ad(ad_info) {
     fetch("../php/get_ad_info.php", {
-        credentials: "same-origin",
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: ad_info
-    })
-    .then(response => response.json())
-    .then(ad_data => {
-        fill_ad(ad_data);
-        display_feedback(ad_data);
-    });
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: ad_info
+        })
+        .then(response => response.json())
+        .then(ad_data => {
+            fill_ad(ad_data);
+            display_feedback(ad_data);
+        });
 }
 
 /**
@@ -80,16 +80,16 @@ function display_clicked_ad(ad_info) {
  */
 function get_messages(current_ad_json) {
     fetch("../php/getall_messages.php", {
-        credentials: "same-origin",
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: current_ad_json
-    })
-    .then(response => response.json())
-    .then(messages_data => display_messages(messages_data));
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: current_ad_json
+        })
+        .then(response => response.json())
+        .then(messages_data => display_messages(messages_data));
 }
 
 /**
@@ -109,7 +109,7 @@ function display_messages(messages) {
 
         // Inserimento dati all'interno del codice del messaggio
         var current_message = fill_message(message_code, message);
-        
+
         // Aggiunta del messaggio nel container per la visualizzazione
         append_message(current_message);
     });
@@ -172,7 +172,7 @@ function format_date(date) {
     var index = date.getMonth();
     var hours = date.getHours();
     var minutes = date.getMinutes();
-    
+
     // Se i minuti sono tra 0,9, preponi uno zero davanti
     if (minutes < 10) {
         var formatted_minutes = "0" + minutes;
@@ -191,11 +191,10 @@ function create_message() {
 
     // Test sulla compatibilità del browser riguardo ai template
     if ("content" in document.createElement("template")) {
-        
+
         // Istanziazione dell'annuncio
         var message_code = document.querySelector("#message_template");
-    }
-    else {
+    } else {
         // TODO: comunicare l'incompatibilità del browser con i template
     }
 
@@ -211,33 +210,33 @@ function send_message(current_ad) {
     var message_text = document.getElementById("message").value;
     document.getElementById("message").value = "";
     // Se il messaggio è vuoto non viene inviato
-    if ( message_text.trim() === "") {
+    if (message_text.trim() === "") {
         return;
     }
     // Impacchettamento dei dati necessari all'invio
     var message = JSON.stringify({
-        "target_ad": current_ad,  // L'annuncio relativo al messaggio
-        "message_text": message_text  // Contenuto del messaggio
+        "target_ad": current_ad, // L'annuncio relativo al messaggio
+        "message_text": message_text // Contenuto del messaggio
     });
     // Invio del messaggio al server
     fetch("../php/send_message.php", {
-        credentials: "same-origin",
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: message
-    })
-    .then(response => response.json())
-    .then(sent => {
-        if (sent === 1) {
-            // Se l'invio è andato a buon fine, l'intera chat viene aggiornata
-            get_messages(current_ad_json);
-        } else {
-            window.console.log("Messaggio non inviato!");
-        }
-    });
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: message
+        })
+        .then(response => response.json())
+        .then(sent => {
+            if (sent === 1) {
+                // Se l'invio è andato a buon fine, l'intera chat viene aggiornata
+                get_messages(current_ad_json);
+            } else {
+                window.console.log("Messaggio non inviato!");
+            }
+        });
 }
 
 
@@ -245,31 +244,31 @@ function send_message(current_ad) {
  * Rende l'annuncio venduto e modifica la pagina di conseguenza
  */
 function buy_ad(current_ad_json) {
-    
-    fetch("../php/buy_ad.php", {
-        credentials: "same-origin",
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: current_ad_json
-    })
-    .then(response=>response.json())
-    .then(data => {
-        // Visualizzazione conferma dell'acquisto
-        document.getElementById("buyButton").innerText = "Comprato!";
-        document.getElementById("buyButton").disabled = "disabled";
-        document.getElementById("image_venduto").removeAttribute("hidden");
 
-        // Reindirizzamento nella pagina "Annunci acquistati" dopo .5 secondi
-        setTimeout(function() {
-            // Passaggio di un flag alla pagina per visualizzare il banner di conferma
-            var purchased = 1;
-            window.sessionStorage.setItem("flag", JSON.stringify(purchased));
-            window.location.href = "../pages/purchased_ads.php";
-        }, 1000);
-    })
+    fetch("../php/buy_ad.php", {
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: current_ad_json
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Visualizzazione conferma dell'acquisto
+            document.getElementById("buyButton").innerText = "Comprato!";
+            document.getElementById("buyButton").disabled = "disabled";
+            document.getElementById("image_venduto").removeAttribute("hidden");
+
+            // Reindirizzamento nella pagina "Annunci acquistati" dopo .5 secondi
+            setTimeout(function () {
+                // Passaggio di un flag alla pagina per visualizzare il banner di conferma
+                var purchased = 1;
+                window.sessionStorage.setItem("flag", JSON.stringify(purchased));
+                window.location.href = "../pages/purchased_ads.php";
+            }, 1000);
+        })
 }
 
 /**
@@ -284,7 +283,7 @@ function display_badge(ad_info) {
         if (ad_info[0] === 0) {
             // Inoltre l'annuncio è venduto
             document.getElementById("badges_span").innerHTML += '  <span class="badge badge-danger">Venduto a:  <i>' + ad_info[2] +
-            ' (' + ad_info[3] + " " + ad_info[4] + ') </i>   </span>  ';
+                ' (' + ad_info[3] + " " + ad_info[4] + ') </i>   </span>  ';
             display_private_chat_alert();
         }
     }
@@ -303,7 +302,7 @@ function display_private_chat_alert() {
     // Si informa che la chat è privata tra compratore e venditore
     let private_chat_alert = document.getElementById("private_chat_alert");
     private_chat_alert.className += " alert-info";
-    private_chat_alert.innerHTML = "<strong>Ricorda!</strong> Dal momento dell'acquisto, " + 
+    private_chat_alert.innerHTML = "<strong>Ricorda!</strong> Dal momento dell'acquisto, " +
         "la chat è visibile solamente a te e " +
         "all'altro utente coinvolto nello scambio.";
     private_chat_alert.removeAttribute("hidden");
@@ -316,23 +315,23 @@ function display_private_chat_alert() {
  */
 function display_buyInfo(current_ad_json) {
     fetch("../php/get_buyButton.php", {
-        credentials: "same-origin",
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: current_ad_json
-    })
-    .then(response=>response.json())
-    .then(ad_info=> {
-        if (ad_info[0] === 1 && ad_info[1]!=1) {
-            //Annuncio disponibile e l'utente non è il proprietario dell'annuncio
-            //quindi il pulsante viene mostrato
-            document.getElementById("buyButton").removeAttribute("hidden");
-        }
-        display_badge(ad_info);
-    })
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: current_ad_json
+        })
+        .then(response => response.json())
+        .then(ad_info => {
+            if (ad_info[0] === 1 && ad_info[1] != 1) {
+                //Annuncio disponibile e l'utente non è il proprietario dell'annuncio
+                //quindi il pulsante viene mostrato
+                document.getElementById("buyButton").removeAttribute("hidden");
+            }
+            display_badge(ad_info);
+        })
 }
 
 // Recupero delle info dell'annuncio: rimangono memorizzate qui
@@ -342,7 +341,7 @@ var current_ad_json = window.sessionStorage.getItem("ad_info");
 // Le informazioni dell'annuncio sono disponibili mediante l'oggetto seguente
 var current_ad = JSON.parse(current_ad_json);
 
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
     // Visualizza informazioni dell'annuncio
     display_clicked_ad(current_ad_json);
     // Visualizza il bottone "Compra"
@@ -352,6 +351,6 @@ window.addEventListener("load", function(){
 });
 
 // Aggiornamento della chat ogni secondo
-setInterval(function() {
+setInterval(function () {
     get_messages(current_ad_json);
 }, 1000);

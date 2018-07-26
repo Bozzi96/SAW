@@ -1,15 +1,15 @@
 /*
- * Questo script ottiene i dati degli annunci pubblicati
- * dall'utente loggato e li carica dinamicamente
- * nella lista della pagina.
- */
+* Questo script ottiene i dati degli annunci pubblicati
+* dall'utente loggato e li carica dinamicamente
+* nella lista della pagina.
+*/
 
 "use strict";
 
 /**
- * Ottiene tutti i dati di tutti gli annunci
- * memorizzati nel server.
- */
+* Ottiene tutti i dati di tutti gli annunci
+* memorizzati nel server.
+*/
 function get_ad_data() {
     fetch("../php/getall_my_ads.php", {
         credentials: "same-origin",
@@ -19,28 +19,28 @@ function get_ad_data() {
 }
 
 /**
- * Verifica la lista di annunci è vuota o meno.
- * @param {*} obj  info degli annunci ottenuti da server
- */
+* Verifica la lista di annunci è vuota o meno.
+* @param {*} obj  info degli annunci ottenuti da server
+*/
 function isEmpty(obj) {
     for (var prop in obj) {
         if (obj.hasOwnProperty(prop))
-            return false;
+        return false;
     }
     return true;
 }
 
 /**
- * Stampa a video gli annunci raccolti dal server in una
- * lista costruita dinamicamente. Ogni annuncio è costruito
- * a partire dai dati ritornati dal server.
- * 
- * @param ads_data Info degli annunci ottenuti dal server
- */
+* Stampa a video gli annunci raccolti dal server in una
+* lista costruita dinamicamente. Ogni annuncio è costruito
+* a partire dai dati ritornati dal server.
+* 
+* @param ads_data Info degli annunci ottenuti dal server
+*/
 function display_ads(ads_data) {
-    if(isEmpty(ads_data)){
-        document.getElementById("negative_answer").innerHTML = 
-            "Non hai pubblicato alcun annuncio.";
+    if (isEmpty(ads_data)) {
+        document.getElementById("negative_answer").innerHTML =
+        "Non hai pubblicato alcun annuncio.";
         document.getElementById("negative_answer").removeAttribute("hidden");
         document.getElementById("fix-footer").innerHTML = "<br><br><br><br><br><br><br><br>";
     }
@@ -56,10 +56,10 @@ function display_ads(ads_data) {
 }
 
 /**
- * Concatena l'annuncio alla lista della pagina.
- * 
- * @param ad Annuncio da concatenare
- */
+* Concatena l'annuncio alla lista della pagina.
+* 
+* @param ad Annuncio da concatenare
+*/
 function append_ad(ad) {
     // Selezione della lista dove inserire l'annuncio
     var ads_list = document.getElementById("ads_list");
@@ -68,78 +68,76 @@ function append_ad(ad) {
 }
 
 /**
- *
- * Riempie l'annuncio con le informazione ottenute
- * dal server.
- * 
- * @param ad_code Annuncio da riempire
- * @param ad_data Informazioni relative all'annuncio
- * 
- */
+*
+* Riempie l'annuncio con le informazione ottenute
+* dal server.
+* 
+* @param ad_code Annuncio da riempire
+* @param ad_data Informazioni relative all'annuncio
+* 
+*/
 function fill_ad(ad_code, ad_data) {
-
+    
     // Copia del template importato:
     // la proprietà "content" possiede tutto il codice del template,
     // "true" indica di importare anche i sotto-componenti del template
     var ad = document.importNode(ad_code.content, true);
-
+    
     // Selezione del titolo dell'annuncio
     var title = ad.querySelector("h1.card-title");
     // Seleziona i 3 campi dove inserire i dati dell'annuncio
     var fields = ad.querySelectorAll("div.col-sm-5");
-
+    
     // Inserimento dei dati nell'annuncio
     title.innerHTML = ad_data.nome_videogioco;
     title.dataset.owner_email = ad_data.email; // metadato: è la mail del proprietario
     fields[0].innerHTML = ad_data.console;
     fields[1].innerHTML = ad_data.durata + " giorni";
     fields[2].innerHTML = ad_data.prezzo + " €";
-
+    
     return ad;
 }
 
 /**
- * Genera il codice HTML per visualizzare
- * l'annuncio all'interno della lista.
- */
+* Genera il codice HTML per visualizzare
+* l'annuncio all'interno della lista.
+*/
 function create_ad() {
     // Il codice HTML per l'annuncio è memorizzato dentro il
     // tag <template> all'interno della pagina
-
+    
     // Test sulla compatibilità del browser riguardo ai template
     if ("content" in document.createElement("template")) {
         
         // Istanziazione dell'annuncio
         var ad_code = document.querySelector("#ad_template");
-    }
-    else {
+    } else {
         // TODO: comunicare l'incompatibilità del browser con i template
     }
-
+    
     return ad_code;
 }
 
 /**
- * Raccoglie le informazioni riguardo l'annuncio cliccato e
- * carica la pagina di visualizzazione passandole i dati raccolti.
- * @param {*} event Ciò che ha provocato la chiamata di questa funzione
- */
+* Raccoglie le informazioni riguardo l'annuncio cliccato e
+* carica la pagina di visualizzazione passandole i dati raccolti.
+* @param {*} event Ciò che ha provocato la chiamata di questa funzione
+*/
 function show_ad(event) {
     // Bottone che ha catturato l'evento
     let button = event.target;
-
+    
     if (button.className.includes("dettagli")) {
         // Si vuole visualizzare l'annuncio nel dettaglio
         let ad_info = get_ad_from_list(button);
-
+        
         // Salvataggio dei dati in sessionStorage così da poter essere recuperati
         // dalla pagina "view_ad.html"
         sessionStorage.setItem("ad_info", ad_info);
-
+        
         // Redirect verso la pagina di visualizzazione annuncio
         window.location.href = "../pages/view_ad.php";
-    }
-    else if (button.className.includes("rimuovi")) {
+    } else if (button.className.includes("rimuovi")) {
         // L'utente vuole rimuovere l'annuncio (e ha già confermato)
         let ad_info = get_ad_from_list(button);
         
@@ -163,7 +161,7 @@ function show_ad(event) {
                 window.console.log("Annuncio non rimosso!");
             }
         });
-
+        
     } else {
         // Non è stato cliccato un bottone all'interno della lista
         return;
@@ -171,23 +169,23 @@ function show_ad(event) {
 }
 
 /**
- * Ottiene le informazioni dell'annuncio su cui è stato cliccato
- * uno dei bottoni disponibili.
- * @param {*} button Bottone cliccato nella lista
- */
+* Ottiene le informazioni dell'annuncio su cui è stato cliccato
+* uno dei bottoni disponibili.
+* @param {*} button Bottone cliccato nella lista
+*/
 function get_ad_from_list(button) {
     // Recupero delle informazioni riguardo all'annuncio cliccato
     let clicked_ad = button.closest("div.card");
     let title = clicked_ad.getElementsByClassName("card-title")[0];
     let fields = clicked_ad.getElementsByClassName("col-sm-5");
-
+    
     // Codifica in formato JSON per poter essere passate al server nella richiesta
     let ad_info = JSON.stringify({
         "owner_email": title.dataset.owner_email,
         "v_name": title.innerHTML,
         "console": fields[0].innerHTML, // console
     });
-
+    
     return ad_info;
 }
 
@@ -207,7 +205,7 @@ function new_ad_check() {
 }
 
 // A caricamento completato, la pagina inizia a recuperare i dati dal server
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
     // Visualizzazione alert di avvenuto inserimento
     new_ad_check();
     get_ad_data();

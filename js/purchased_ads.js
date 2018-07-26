@@ -12,10 +12,10 @@
  */
 function get_ad_data() {
     fetch("../php/getall_purchased_ads.php", {
-        credentials: "same-origin",
-    })
-    .then(response => response.json())
-    .then(ads_data => display_ads(ads_data))
+            credentials: "same-origin",
+        })
+        .then(response => response.json())
+        .then(ads_data => display_ads(ads_data))
 }
 
 /**
@@ -38,8 +38,8 @@ function isEmpty(obj) {
  * @param ads_data Info degli annunci ottenuti dal server
  */
 function display_ads(ads_data) {
-    if(isEmpty(ads_data)) {
-        document.getElementById("negative_answer").innerHTML = 
+    if (isEmpty(ads_data)) {
+        document.getElementById("negative_answer").innerHTML =
             "Non hai comprato alcun annuncio.";
         document.getElementById("negative_answer").removeAttribute("hidden");
         document.getElementById("fix-footer").innerHTML = "<br><br><br><br><br><br><br><br>";
@@ -108,11 +108,10 @@ function create_ad() {
 
     // Test sulla compatibilità del browser riguardo ai template
     if ("content" in document.createElement("template")) {
-        
+
         // Istanziazione dell'annuncio
         var ad_code = document.querySelector("#ad_template");
-    }
-    else {
+    } else {
         // TODO: comunicare l'incompatibilità del browser con i template
     }
 
@@ -130,8 +129,7 @@ function show_ad(event) {
     if (target.tagName !== "BUTTON") {
         // Se non è un bottone all'interno della lista non c'è nulla da fare
         return;
-    }
-    else {
+    } else {
         // Recupero delle informazioni riguardo all'annuncio cliccato
         let clicked_ad = target.closest("div.card");
         let title = clicked_ad.getElementsByClassName("card-title")[0];
@@ -170,7 +168,7 @@ function just_purchased_ad() {
 }
 
 // A caricamento completato, la pagina inizia a recuperare i dati dal server
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     // Visualizzazione banner di conferma annuncio se opportuno
     just_purchased_ad();
     // Ottenimento dati dal server
