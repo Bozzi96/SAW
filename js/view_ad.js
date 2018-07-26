@@ -351,5 +351,7 @@ window.addEventListener("load", function(){
     get_messages(current_ad_json);
 });
 
-// Aggiornamento della chat ogni 3 secondi
-setInterval(get_messages(current_ad_json), 3000);
+// Aggiornamento della chat ogni secondo
+setInterval(function() {
+    get_messages(current_ad_json);
+}, 1000);
