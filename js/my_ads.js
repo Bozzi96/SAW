@@ -11,7 +11,9 @@
  * memorizzati nel server.
  */
 function get_ad_data() {
-    fetch("../php/getall_my_ads.php")
+    fetch("../php/getall_my_ads.php", {
+        credentials: "same-origin",
+    })
     .then(response => response.json())
     .then(ads_data => display_ads(ads_data))
 }
@@ -143,6 +145,7 @@ function show_ad(event) {
         
         // Rimozione dell'annuncio dal database
         fetch("../php/remove_ad.php", {
+            credentials: "same-origin",
             method: "POST",
             headers: {
                 "Accept": "application/json",
@@ -189,7 +192,9 @@ function get_ad_from_list(button) {
 }
 
 function new_ad_check() {
-    fetch("../php/new_ad_check.php")
+    fetch("../php/new_ad_check.php", {
+        credentials: "same-origin",
+    })
     .then(response => response.json())
     .then(new_ad_inserted => {
         var alert = document.getElementById("new_ad_alert");

@@ -57,6 +57,7 @@ function display_feedback(ad_data) {
  */
 function display_clicked_ad(ad_info) {
     fetch("../php/get_ad_info.php", {
+        credentials: "same-origin",
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -79,6 +80,7 @@ function display_clicked_ad(ad_info) {
  */
 function get_messages(current_ad_json) {
     fetch("../php/getall_messages.php", {
+        credentials: "same-origin",
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -219,6 +221,7 @@ function send_message(current_ad) {
     });
     // Invio del messaggio al server
     fetch("../php/send_message.php", {
+        credentials: "same-origin",
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -244,6 +247,7 @@ function send_message(current_ad) {
 function buy_ad(current_ad_json) {
     
     fetch("../php/buy_ad.php", {
+        credentials: "same-origin",
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -312,6 +316,7 @@ function display_private_chat_alert() {
  */
 function display_buyInfo(current_ad_json) {
     fetch("../php/get_buyButton.php", {
+        credentials: "same-origin",
         method: "POST",
         headers: {
             "Accept": "application/json",
