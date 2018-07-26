@@ -348,6 +348,6 @@ window.addEventListener("load", function(){
     display_clicked_ad(current_ad_json);
     // Visualizza il bottone "Compra"
     display_buyInfo(current_ad_json);
-    // Visualizzazione della chat
-    get_messages(current_ad_json);
+    // Aggiornamento della chat ogni 3 secondi
+    setTimeout(get_messages(current_ad_json), 3000);
 });
