@@ -10,7 +10,9 @@
  * memorizzati nel server.
  */
 function get_ad_data() {
-    fetch("../php/getall_ad.php")
+    fetch("../php/getall_ad.php", {
+        credentials: "same-origin"
+    })
     .then(response => response.json())
     .then(ads_data => display_ads(ads_data))
 }
