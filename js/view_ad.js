@@ -326,7 +326,6 @@ function display_buyInfo(current_ad_json) {
     })
     .then(response=>response.json())
     .then(ad_info=> {
-        window.console.log(ad_info);
         if (ad_info[0] === 1 && ad_info[1]!=1) {
             //Annuncio disponibile e l'utente non è il proprietario dell'annuncio
             //quindi il pulsante viene mostrato
@@ -348,6 +347,9 @@ window.addEventListener("load", function(){
     display_clicked_ad(current_ad_json);
     // Visualizza il bottone "Compra"
     display_buyInfo(current_ad_json);
-    // Aggiornamento della chat ogni 3 secondi
-    setInterval(get_messages(current_ad_json), 3000);
+    // Caricamento della chat
+    get_messages(current_ad_json);
 });
+
+// Aggiornamento della chat ogni 3 secondi
+setInterval(get_messages(current_ad_json), 3000);
