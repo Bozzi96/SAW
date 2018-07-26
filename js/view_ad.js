@@ -349,5 +349,5 @@ window.addEventListener("load", function(){
     // Visualizza il bottone "Compra"
     display_buyInfo(current_ad_json);
     // Aggiornamento della chat ogni 3 secondi
-    setTimeout(get_messages(current_ad_json), 3000);
+    setInterval(get_messages(current_ad_json), 3000);
 });
